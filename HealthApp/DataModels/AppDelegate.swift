@@ -10,16 +10,16 @@ import UIKit
 import Firebase
 import GoogleSignIn
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let userDefault = UserDefaults()
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        //GIDSignIn.sharedInstance().delegate = self as? GIDSignInDelegate
         return true
     }
     
@@ -35,29 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
     }
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.userDefault.set(true, forKey: "UserLogined")
-            self.userDefault.synchronize()
-            //thay đổi chỗ này....
-            // TH1: kiểm tra UID đã có torng database hay chưa .... nếu có thì đổi chạy đến OverviewSrc neeu61 k thì thì loginSrc
-            self.window?.rootViewController?.performSegue(withIdentifier: "InputSrc", sender: nil)
-            
-            print(authResult!.user.email!)
-        }
-    }
+    
+    
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         

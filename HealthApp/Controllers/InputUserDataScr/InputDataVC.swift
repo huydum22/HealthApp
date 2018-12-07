@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class InputDataVC: UIViewController {
 
     //MARk::elements
+    var ref: DatabaseReference!
     let userDefault = UserDefaults.standard
     @IBOutlet weak var genderPicked: UIButton!
     @IBOutlet var Genders: [UIButton]!
@@ -24,12 +26,14 @@ class InputDataVC: UIViewController {
     @IBOutlet weak var txtAge: UITextField!
     @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtHeight: UITextField!
+    @IBOutlet var viewController: UIView!
     
     //MARk::dashboards
     override func viewDidLoad() {
         super.viewDidLoad()
         registerKeyboardNotification()
         UI.addDoneButtonForTextField(controls: [txtWeek,txtday,txtName,txtAge,txtHeight,txtWeight])
+        ref = Database.database().reference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,8 +106,10 @@ class InputDataVC: UIViewController {
     
     @IBAction func CompleteData(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc") as! UINavigationController
-        let seque = destination.viewControllers.first as! OverviewVC
-        seque.dataUser = Person(name: txtName.text!, sex: (genderPicked.titleLabel?.text!)!, uid: "1", age: Int(txtAge.text!)!, height: Int(txtHeight.text!)!, weight: Int(txtWeight.text!)!, activitylevel: Int(txtday.text!)! * Int(txtWeek.text!)!)
+        //let seque = destination.viewControllers.first as! OverviewVC
+        ref.child((Auth.auth().currentUser?.uid)!).child("info").setValue(["Name":txtName.text!,"Sex":(genderPicked.titleLabel?.text!)!,"Age" :Int(txtAge.text!)!,"Height":Int(txtHeight.text!)!,"Weight":Int(txtWeight.text!)!,"calo": Int(txtday.text!)! * Int(txtWeek.text!)!])
+        //seque.dataUser = Person(name: txtName.text!, sex: (genderPicked.titleLabel?.text!)!, uid: "1", age: Int(txtAge.text!)!, height: Int(txtHeight.text!)!, weight: Int(txtWeight.text!)!, activitylevel: Int(txtday.text!)! * Int(txtWeek.text!)!)
+        
         self.show(destination, sender: self)
     }
 

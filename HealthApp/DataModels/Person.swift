@@ -7,23 +7,20 @@
 //
 
 import Foundation
+import Firebase
 class Person{
     var Name :String
-    var Sex : String
-    var UID :String
-    var Age: Int
-    var Height : Int
-    var Weight : Int
-    var ActivityLevel : Int
-    init(name : String,sex :String,uid :String, age :Int, height : Int , weight : Int , activitylevel : Int) {
+    var Sex : String?
+    var Age: Int?
+    var Height : Int?
+    var Weight : Int?
+    var ActivityLevel : Int?
+    init(name : String,sex :String, age :Int, height : Int , weight : Int , activitylevel : Int) {
         self.Name = name
         self.Sex = sex
-        self.UID  = uid
         self.Age = age
         self.Height = height
         self.Weight = weight
         self.ActivityLevel = activitylevel
     }
-    
-    
 }

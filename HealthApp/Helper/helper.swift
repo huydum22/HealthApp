@@ -14,11 +14,31 @@ extension LoginVC : FUIAuthDelegate {
             return
         }
         userDefault.set(true, forKey: "UserLogined")
-        print(authDataResult!.user.email!)
-        viewDidAppear(true)
+        var haveUIDFromFirebase = 0
+        ref.observe(.value) { (snapshot) in
+            for item in snapshot.children{
+                let uidFromFirebase = (item as AnyObject).key as? String
+                if uidFromFirebase == (authDataResult?.user.uid)  {
+                    haveUIDFromFirebase = 1
+                }
+            }
+            if (haveUIDFromFirebase == 0 ){
+                self.userDefault.set(true, forKey: "NewUser")
+                self.ref.child((authDataResult?.user.uid)!).child("UID").setValue((authDataResult?.user.uid)!)
+                self.ref.child((authDataResult?.user.uid)!).child("Email").setValue(authDataResult?.user.email)
+                print("1")
+            }
+            if (haveUIDFromFirebase != 0 ) {
+                self.userDefault.set(true, forKey: "OldUser")
+                print("2")
+            }
+            self.userDefault.synchronize()
+            self.viewDidAppear(true)
+        }
     }
 }
 class UI  {
+    
     static func addDoneButtonForTextField(controls:[UITextField]){
         
         for textFields in controls  {

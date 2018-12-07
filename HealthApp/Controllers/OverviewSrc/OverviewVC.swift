@@ -12,10 +12,12 @@ import GoogleSignIn
 
 class OverviewVC: UIViewController ,  UITableViewDelegate , UITableViewDataSource{
     
+    var ref: DatabaseReference!
     let arrMenuBarText = ["        Goal","        Weight","        Water","        Diary" , "        Foods" , "        Activity"]
     let imgMenuIcon = [#imageLiteral(resourceName: "icons8-goal"),#imageLiteral(resourceName: "icons8-weight"),#imageLiteral(resourceName: "icons8-water"),#imageLiteral(resourceName: "icons8-copybook"),#imageLiteral(resourceName: "icons8-vegetarian_food"), #imageLiteral(resourceName: "icons8-weightlift")]
     var openMenuBar = true
     @IBOutlet weak var sideMenuBar: NSLayoutConstraint!
+    @IBOutlet var viewController: UIView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrMenuBarText.count
     }
@@ -53,13 +55,35 @@ class OverviewVC: UIViewController ,  UITableViewDelegate , UITableViewDataSourc
         self.navigationController?.pushViewController(seque!, animated: true)
     }
     
-var dataUser :Person!
+var dataUser :Person?
+    var blabla :String = "concac"
     @IBOutlet weak var hiUser: UILabel!
     let userDefault = UserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
-        hiUser.text = dataUser.Name
+        //hiUser.text = dataUser.Name
          sideMenuBar.constant = -250
+         ref = Database.database().reference()
+        //let userID = Auth.auth().currentUser?.uid
+        if let data = Auth.auth().currentUser?.uid {
+            print(data)
+            ref.child(data).child("info").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                DispatchQueue.main.async {
+                  self.blabla = values?["Name"] as? String ?? ""
+                }
+//                let sex1 = values?["Sex"] as? String ?? ""
+//                let Age1 = values?["Age"] as? Int ?? 0
+//                let Height1 = values?["Height"] as? Int ?? 0
+//                let Weight1 = values?["Weight"] as? Int ?? 0
+//                let ActivityLevel1 = values?["calo"] as? Int ?? 0
+//                self.dataUser = Person(name: name_1, sex: sex1, age: Age1, height: Height1, weight: Weight1, activitylevel: ActivityLevel1)
+                
+                //self.viewController.reloadInputViews()
+            }
+        }
+        print(blabla)
     }
     
     @IBAction func isOpenMenuBar(_ sender: Any) {
@@ -83,6 +107,8 @@ var dataUser :Person!
         do {
             try firebaseAuth.signOut()
             userDefault.set(false, forKey: "UserLogined")
+            userDefault.set(false, forKey: "NewUser")
+            userDefault.set(false, forKey: "OldUser")
             userDefault.synchronize()
             self.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
