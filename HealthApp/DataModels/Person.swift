@@ -12,10 +12,10 @@ class Person{
     var Name :String
     var Sex : String?
     var Age: Int?
-    var Height : Int?
-    var Weight : Int?
+    var Height : Float?
+    var Weight : Float?
     var ActivityLevel : Int?
-    init(name : String,sex :String, age :Int, height : Int , weight : Int , activitylevel : Int) {
+    init(name : String,sex :String, age :Int, height : Float , weight : Float , activitylevel : Int) {
         self.Name = name
         self.Sex = sex
         self.Age = age

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class InputDataVC: UIViewController {
-
+    
     //MARk::elements
     var ref: DatabaseReference!
     let userDefault = UserDefaults.standard
@@ -103,16 +103,44 @@ class InputDataVC: UIViewController {
             })
         }
     }
-    
+    func GetWater(_ weight: Int,_ minutes: Int) -> Int {
+        return weight * 30 + minutes * 12
+    }
+    func GetCal(_ sex: String,_ weight: Float,_ height: Float,_ age: Float,_ activityLevel: Int) -> Int
+    {
+        var BMR : Float
+        var tmp : Float
+        if (sex == "Male") {
+            BMR = 13.397 * weight + 4.799 * height - 5.677 * age + 88.362
+            
+        }
+        else {
+            BMR =  9.247*weight + 3.098*height  - 4.330*age + 447.593
+        }
+        switch activityLevel {
+        case 1:
+            tmp = 1.2
+        case 2:
+            tmp = 1.375
+        case 3:
+            tmp = 1.55
+        case 4:
+            tmp = 1.725
+        default:
+            tmp = 1.9
+        }
+        return Int(BMR * tmp)
+    }
     @IBAction func CompleteData(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc") as! UINavigationController
         //let seque = destination.viewControllers.first as! OverviewVC
         ref.child((Auth.auth().currentUser?.uid)!).child("info").setValue(["Name":txtName.text!,"Sex":(genderPicked.titleLabel?.text!)!,"Age" :Int(txtAge.text!)!,"Height":Int(txtHeight.text!)!,"Weight":Int(txtWeight.text!)!,"calo": Int(txtday.text!)! * Int(txtWeek.text!)!])
+        ref.child((Auth.auth().currentUser?.uid)!).child("need").setValue(["Water(ml)":GetWater(Int(txtWeight.text!)!, Int(txtday.text!)!),"Calo":GetCal((genderPicked.titleLabel?.text!)!, Float(txtWeight.text!)!, Float(txtHeight.text!)!,Float(txtAge.text!)! , 3)])
         //seque.dataUser = Person(name: txtName.text!, sex: (genderPicked.titleLabel?.text!)!, uid: "1", age: Int(txtAge.text!)!, height: Int(txtHeight.text!)!, weight: Int(txtWeight.text!)!, activitylevel: Int(txtday.text!)! * Int(txtWeek.text!)!)
         
         self.show(destination, sender: self)
     }
-
+    
     
     // MARK: srcollView
     func registerKeyboardNotification()  {
