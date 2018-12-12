@@ -73,13 +73,13 @@ class OverviewVC: UIViewController ,  UITableViewDelegate , UITableViewDataSourc
                 DispatchQueue.main.async {
                     self.blabla = values?["Name"] as? String ?? ""
                 }
-                let name_1 = values?["Name"] as? String ?? ""
-                let sex1 = values?["Sex"] as? String ?? ""
-                let Age1 = values?["Age"] as? Int ?? 0
-                let Height1 = values?["Height"] as? Float ?? 0
-                let Weight1 = values?["Weight"] as? Float ?? 0
-                let ActivityLevel1 = values?["calo"] as? Int ?? 0
-                self.dataUser = Person(name: name_1, sex: sex1, age: Age1, height: Height1, weight: Weight1, activitylevel: ActivityLevel1)
+                //let name_1 = values?["Name"] as? String ?? ""
+                //let sex1 = values?["Sex"] as? String ?? ""
+                //let Age1 = values?["Age"] as? Int ?? 0
+                //let Height1 = values?["Height"] as? Float ?? 0
+                //let Weight1 = values?["Weight"] as? Float ?? 0
+                //let ActivityLevel1 = values?["calo"] as? Int ?? 0
+               // self.dataUser = Person(name: name_1, sex: sex1, age: Age1, height: Height1, weight: Weight1, activitylevel: ActivityLevel1)
                 
                 self.viewController.reloadInputViews()
             }
