@@ -55,15 +55,15 @@ class OverviewVC: UIViewController ,  UITableViewDelegate , UITableViewDataSourc
         self.navigationController?.pushViewController(seque!, animated: true)
     }
     
-var dataUser :Person?
+    var dataUser :Person?
     var blabla :String = "concac"
     @IBOutlet weak var hiUser: UILabel!
     let userDefault = UserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
         //hiUser.text = dataUser.Name
-         sideMenuBar.constant = -250
-         ref = Database.database().reference()
+        sideMenuBar.constant = -250
+        ref = Database.database().reference()
         //let userID = Auth.auth().currentUser?.uid
         if let data = Auth.auth().currentUser?.uid {
             print(data)
@@ -71,16 +71,17 @@ var dataUser :Person?
                 let values = snapshot.value as? NSDictionary
                 
                 DispatchQueue.main.async {
-                  self.blabla = values?["Name"] as? String ?? ""
+                    self.blabla = values?["Name"] as? String ?? ""
                 }
-//                let sex1 = values?["Sex"] as? String ?? ""
-//                let Age1 = values?["Age"] as? Int ?? 0
-//                let Height1 = values?["Height"] as? Int ?? 0
-//                let Weight1 = values?["Weight"] as? Int ?? 0
-//                let ActivityLevel1 = values?["calo"] as? Int ?? 0
-//                self.dataUser = Person(name: name_1, sex: sex1, age: Age1, height: Height1, weight: Weight1, activitylevel: ActivityLevel1)
+                let name_1 = values?["Name"] as? String ?? ""
+                let sex1 = values?["Sex"] as? String ?? ""
+                let Age1 = values?["Age"] as? Int ?? 0
+                let Height1 = values?["Height"] as? Float ?? 0
+                let Weight1 = values?["Weight"] as? Float ?? 0
+                let ActivityLevel1 = values?["calo"] as? Int ?? 0
+                self.dataUser = Person(name: name_1, sex: sex1, age: Age1, height: Height1, weight: Weight1, activitylevel: ActivityLevel1)
                 
-                //self.viewController.reloadInputViews()
+                self.viewController.reloadInputViews()
             }
         }
         print(blabla)
@@ -116,5 +117,5 @@ var dataUser :Person?
         }
     }
     
-
+    
 }
