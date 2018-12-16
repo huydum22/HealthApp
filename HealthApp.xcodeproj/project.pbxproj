@@ -25,6 +25,8 @@
 		51D6A36621B56057009CF67A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A36521B56057009CF67A /* LoginVC.swift */; };
 		51D6A36921B58467009CF67A /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A36821B58467009CF67A /* OverviewVC.swift */; };
 		642D4F169379CC6B2E74F7F1 /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */; };
+		DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF485BD221C4A11B0090BA4B /* ListExercises.swift */; };
+		DF8EA82521C69247004C8177 /* ExerciseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EA82421C69247004C8177 /* ExerciseListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46619E6A7F42DE31B251AD0 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D7136B496CAE263BC5C7B261 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
+		DF485BD221C4A11B0090BA4B /* ListExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExercises.swift; sourceTree = "<group>"; };
+		DF8EA82421C69247004C8177 /* ExerciseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				51C5F6F321B66B0000FC90CF /* ActivityVC.swift */,
+				DF485BD221C4A11B0090BA4B /* ListExercises.swift */,
+				DF8EA82421C69247004C8177 /* ExerciseListTableViewCell.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -382,11 +388,13 @@
 				51C5F6E121B65BBB00FC90CF /* MenuCell.swift in Sources */,
 				51A2330021B5A8A400ECC54C /* Person.swift in Sources */,
 				51C5F6EA21B66AA900FC90CF /* GoalVC.swift in Sources */,
+				DF8EA82521C69247004C8177 /* ExerciseListTableViewCell.swift in Sources */,
 				51D6A36921B58467009CF67A /* OverviewVC.swift in Sources */,
 				51C5F6F421B66B0000FC90CF /* ActivityVC.swift in Sources */,
 				51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */,
 				51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,
+				DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var weight_GHuy: String? // Của Gia Huy đừng xoá
+
 class InputDataVC: UIViewController {
     
     //MARk::elements
@@ -26,6 +28,7 @@ class InputDataVC: UIViewController {
     @IBOutlet weak var txtAge: UITextField!
     @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtHeight: UITextField!
+    
     @IBOutlet var viewController: UIView!
     
     //MARk::dashboards
@@ -44,6 +47,9 @@ class InputDataVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        weight_GHuy = txtWeight.text // lấy data cho màn hình Activity - Gia_Huy
+        
         deregisterKeyboardNotification()
     }
     
