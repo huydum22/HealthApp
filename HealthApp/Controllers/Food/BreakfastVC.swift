@@ -8,14 +8,19 @@
 
 import UIKit
 
-class FoodVC: UIViewController {
+class BreakfastVC: UIViewController {
 
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpNaBar()
         // Do any additional setup after loading the view.
     }
-    
+    func setUpNaBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Breakfast"
+    }
 
     /*
     // MARK: - Navigation
