@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "589a3469-2183-4eee-9840-05bc57475126._SR285,285_.jpg",
       "scale" : "1x"
     },
     {
@@ -10,7 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-menu_filled.png",
       "scale" : "3x"
     }
   ],

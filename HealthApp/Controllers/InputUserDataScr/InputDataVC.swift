@@ -9,89 +9,76 @@
 import UIKit
 import Firebase
 
-var weight_GHuy: String? // Của Gia Huy đừng xoá
-
 class InputDataVC: UIViewController {
     
     //MARk::elements
+    var gender : String = ""
+    var activitylevel:Int = 1
     var ref: DatabaseReference!
     let userDefault = UserDefaults.standard
-    @IBOutlet weak var genderPicked: UIButton!
-    @IBOutlet var Genders: [UIButton]!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var AcitivityBtn: [UILabel]!
-    @IBOutlet weak var txtWeek: UITextField!
-    @IBOutlet weak var txtday: UITextField!
-    @IBOutlet weak var btnActivity: UIButton!
-    @IBOutlet weak var btndone: UIButton!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtAge: UITextField!
-    @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtHeight: UITextField!
+    @IBOutlet weak var txtWeight: UITextField!
+    @IBOutlet weak var txtGoalWeight: UITextField!
+    @IBOutlet var btnActivity: [UIButton]!
+    @IBOutlet var btnTime: [UIButton]!
+    @IBOutlet weak var btnPickerTime: UIButton!
+    @IBOutlet weak var btnPicker: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet var viewController: UIView!
+    
+    
     
     //MARk::dashboards
     override func viewDidLoad() {
         super.viewDidLoad()
+        UI.addDoneButtonForTextField(controls: [txtName,txtHeight,txtGoalWeight,txtAge,txtWeight])
         registerKeyboardNotification()
-        UI.addDoneButtonForTextField(controls: [txtWeek,txtday,txtName,txtAge,txtHeight,txtWeight])
         ref = Database.database().reference()
+        self.ref.observe(.value) { (snapshot) in
+            for item in snapshot.children{
+                let uidFromFirebase = (item as! DataSnapshot).key
+                if uidFromFirebase == (Auth.auth().currentUser?.uid)  {
+                    self.ref.child(uidFromFirebase).child("info").observeSingleEvent(of: .value) { (snapshot2) in
+                        let values = snapshot2.value as? NSDictionary
+                        self.txtName.text = values?["Name"] as? String ?? ""
+                        let age = values?["Age"] as? Int ?? 0
+                        self.txtAge.text = String(age)
+                        let height = values?["Height"] as? Float ?? 0
+                        self.txtHeight.text = String(height)
+                        let weight = values?["Weight"] as? Float ?? 0
+                        self.txtWeight.text = String(weight)
+                        let goalweight = values?["Goal weight"] as? Float ?? 0
+                        self.txtGoalWeight.text = String(goalweight)
+                }
+            }
+        }
+    }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        deregisterKeyboardNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if userDefault.bool(forKey: "UserLogined" ) == false {
-            performSegue(withIdentifier: "LoginSrc", sender: self)
+            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginSrc")
+            present(destination!, animated: true, completion: nil)
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        weight_GHuy = txtWeight.text // lấy data cho màn hình Activity - Gia_Huy
-        
-        deregisterKeyboardNotification()
-    }
     
     
     
     //MARk::events
-    @IBAction func InputActivityLevel(_ sender: UIButton) {
-        AcitivityBtn.forEach { (button) in
-            UIView.animate(withDuration: 0.2, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-        }
-        UIView.animate(withDuration: 0.2, animations: {
-            self.txtWeek.isHidden = !self.txtWeek.isHidden
-            self.txtday.isHidden = !self.txtday.isHidden
-            self.btndone.isHidden = !self.btndone.isHidden
-            self.view.layoutIfNeeded()
-        })
-    }
     
-    @IBAction func DoneBtnActivity(_ sender: UIButton) {
-        AcitivityBtn.forEach { (button) in
-            UIView.animate(withDuration: 0.2, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-        }
-        UIView.animate(withDuration: 0.2, animations: {
-            self.txtWeek.isHidden = !self.txtWeek.isHidden
-            self.txtday.isHidden = !self.txtday.isHidden
-            self.btndone.isHidden = !self.btndone.isHidden
-            self.view.layoutIfNeeded()
-        })
-        if txtday.text != "" && txtWeek.text != ""{
-            btnActivity.titleLabel?.text = "Done ✅"
-        }
-    }
     
-    @IBAction func SelectGender(_ sender: UIButton) {
-        genderPicked.titleLabel?.text = genderPicked.titleLabel?.text
-        Genders.forEach { (button) in
+    @IBAction func tappedGoal(_ sender: UIButton) {
+        btnPickerTime.setTitle(sender.titleLabel?.text, for: .normal)
+        btnTime.forEach { (button) in
             UIView.animate(withDuration: 0.2, animations: {
                 button.isHidden = !button.isHidden
                 self.view.layoutIfNeeded()
@@ -99,31 +86,61 @@ class InputDataVC: UIViewController {
         }
     }
     
-    @IBAction func GenderTapped(_ sender: UIButton) {
-        genderPicked.titleLabel?.text = sender.titleLabel?.text
-        self.view.layoutIfNeeded()
-        Genders.forEach { (button) in
+    @IBAction func tappedActivityLevel(_ sender: UIButton) {
+        btnPicker.setTitle(sender.titleLabel?.text, for: .normal)
+        btnActivity.forEach { (button) in
             UIView.animate(withDuration: 0.2, animations: {
                 button.isHidden = !button.isHidden
                 self.view.layoutIfNeeded()
             })
         }
+        switch btnPicker.titleLabel?.text {
+        case "Low ( 1 times/week)":
+            activitylevel = 1
+        case "Medium ( 1-3 times/week)":
+            activitylevel = 2
+        case "High (3-5 times/week)":
+            activitylevel = 3
+        case "Very high (6-7 times/week)":
+            activitylevel = 4
+        case "absolute ( >7 times/week )":
+            activitylevel = 5
+        default:
+            activitylevel = 1
+        }
     }
-    func GetWater(_ weight: Int,_ minutes: Int) -> Int {
-        return weight * 30 + minutes * 12
+    
+    
+    func GetWater(_ weight: Float) -> Int {
+        var minutes: Int
+        switch activitylevel {
+        case 1:
+            minutes = 45
+        case 2:
+            minutes = 45 * 2
+        case 3:
+            minutes = 45 * 4
+        case 4:
+            minutes = 45 * 6
+        case 5:
+            minutes = 45 * 7
+        default:
+            minutes = 45
+        }
+        return Int(weight * 30) + minutes * 12
     }
-    func GetCal(_ sex: String,_ weight: Float,_ height: Float,_ age: Float,_ activityLevel: Int) -> Int
+    func GetCal(_ sex: String,_ weight: Float,_ height: Float,_ age: Int) -> Int
     {
         var BMR : Float
         var tmp : Float
         if (sex == "Male") {
-            BMR = 13.397 * weight + 4.799 * height - 5.677 * age + 88.362
             
+            BMR = ( weight * 13.397 ) + (4.799 * height) - ( Float(age) * 5.677 ) + 88.362
         }
         else {
-            BMR =  9.247*weight + 3.098*height  - 4.330*age + 447.593
+            BMR =  (weight * 9.247 ) + ( height * 3.098 )   - (Float(age) * 4.330 )  + 447.593
         }
-        switch activityLevel {
+        switch activitylevel {
         case 1:
             tmp = 1.2
         case 2:
@@ -132,23 +149,31 @@ class InputDataVC: UIViewController {
             tmp = 1.55
         case 4:
             tmp = 1.725
-        default:
+        case 5:
             tmp = 1.9
+        default:
+            tmp = 1.2
         }
         return Int(BMR * tmp)
     }
     @IBAction func CompleteData(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc") as! UINavigationController
-        //let seque = destination.viewControllers.first as! OverviewVC
-        ref.child((Auth.auth().currentUser?.uid)!).child("info").setValue(["Name":txtName.text!,"Sex":(genderPicked.titleLabel?.text!)!,"Age" :Int(txtAge.text!)!,"Height":Int(txtHeight.text!)!,"Weight":Int(txtWeight.text!)!,"calo": Int(txtday.text!)! * Int(txtWeek.text!)!])
-        ref.child((Auth.auth().currentUser?.uid)!).child("need").setValue(["Water(ml)":GetWater(Int(txtWeight.text!)!, Int(txtday.text!)!),"Calo":GetCal((genderPicked.titleLabel?.text!)!, Float(txtWeight.text!)!, Float(txtHeight.text!)!,Float(txtAge.text!)! , 3)])
-        //seque.dataUser = Person(name: txtName.text!, sex: (genderPicked.titleLabel?.text!)!, uid: "1", age: Int(txtAge.text!)!, height: Int(txtHeight.text!)!, weight: Int(txtWeight.text!)!, activitylevel: Int(txtday.text!)! * Int(txtWeek.text!)!)
-        
-        self.show(destination, sender: self)
+        if let name = txtName.text ,   let age = Int(txtAge.text!) , let height = Float(txtHeight.text!), let weight = Float(txtWeight.text!)  ,  let goalweight = Float(txtGoalWeight.text!){
+            ref.child((Auth.auth().currentUser?.uid)!).child("info").setValue(["Name":name,"Sex":gender,"Age" : age,"Height":height ,"Weight":weight,"Goal weight": goalweight])
+            ref.child((Auth.auth().currentUser?.uid)!).child("need").setValue(["Water(ml)":GetWater(weight),"Calo":GetCal(gender, weight, height,age) ])
+            let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
+            present(destination!, animated: true, completion: nil)
+        }
+        else {
+
+            let alert  = UIAlertController(title: "NOTIFICATION", message: "please input your infomation !!!", preferredStyle: .alert)
+            let okAction  = UIAlertAction(title: "Ok", style: .default, handler: nil)
+             alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
-    // MARK: srcollView
+    
     func registerKeyboardNotification()  {
         NotificationCenter.default.addObserver(self, selector: #selector(KeyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(KeyboardWillBeHidden), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -168,14 +193,7 @@ class InputDataVC: UIViewController {
     @objc func KeyboardWillBeHidden(notification: NSNotification)  {
         let info = notification.userInfo!
         let keyboard = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: -keyboard!.height, right: 0.0)
-        self.scrollView.contentInset = contentInsets
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: -keyboard!.height-100, right: 0.0)
         self.scrollView.scrollIndicatorInsets = contentInsets
     }
-    
-    
-    
-    
 }
-
-

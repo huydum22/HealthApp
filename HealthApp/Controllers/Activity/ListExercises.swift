@@ -77,14 +77,14 @@ extension ListExercises: UITableViewDelegate,UITableViewDataSource{
         
         cell?.ExerciseName.text = ExerciseList[indexPath.row].Name
        
-        var UserWeightDouble = Double(weight_GHuy!)
+        //var UserWeightDouble = Double(weight_GHuy!)
         
-        var caloburn = UserWeightDouble! * 0.0175 * ExerciseList[indexPath.row].MetValue!
-        
-        
+       // var caloburn = UserWeightDouble! * 0.0175 * ExerciseList[indexPath.row].MetValue!
         
         
-        cell?.CaloriesBurnPerMin.text = String(format: "%f calories/minute", caloburn)
+        
+        
+        //cell?.CaloriesBurnPerMin.text = String(format: "%f calories/minute", caloburn)
         
         return cell!
         

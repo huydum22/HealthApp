@@ -70,10 +70,12 @@ class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if userDefault.bool(forKey: "UserLogined" ) {
             if userDefault.bool(forKey:"NewUser" ) {
-                self.performSegue(withIdentifier: "InputSrc", sender: self)
+                let destination = storyboard?.instantiateViewController(withIdentifier: "MenuInputSrc")
+                present(destination!, animated: true, completion: nil)
             }
             if userDefault.bool(forKey:"OldUser" ) {
-                self.performSegue(withIdentifier: "OverviewSrc", sender: self)
+                let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
+                present(destination!, animated: true, completion: nil)
             }
         }
     }

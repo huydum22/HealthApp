@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5179213621C72B7800DDBFBB /* genderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213521C72B7800DDBFBB /* genderVC.swift */; };
+		5179213821C72B8800DDBFBB /* optionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213721C72B8800DDBFBB /* optionVC.swift */; };
 		517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C3D9021B55D700080D449 /* AppDelegate.swift */; };
 		517C3D9621B55D700080D449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517C3D9421B55D700080D449 /* Main.storyboard */; };
 		517C3D9821B55D720080D449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517C3D9721B55D720080D449 /* Assets.xcassets */; };
@@ -14,7 +16,6 @@
 		517C3DA321B55DD50080D449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DA221B55DD50080D449 /* GoogleService-Info.plist */; };
 		51A2330021B5A8A400ECC54C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A232FF21B5A8A400ECC54C /* Person.swift */; };
 		51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2330221B5A9CC00ECC54C /* InputDataVC.swift */; };
-		51C5F6E121B65BBB00FC90CF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6E021B65BBB00FC90CF /* MenuCell.swift */; };
 		51C5F6EA21B66AA900FC90CF /* GoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6E921B66AA900FC90CF /* GoalVC.swift */; };
 		51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6EB21B66ABD00FC90CF /* WeightsVC.swift */; };
 		51C5F6EE21B66ACE00FC90CF /* WaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6ED21B66ACE00FC90CF /* WaterVC.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5179213521C72B7800DDBFBB /* genderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genderVC.swift; sourceTree = "<group>"; };
+		5179213721C72B8800DDBFBB /* optionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionVC.swift; sourceTree = "<group>"; };
 		517C3D8D21B55D700080D449 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		517C3D9021B55D700080D449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		517C3D9521B55D700080D449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		517C3DA221B55DD50080D449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51A232FF21B5A8A400ECC54C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		51A2330221B5A9CC00ECC54C /* InputDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataVC.swift; sourceTree = "<group>"; };
-		51C5F6E021B65BBB00FC90CF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		51C5F6E921B66AA900FC90CF /* GoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalVC.swift; sourceTree = "<group>"; };
 		51C5F6EB21B66ABD00FC90CF /* WeightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsVC.swift; sourceTree = "<group>"; };
 		51C5F6ED21B66ACE00FC90CF /* WaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				51A2330221B5A9CC00ECC54C /* InputDataVC.swift */,
+				5179213521C72B7800DDBFBB /* genderVC.swift */,
+				5179213721C72B8800DDBFBB /* optionVC.swift */,
 			);
 			path = InputUserDataScr;
 			sourceTree = "<group>";
@@ -212,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				51D6A36821B58467009CF67A /* OverviewVC.swift */,
-				51C5F6E021B65BBB00FC90CF /* MenuCell.swift */,
 			);
 			path = OverviewSrc;
 			sourceTree = "<group>";
@@ -385,13 +388,14 @@
 				51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */,
 				51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */,
 				51D6A36621B56057009CF67A /* LoginVC.swift in Sources */,
-				51C5F6E121B65BBB00FC90CF /* MenuCell.swift in Sources */,
 				51A2330021B5A8A400ECC54C /* Person.swift in Sources */,
+				5179213621C72B7800DDBFBB /* genderVC.swift in Sources */,
 				51C5F6EA21B66AA900FC90CF /* GoalVC.swift in Sources */,
 				DF8EA82521C69247004C8177 /* ExerciseListTableViewCell.swift in Sources */,
 				51D6A36921B58467009CF67A /* OverviewVC.swift in Sources */,
 				51C5F6F421B66B0000FC90CF /* ActivityVC.swift in Sources */,
 				51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */,
+				5179213821C72B8800DDBFBB /* optionVC.swift in Sources */,
 				51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,
 				DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */,
