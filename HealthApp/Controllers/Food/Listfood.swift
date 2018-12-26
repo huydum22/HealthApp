@@ -46,12 +46,13 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpNaBar()
         self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: "imageViewCell")
         
         DispatchQueue.global(qos: .userInteractive).async {
             self.fetchImage()
+            
             DispatchQueue.main.async {
-                self.setUpNaBar()
                 self.setUpRefreshControl()
                 self.setUpActivityIndicator()
             }

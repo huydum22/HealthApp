@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510FF7A921CC6B8000C42C56 /* WaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510FF7A821CC6B8000C42C56 /* WaterVC.swift */; };
 		5179213621C72B7800DDBFBB /* genderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213521C72B7800DDBFBB /* genderVC.swift */; };
 		5179213821C72B8800DDBFBB /* optionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213721C72B8800DDBFBB /* optionVC.swift */; };
 		517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C3D9021B55D700080D449 /* AppDelegate.swift */; };
@@ -18,7 +19,6 @@
 		51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2330221B5A9CC00ECC54C /* InputDataVC.swift */; };
 		51C5F6EA21B66AA900FC90CF /* GoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6E921B66AA900FC90CF /* GoalVC.swift */; };
 		51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6EB21B66ABD00FC90CF /* WeightsVC.swift */; };
-		51C5F6EE21B66ACE00FC90CF /* WaterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6ED21B66ACE00FC90CF /* WaterVC.swift */; };
 		51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */; };
 		51C5F6F421B66B0000FC90CF /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6F321B66B0000FC90CF /* ActivityVC.swift */; };
 		51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6F621B66F7F00FC90CF /* helper.swift */; };
@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		510FF7A821CC6B8000C42C56 /* WaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterVC.swift; sourceTree = "<group>"; };
 		5179213521C72B7800DDBFBB /* genderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genderVC.swift; sourceTree = "<group>"; };
 		5179213721C72B8800DDBFBB /* optionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionVC.swift; sourceTree = "<group>"; };
 		517C3D8D21B55D700080D449 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +50,6 @@
 		51A2330221B5A9CC00ECC54C /* InputDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataVC.swift; sourceTree = "<group>"; };
 		51C5F6E921B66AA900FC90CF /* GoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalVC.swift; sourceTree = "<group>"; };
 		51C5F6EB21B66ABD00FC90CF /* WeightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsVC.swift; sourceTree = "<group>"; };
-		51C5F6ED21B66ACE00FC90CF /* WaterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterVC.swift; sourceTree = "<group>"; };
 		51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryVC.swift; sourceTree = "<group>"; };
 		51C5F6F321B66B0000FC90CF /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		51C5F6F621B66F7F00FC90CF /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		51C5F6E521B66A4F00FC90CF /* Water */ = {
 			isa = PBXGroup;
 			children = (
-				51C5F6ED21B66ACE00FC90CF /* WaterVC.swift */,
+				510FF7A821CC6B8000C42C56 /* WaterVC.swift */,
 			);
 			path = Water;
 			sourceTree = "<group>";
@@ -400,7 +400,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51C5F6EE21B66ACE00FC90CF /* WaterVC.swift in Sources */,
 				51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */,
 				51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */,
 				51D6A36621B56057009CF67A /* LoginVC.swift in Sources */,
@@ -419,6 +418,7 @@
 				5179213821C72B8800DDBFBB /* optionVC.swift in Sources */,
 				51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,
+				510FF7A921CC6B8000C42C56 /* WaterVC.swift in Sources */,
 				850F029D21CBE84900333D03 /* BreakfastVC.swift in Sources */,
 				DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */,
 			);

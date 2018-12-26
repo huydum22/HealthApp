@@ -44,17 +44,37 @@ class InputDataVC: UIViewController {
                         let values = snapshot2.value as? NSDictionary
                         self.txtName.text = values?["Name"] as? String ?? ""
                         let age = values?["Age"] as? Int ?? 0
-                        self.txtAge.text = String(age)
+                        if age == 0 {
+                            self.txtAge.text = ""
+                        }
+                        else {
+                            self.txtAge.text = String(age)
+                        }
                         let height = values?["Height"] as? Float ?? 0
-                        self.txtHeight.text = String(height)
+                        if height == 0 {
+                            self.txtHeight.text = ""
+                        }
+                        else {
+                            self.txtHeight.text = String(height)
+                        }
                         let weight = values?["Weight"] as? Float ?? 0
-                        self.txtWeight.text = String(weight)
+                        if weight == 0 {
+                            self.txtWeight.text = ""
+                        }
+                        else {
+                            self.txtWeight.text = String(weight)
+                        }
                         let goalweight = values?["Goal weight"] as? Float ?? 0
-                        self.txtGoalWeight.text = String(goalweight)
+                        if goalweight == 0 {
+                            self.txtGoalWeight.text = ""
+                        }
+                        else {
+                            self.txtGoalWeight.text = String(goalweight)
+                        }
+                    }
                 }
             }
         }
-    }
     }
     
     
