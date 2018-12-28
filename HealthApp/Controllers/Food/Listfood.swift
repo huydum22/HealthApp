@@ -17,16 +17,15 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     
     
     func fetchImage() {
-        //   let Flag = String(flag)
-        let UrlString = "https://api.edamam.com/search?q=breakfast&app_id=b4a89907&app_key=%20396294c0d71e6da8ccd65fba4a384db8"
-        // let UrlString = "https://api.edamam.com/search?q=\(searchText)&app_id=b4a89907&app_key=%20396294c0d71e6da8ccd65fba4a384db8&from=0&to=\(Flag)"
+           let Flag = String(flag)
+       // let UrlString = "https://api.edamam.com/search?q=breakfast&app_id=b4a89907&app_key=%20396294c0d71e6da8ccd65fba4a384db8"
+         let UrlString = "https://api.edamam.com/search?q=\(searchText)&app_id=b4a89907&app_key=%20396294c0d71e6da8ccd65fba4a384db8&from=0&to=\(Flag)"
         guard let url = URL(string: UrlString) else {  return  }
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             guard let data = data else {  return }
             
             do {
                 let json = try JSONDecoder().decode(JsonData.self, from: data)
-                
                 for hit in json.hits! {
                     urlFoodArr.insert(hit.recipe!, at: 0)
                 }
@@ -38,8 +37,6 @@ class ListFood: UITableViewController,UISearchBarDelegate {
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
             }
-            
-            
             
             }.resume()
     }
@@ -103,8 +100,8 @@ class ListFood: UITableViewController,UISearchBarDelegate {
             cell.mainImageView.image = UIImage(named: "placeholder")
         }
         cell.foodName.text = urlFoodArr[indexPath.row].label!
-        let calories = Int(urlFoodArr[indexPath.row].calories ?? 0) / 4
-        cell.calories.text = String(calories)
+        let calories = Int(urlFoodArr[indexPath.row].calories ?? 0) / Int(urlFoodArr[indexPath.row].yield ?? 1)
+        cell.calories.text = String(calories) + " Calories"
         return cell
     }
     
@@ -112,14 +109,11 @@ class ListFood: UITableViewController,UISearchBarDelegate {
         return urlFoodArr.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = storyboard?.instantiateViewController(withIdentifier: "DetailFoodID") as? DetailFood
+        let cell = storyboard?.instantiateViewController(withIdentifier: "DetailFood") as? DetailFood
         
         cell!.mainImageView.loadImageUsingUrlString(urlString: urlFoodArr[indexPath.row].image!)
-        if cell!.mainImageView.image == nil {
-            cell!.mainImageView.image = UIImage(named: "placeholder")
-        }
-        
         cell?.foodName = urlFoodArr[indexPath.row].label ?? "FOOD"
+        cell?.yield = Int(urlFoodArr[indexPath.row].yield ?? 0)
         cell?.calories = Int(urlFoodArr[indexPath.row].calories ?? 0)
         cell?.proWeight = Int(urlFoodArr[indexPath.row].totalNutrients?.PROCNT?.quantity ?? 0)
         cell?.carbsWeight = Int(urlFoodArr[indexPath.row].totalNutrients?.CHOCDF?.quantity ?? 0)
@@ -144,18 +138,14 @@ class ListFood: UITableViewController,UISearchBarDelegate {
         activityIndicator.startAnimating()
         self.tableView.reloadData()
     }
-    //   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //      let ratio = CGFloat(UrlImgArr[indexPath.row].imageHeight!) / CGFloat(UrlImgArr[indexPath.row].imageWidth!)
-    //  print(tableView.frame.width / ratio)
-    //   return tableView.frame.width / ratio
-    
-    
-    //   }
+       override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return tableView.frame.width / CGFloat(1.0)
+      }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchText != "" {
             flag = 10
-            searchText = "break fast"
-            searchBar.text = "break fast"
+            searchText = "breakfast"
+            searchBar.text = ""
             urlFoodArr = [foodData]()
             fetchImage()
             searchBar.endEditing(true)

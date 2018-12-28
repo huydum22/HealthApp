@@ -41,26 +41,29 @@ class DetailFood: UIViewController {
     var proWeight = 3
     var carbsWeight = 1
     var fatWeight = 1
-    var carbs1 = 0
-    var carbs2 = 0
-    var fat1 = 0
-    var fat2 = 0
-    var other1 = 0
-    var other2 = 0
-    var other3 = 0
+    var carbs1 = 1
+    var carbs2 = 1
+    var fat1 = 1
+    var fat2 = 1
+    var other1 = 1
+    var other2 = 1
+    var other3 = 1
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(animated)
         setUp()
     }
-    func setUp() {
+    override func viewWillAppear(_ animated: Bool) {
+        if (mainImageView.image == nil) {
+            imageFood.image = UIImage(named: "placeholder")
+        }
+        else {
+            imageFood.image = mainImageView.image
+        }
+        super.viewWillAppear(animated)
+    }
+    func prepareInfo() {
         //
-        imageFood.image = mainImageView.image
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = foodName
         //
@@ -75,6 +78,9 @@ class DetailFood: UIViewController {
         other1 = other1 / yield
         other2 = other2 / yield
         other3 = other3 / yield
+    }
+    func setUp() {
+        prepareInfo()
         //
         caloriesBar.value = CGFloat(calories)
         proBar.value = CGFloat((proWeight * 100) / (proWeight + carbsWeight + fatWeight))
@@ -88,9 +94,9 @@ class DetailFood: UIViewController {
         labelFat.text = String(fatWeight) + " g"
         labelFat1.text = String(fat1) + " g"
         labelFat2.text = String(fat2) + " g"
-        labelOther1.text = String(other1) + " g"
-        labelOther2.text = String(other2) + " g"
-        labelOther3.text = String(other3) + " g"
+        labelOther1.text = String(other1) + " mg"
+        labelOther2.text = String(other2) + " mg"
+        labelOther3.text = String(other3) + " mg"
     }
     /*
     // MARK: - Navigation

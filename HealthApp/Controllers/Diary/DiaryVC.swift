@@ -10,17 +10,19 @@ import UIKit
 import MBCircularProgressBar
 import Firebase
 class DiaryVC: UIViewController {
-
+    //var calo = 0
+//    var eaten = 0
+  //  var water = 0
+ //   var drunk = 0
     var number = 0
     var ref: DatabaseReference!
     override func viewDidLoad() {
         ref = Database.database().reference()
          if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
+ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                let calo = values?["Calo"] as? Int ?? 0
-                
-                let water = values?["Water(ml)"] as? Int ?? 0
+              let calo = values?["Calo"] as? Int ?? 0
+              let water = values?["Water(ml)"] as? Int ?? 0
                 self.caloriesBar.value = CGFloat(calo)
                 self.waterBar.value = CGFloat(water)
                 

@@ -18,16 +18,16 @@ class ImageViewCell: UITableViewCell {
         return imageView
     }()
     var foodName : UILabel = {
-        var label = UILabel(frame: CGRect.init(x: 0, y: 0, width: 200, height: 20))
-        label.textColor = .red
+        var label = UILabel(frame: CGRect.init(x: 0, y: 0, width: 250, height: 20))
+        label.textColor = .white
         label.shadowColor = .white
         label.adjustsFontSizeToFitWidth = false
         label.font = label.font.withSize(20)
         return label
     }()
     var calories : UILabel = {
-        var label = UILabel(frame: CGRect.init(x: 230, y: 0, width: 50, height: 20))
-        label.textColor = .red
+        var label = UILabel(frame: CGRect.init(x: 0, y: 30, width: 150, height: 20))
+        label.textColor = .white
         label.shadowColor = .white
         label.adjustsFontSizeToFitWidth = false
         label.font = label.font.withSize(20)
@@ -37,6 +37,7 @@ class ImageViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(mainImageView)
         self.addSubview(foodName)
+        self.addSubview(calories)
         mainImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         mainImageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
