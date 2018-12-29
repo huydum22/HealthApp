@@ -33,6 +33,7 @@ class DetailFood: UIViewController {
     @IBOutlet weak var labelOther1: UILabel!
     @IBOutlet weak var labelOther2: UILabel!
     @IBOutlet weak var labelOther3: UILabel!
+   
     
     //
     var foodName = ""
@@ -107,5 +108,12 @@ class DetailFood: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      //    let vc = storyboard?.instantiateViewController(withIdentifier: "DiaryID") as? DiaryVC
+        //  vc?.eaten += calories
+    }
+    @IBAction func addFoodButton(_ sender: Any) {
+        performSegue(withIdentifier: "AddFood", sender: self)
+    }
 
 }

@@ -10,24 +10,36 @@ import UIKit
 import MBCircularProgressBar
 import Firebase
 class DiaryVC: UIViewController {
-    //var calo = 0
-//    var eaten = 0
+   
+   // var eaten = 0
+  //  var calo  = 0
   //  var water = 0
  //   var drunk = 0
-    var number = 0
-    var ref: DatabaseReference!
+  //  var number = 0
+//    var ref: DatabaseReference!
     override func viewDidLoad() {
-        ref = Database.database().reference()
-         if let data = Auth.auth().currentUser?.uid {
-ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
-                let values = snapshot.value as? NSDictionary
-              let calo = values?["Calo"] as? Int ?? 0
-              let water = values?["Water(ml)"] as? Int ?? 0
-                self.caloriesBar.value = CGFloat(calo)
-                self.waterBar.value = CGFloat(water)
-                
+     /*   if eaten == 0 {
+            ref = Database.database().reference()
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    self.calo = values?["Calo"] as? Int ?? 0
+                    let water = values?["Water(ml)"] as? Int ?? 0
+                    self.caloriesBar.value = CGFloat(self.calo)
+                    self.waterBar.value = CGFloat(water)
+                    
+                }
             }
         }
+        else {
+          //  let leftCalo = calo - eaten
+           // self.caloriesBar.value = CGFloat(leftCalo)
+          //  let ratio = Float(calo / eaten)
+           // let tmpCalo = ratio * Float(leftCalo)
+          //  self.caloriesBar.maxValue = CGFloat(tmpCalo)
+           // eatenLabel.text = "Eaten: " + String(eaten)
+        }
+     */
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -37,10 +49,11 @@ ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
     
     @IBOutlet weak var waterBar: MBCircularProgressBarView!
     
+    @IBOutlet weak var eatenLabel: UILabel!
     
     
     
-    @IBAction func tappedWaterGlass(_ sender: UIButton) {
+ /*   @IBAction func tappedWaterGlass(_ sender: UIButton) {
         number = sender.tag
         for button in btnWater {
             if button.tag <= number{
@@ -60,7 +73,7 @@ ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
             }
         }
     }
-    
+    */
     @IBAction func showFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
         
