@@ -17,7 +17,7 @@ class DiaryVC: UIViewController {
     var drunk = 0
     var number = 0
     var dataCaloFromDetailFood = 0
-    var dataNameFromDetailFood = ""
+    var dataNameFromDetailFood = [String]()
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -42,7 +42,8 @@ class DiaryVC: UIViewController {
             self.caloriesBar.maxValue = CGFloat(tmpCalo)
             eatenLabel.text = "Eaten: " + String(eaten)
         }
-        print("\(dataNameFromDetailFood) : \(dataCaloFromDetailFood)")
+        //print("\(dataNameFromDetailFood) : \(dataCaloFromDetailFood)")
+        print(dataNameFromDetailFood)
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -104,7 +105,13 @@ class DiaryVC: UIViewController {
         self.navigationController?.pushViewController(destination, animated: true)
     }
     
-    
+    @IBAction func saveDataFromDetailFood(segue: UIStoryboardSegue){
+        if let yasuo = segue.source as? DetailFood {
+             let nasus = yasuo.sendDatatoDiary
+            self.dataNameFromDetailFood.append(nasus)
+             print(dataNameFromDetailFood)
+        }
+    }
     /*
     // MARK: - Navigation
 

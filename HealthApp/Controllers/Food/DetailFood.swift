@@ -49,6 +49,7 @@ class DetailFood: UIViewController {
     var other1 = 1
     var other2 = 1
     var other3 = 1
+    var sendDatatoDiary = ""
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,12 +109,10 @@ class DetailFood: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func showDiaryVC(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "DiaryID") as! DiaryVC
-        destination.dataNameFromDetailFood = foodName
-        destination.dataCaloFromDetailFood = calories
-        present(destination, animated: true, completion: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "saveDataFromDetailFood" {
+            self.sendDatatoDiary = foodName
+        }
     }
     
 }

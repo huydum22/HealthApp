@@ -1772,7 +1772,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showDiaryVC:" destination="QE0-zR-Iad" eventType="touchUpInside" id="sfN-vA-TgL"/>
+                                    <segue destination="qnd-Pq-pUg" kind="unwind" identifier="saveDataFromDetailFood" unwindAction="saveDataFromDetailFoodWithSegue:" id="P1J-uH-ucl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1830,6 +1830,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGu-y2-pN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qnd-Pq-pUg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6930" y="348"/>
         </scene>
