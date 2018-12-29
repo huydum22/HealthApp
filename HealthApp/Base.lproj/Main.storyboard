@@ -386,15 +386,15 @@
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
                                                                                 <real key="value" value="100"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="unitString" value=" cal left"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="CAL left"/>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                                                <real key="value" value="666"/>
+                                                                                <real key="value" value="1e+17"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                                                <real key="value" value="500"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
-                                                                                <real key="value" value="17"/>
+                                                                                <real key="value" value="14"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
                                                                                 <real key="value" value="12"/>
@@ -421,7 +421,7 @@
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="unitString" value=" ml left"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="ML left"/>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
                                                                                 <real key="value" value="50"/>
                                                                             </userDefinedRuntimeAttribute>
@@ -429,7 +429,7 @@
                                                                                 <real key="value" value="100"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                                                <real key="value" value="5000"/>
+                                                                                <real key="value" value="9.2233720368547758e+18"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
                                                                                 <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -444,7 +444,7 @@
                                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                                                <real key="value" value="2000"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
                                                                                 <real key="value" value="11"/>
@@ -453,7 +453,7 @@
                                                                                 <real key="value" value="12"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
-                                                                                <real key="value" value="19"/>
+                                                                                <real key="value" value="15"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
@@ -943,7 +943,9 @@
                     <navigationItem key="navigationItem" title="Golden Health" id="UV6-4X-6sH"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="burnLablel" destination="H0w-xV-MzY" id="hY3-qg-xc2"/>
                         <outlet property="caloriesBar" destination="5Sd-kT-zZp" id="Yhd-cl-ZLb"/>
+                        <outlet property="drunkLabel" destination="VzY-G4-Td2" id="4S5-EY-Yab"/>
                         <outlet property="eatenLabel" destination="zsf-D9-Iak" id="FIk-cW-G22"/>
                         <outlet property="waterBar" destination="VBn-AS-BeB" id="DA2-KZ-PJF"/>
                         <outletCollection property="btnWater" destination="rtg-lg-9yE" collectionClass="NSMutableArray" id="Y86-Is-uTg"/>
@@ -966,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzM-IU-HYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3492" y="348"/>
+            <point key="canvasLocation" x="3292" y="195"/>
         </scene>
         <!--BreakfastVC-->
         <scene sceneID="m4J-fU-1ix">
@@ -1772,7 +1774,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="qnd-Pq-pUg" kind="unwind" identifier="saveDataFromDetailFood" unwindAction="saveDataFromDetailFoodWithSegue:" id="P1J-uH-ucl"/>
+                                    <segue destination="qnd-Pq-pUg" kind="unwind" unwindAction="saveDataFromDetailFoodWithSegue:" id="ykb-3e-Qvv"/>
                                 </connections>
                             </button>
                         </subviews>
