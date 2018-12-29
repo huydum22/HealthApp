@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uw1-ZA-ufy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -362,19 +362,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="994-bJ-cW5">
-                                <rect key="frame" x="0.0" y="20" width="375.5" height="1480"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1387"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-kL-fVH" userLabel="Over View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="1387"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1387"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-iq-ThL" userLabel="Overview">
-                                                <rect key="frame" x="0.0" y="0.0" width="375.5" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gPh-87-E6b">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="200"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-he-KsN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375.5" height="160"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sd-kT-zZp" customClass="MBCircularProgressBarView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="160"/>
@@ -417,7 +417,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBn-AS-BeB" customClass="MBCircularProgressBarView">
-                                                                        <rect key="frame" x="187.5" y="0.0" width="188" height="160"/>
+                                                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="160"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="YES"/>
@@ -460,7 +460,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xjg-Gg-uw1">
-                                                                <rect key="frame" x="0.0" y="160" width="375.5" height="40"/>
+                                                                <rect key="frame" x="0.0" y="160" width="375" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eaten : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsf-D9-Iak">
                                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
@@ -475,7 +475,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drunk : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-G4-Td2">
-                                                                        <rect key="frame" x="250" y="0.0" width="125.5" height="40"/>
+                                                                        <rect key="frame" x="250" y="0.0" width="125" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -512,16 +512,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTR-hr-KgL" customClass="WaterVC" customModule="HealthApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="265" width="375.5" height="100"/>
+                                                <rect key="frame" x="0.0" y="265" width="375" height="100"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-23-m5E">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JbL-7B-ViN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="325.5" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="325" height="100"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r8Q-JY-Wej">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="325.5" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="50"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qP-jy-8gh">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="40.5" height="50"/>
@@ -552,14 +552,14 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSe-JV-ci0">
-                                                                                <rect key="frame" x="162.5" y="0.0" width="41" height="50"/>
+                                                                                <rect key="frame" x="162.5" y="0.0" width="40.5" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="ZQw-0v-c1l"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKu-Yb-bIt">
-                                                                                <rect key="frame" x="203.5" y="0.0" width="40.5" height="50"/>
+                                                                                <rect key="frame" x="203" y="0.0" width="41" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="wTn-wo-SdF"/>
@@ -573,7 +573,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OB-DO-HBi">
-                                                                                <rect key="frame" x="284.5" y="0.0" width="41" height="50"/>
+                                                                                <rect key="frame" x="284.5" y="0.0" width="40.5" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="8NE-ER-JXy"/>
@@ -582,7 +582,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5W9-OX-q8E">
-                                                                        <rect key="frame" x="0.0" y="50" width="325.5" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="50" width="325" height="50"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-wY-VFc">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="40.5" height="50"/>
@@ -613,14 +613,14 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGY-uc-peU">
-                                                                                <rect key="frame" x="162.5" y="0.0" width="41" height="50"/>
+                                                                                <rect key="frame" x="162.5" y="0.0" width="40.5" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="bnc-KV-JnG"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA8-mT-W1P">
-                                                                                <rect key="frame" x="203.5" y="0.0" width="40.5" height="50"/>
+                                                                                <rect key="frame" x="203" y="0.0" width="41" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="KJJ-ct-dn7"/>
@@ -634,7 +634,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg7-HP-cor">
-                                                                                <rect key="frame" x="284.5" y="0.0" width="41" height="50"/>
+                                                                                <rect key="frame" x="284.5" y="0.0" width="40.5" height="50"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="wtD-Vc-2VF"/>
@@ -645,7 +645,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oD-3G-GQQ">
-                                                                <rect key="frame" x="325.5" y="0.0" width="50" height="100"/>
+                                                                <rect key="frame" x="325" y="0.0" width="50" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="50" id="4JC-UY-y59"/>
                                                                 </constraints>
@@ -676,10 +676,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAR-3l-tqH" userLabel="sáng">
-                                                <rect key="frame" x="0.0" y="420" width="375.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="420" width="375" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWX-T3-88t">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="HYW-ej-Snh"/>
                                                         </constraints>
@@ -718,7 +718,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-Hn-dat" userLabel="trưa">
-                                                <rect key="frame" x="0.0" y="625" width="375.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="625" width="375" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 649 - 865 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-RB-hf1">
                                                         <rect key="frame" x="69.5" y="120" width="236" height="30"/>
@@ -730,7 +730,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUO-i4-PUG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="ybr-dn-YWm"/>
                                                         </constraints>
@@ -760,10 +760,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J80-BN-sA9" userLabel="tối">
-                                                <rect key="frame" x="0.0" y="820" width="375.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="820" width="375" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O2-aM-hNK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="sHd-ot-HaL"/>
                                                         </constraints>
@@ -802,10 +802,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-Xc-mXj" userLabel="vặt">
-                                                <rect key="frame" x="0.0" y="1025" width="375.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="1025" width="375" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goN-If-hV7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="1Lc-Ya-qTh"/>
                                                         </constraints>
@@ -844,10 +844,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-zc-mVl" userLabel="thể dục">
-                                                <rect key="frame" x="0.0" y="1226" width="375.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="1226" width="375" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-eE-GAq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375.5" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="7O9-WJ-og1"/>
                                                         </constraints>
@@ -966,7 +966,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzM-IU-HYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6095" y="478"/>
+            <point key="canvasLocation" x="3492" y="348"/>
         </scene>
         <!--BreakfastVC-->
         <scene sceneID="m4J-fU-1ix">
@@ -998,7 +998,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OrN-aB-RRw" kind="show" id="O1a-6t-bDN"/>
+                                    <action selector="showListFood:" destination="Uw1-ZA-ufy" eventType="touchUpInside" id="gEX-2m-N56"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1017,7 +1017,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S68-wN-KZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4652" y="348.57571214392806"/>
+            <point key="canvasLocation" x="5078" y="319"/>
         </scene>
         <!--Item-->
         <scene sceneID="4ds-t2-Agv">
@@ -1137,14 +1137,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myp-Oy-Mjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4906" y="1610"/>
+            <point key="canvasLocation" x="6186" y="265"/>
         </scene>
         <!--Detail Food-->
         <scene sceneID="NxJ-LG-x1e">
             <objects>
                 <viewController storyboardIdentifier="DetailFood" id="QE0-zR-Iad" customClass="DetailFood" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdS-qg-GCL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="686"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yyX-hp-8j5">
@@ -1760,11 +1760,19 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uS-UD-byw">
-                                <rect key="frame" x="137" y="454" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="113.5" y="628" width="93" height="38"/>
+                                <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
+                                <state key="normal" title="       select       ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addFoodButton:" destination="QE0-zR-Iad" eventType="touchUpInside" id="DfF-wG-O72"/>
-                                    <segue destination="ZLJ-mq-BWv" kind="showDetail" identifier="AddFood" id="Ea2-4s-v0s"/>
+                                    <action selector="showDiaryVC:" destination="QE0-zR-Iad" eventType="touchUpInside" id="sfN-vA-TgL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1800,7 +1808,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="PnU-xT-f5f"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <size key="freeformSize" width="320" height="750"/>
                     <connections>
                         <outlet property="caloriesBar" destination="nQB-yP-imt" id="1B9-no-Jhm"/>
                         <outlet property="carbsBar" destination="Wpo-69-eRm" id="a8a-kN-u7l"/>
@@ -1821,7 +1831,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGu-y2-pN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6957" y="1767"/>
+            <point key="canvasLocation" x="6930" y="348"/>
         </scene>
         <!--List Exercises-->
         <scene sceneID="2ed-sO-vmQ">
@@ -1843,7 +1853,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8c-sG-vOb">
-                                                    <rect key="frame" x="15" y="0.0" width="360" height="35"/>
+                                                    <rect key="frame" x="15" y="0.0" width="305" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="cio-x3-oig"/>
                                                     </constraints>
@@ -1852,7 +1862,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sni-RG-nPG">
-                                                    <rect key="frame" x="15" y="43" width="345" height="15"/>
+                                                    <rect key="frame" x="15" y="43" width="290" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="2j3-wL-lsK"/>
                                                     </constraints>
@@ -2558,24 +2568,6 @@
             </objects>
             <point key="canvasLocation" x="1992.8" y="348.57571214392806"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FcQ-y8-pko">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OrN-aB-RRw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Slx-JV-48i">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mfX-OR-VbR" kind="relationship" relationship="rootViewController" id="kUD-Wo-CbI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2h3-O0-2RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3953" y="1610"/>
-        </scene>
     </scenes>
     <resources>
         <image name="1200px-Google_Fit_2018_Logo" width="1200" height="1200"/>
@@ -2590,7 +2582,4 @@
         <image name="icons8-running" width="64" height="64"/>
         <image name="icons8-water_bottle" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ea2-4s-v0s"/>
-    </inferredMetricsTieBreakers>
 </document>

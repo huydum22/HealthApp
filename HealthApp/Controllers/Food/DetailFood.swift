@@ -108,12 +108,12 @@ class DetailFood: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      //    let vc = storyboard?.instantiateViewController(withIdentifier: "DiaryID") as? DiaryVC
-        //  vc?.eaten += calories
+    
+    @IBAction func showDiaryVC(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "DiaryID") as! DiaryVC
+        destination.dataNameFromDetailFood = foodName
+        destination.dataCaloFromDetailFood = calories
+        present(destination, animated: true, completion: nil)
     }
-    @IBAction func addFoodButton(_ sender: Any) {
-        performSegue(withIdentifier: "AddFood", sender: self)
-    }
-
+    
 }

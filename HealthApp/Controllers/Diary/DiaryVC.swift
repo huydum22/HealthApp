@@ -11,14 +11,17 @@ import MBCircularProgressBar
 import Firebase
 class DiaryVC: UIViewController {
    
-   // var eaten = 0
-  //  var calo  = 0
-  //  var water = 0
- //   var drunk = 0
-  //  var number = 0
-//    var ref: DatabaseReference!
+    var eaten = 0
+    var calo  = 0
+    var water = 0
+    var drunk = 0
+    var number = 0
+    var dataCaloFromDetailFood = 0
+    var dataNameFromDetailFood = ""
+    //biến ref lấy data ng dùng từ firebase
+    var ref: DatabaseReference!
     override func viewDidLoad() {
-     /*   if eaten == 0 {
+        if eaten == 0 {
             ref = Database.database().reference()
             if let data = Auth.auth().currentUser?.uid {
                 ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
@@ -26,24 +29,40 @@ class DiaryVC: UIViewController {
                     self.calo = values?["Calo"] as? Int ?? 0
                     let water = values?["Water(ml)"] as? Int ?? 0
                     self.caloriesBar.value = CGFloat(self.calo)
-                    self.waterBar.value = CGFloat(water)
+                    self.waterBar.value = CGFloat(water) - CGFloat(self.number * 250)
                     
                 }
             }
         }
         else {
-          //  let leftCalo = calo - eaten
-           // self.caloriesBar.value = CGFloat(leftCalo)
-          //  let ratio = Float(calo / eaten)
-           // let tmpCalo = ratio * Float(leftCalo)
-          //  self.caloriesBar.maxValue = CGFloat(tmpCalo)
-           // eatenLabel.text = "Eaten: " + String(eaten)
+            let leftCalo = calo - eaten
+            self.caloriesBar.value = CGFloat(leftCalo)
+            let ratio = Float(calo / eaten)
+            let tmpCalo = ratio * Float(leftCalo)
+            self.caloriesBar.maxValue = CGFloat(tmpCalo)
+            eatenLabel.text = "Eaten: " + String(eaten)
         }
-     */
+        print("\(dataNameFromDetailFood) : \(dataCaloFromDetailFood)")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidLayoutSubviews() {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                //self.calo = values?["Calo"] as? Int ?? 0
+                let water = values?["Water(ml)"] as? Int ?? 0
+                //self.caloriesBar.value = CGFloat(self.calo)
+                self.waterBar.value = CGFloat(water) - CGFloat(self.number * 250)
+                
+            }
+        }
+    }
+    
+
     @IBOutlet var btnWater: [UIButton]!
     @IBOutlet weak var caloriesBar: MBCircularProgressBarView!
     
@@ -53,7 +72,7 @@ class DiaryVC: UIViewController {
     
     
     
- /*   @IBAction func tappedWaterGlass(_ sender: UIButton) {
+    @IBAction func tappedWaterGlass(_ sender: UIButton) {
         number = sender.tag
         for button in btnWater {
             if button.tag <= number{
@@ -73,10 +92,9 @@ class DiaryVC: UIViewController {
             }
         }
     }
-    */
+ 
     @IBAction func showFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-        
         self.navigationController?.pushViewController(destination, animated: true)
     }
     

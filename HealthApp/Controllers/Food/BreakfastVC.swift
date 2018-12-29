@@ -22,6 +22,10 @@ class BreakfastVC: UIViewController {
         navigationItem.title = "Breakfast"
     }
 
+    @IBAction func showListFood(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "ListFoodID")  
+        self.navigationController?.pushViewController(destination!, animated: true)
+    }
     /*
     // MARK: - Navigation
 
