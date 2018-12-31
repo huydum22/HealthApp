@@ -68,7 +68,15 @@ class ListExercises: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ExerciseListVCToExerciseInfoVC"
+        {
+            let Exercise = sender as! ExerciseInfo
+            let DestExerciseInfoVC = segue.destination as! ExerciseInfoVC
+            DestExerciseInfoVC.Exercise = Exercise
+            DestExerciseInfoVC.UserWeight = self.UserWeight
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -103,6 +111,8 @@ extension ListExercises: UITableViewDelegate,UITableViewDataSource{
         return cell!
         
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ExerciseListVCToExerciseInfoVC", sender: ExerciseList[indexPath.row])
+    }
     
 }
