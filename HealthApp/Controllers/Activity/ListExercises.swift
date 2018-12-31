@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 class ExerciseInfo
 {
     var Category: String?
@@ -21,7 +21,8 @@ class ListExercises: UIViewController {
    
     var ref: DatabaseReference?
     var ExerciseList: [ExerciseInfo] = []
-    
+    var UserInfoRef: DatabaseReference?
+    var UserWeight: Double?
     @IBOutlet weak var ExerciseListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,19 @@ class ListExercises: UIViewController {
 
         })
         
+        let UserID = Auth.auth().currentUser?.uid
+        
+        UserInfoRef = Database.database().reference().child(UserID!).child("info")
+        
+        UserInfoRef?.observe(.childAdded, with: { (DataSnapshot) in
+            
+            if DataSnapshot.key == "Weight"
+            {
+                self.UserWeight = DataSnapshot.value as? Double
+            }
+            
+        })
+
         // Do any additional setup after loading the view.
     }
     
@@ -77,14 +91,14 @@ extension ListExercises: UITableViewDelegate,UITableViewDataSource{
         
         cell?.ExerciseName.text = ExerciseList[indexPath.row].Name
        
-        //var UserWeightDouble = Double(weight_GHuy!)
-        
-       // var caloburn = UserWeightDouble! * 0.0175 * ExerciseList[indexPath.row].MetValue!
         
         
+        var caloburn = UserWeight! * 0.0175 * ExerciseList[indexPath.row].MetValue!
         
         
-        //cell?.CaloriesBurnPerMin.text = String(format: "%f calories/minute", caloburn)
+        
+        
+        cell?.CaloriesBurnPerMin.text = String(format: "%d calories/minute", Int(caloburn))
         
         return cell!
         

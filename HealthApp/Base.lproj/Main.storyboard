@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -968,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzM-IU-HYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3292" y="195"/>
+            <point key="canvasLocation" x="3314" y="318"/>
         </scene>
         <!--BreakfastVC-->
         <scene sceneID="m4J-fU-1ix">
@@ -1019,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S68-wN-KZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5078" y="319"/>
+            <point key="canvasLocation" x="5393" y="810"/>
         </scene>
         <!--Item-->
         <scene sceneID="4ds-t2-Agv">
@@ -1110,7 +1110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dtt-bc-3Zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="-684"/>
+            <point key="canvasLocation" x="5700" y="-174"/>
         </scene>
         <!--List Food-->
         <scene sceneID="cNp-i6-fXK">
@@ -1139,7 +1139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myp-Oy-Mjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6186" y="265"/>
+            <point key="canvasLocation" x="6201" y="809"/>
         </scene>
         <!--Detail Food-->
         <scene sceneID="NxJ-LG-x1e">
@@ -1834,7 +1834,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGu-y2-pN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qnd-Pq-pUg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6930" y="348"/>
+            <point key="canvasLocation" x="6968" y="905"/>
         </scene>
         <!--List Exercises-->
         <scene sceneID="2ed-sO-vmQ">
@@ -1908,11 +1908,12 @@
                     <navigationItem key="navigationItem" id="g8W-pw-D79"/>
                     <connections>
                         <outlet property="ExerciseListTableView" destination="6Dj-yd-NQo" id="SXL-Fp-wiG"/>
+                        <segue destination="oZG-fQ-uD0" kind="push" id="2CA-aV-hVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIK-x5-fkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3442" y="-992"/>
+            <point key="canvasLocation" x="6645" y="-174"/>
         </scene>
         <!--OptionVC-->
         <scene sceneID="CvB-0P-kWk">
@@ -2570,6 +2571,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fM-w2-CHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1992.8" y="348.57571214392806"/>
+        </scene>
+        <!--ExerciseInfo-->
+        <scene sceneID="BAD-ib-46k">
+            <objects>
+                <viewController title="ExerciseInfo" id="oZG-fQ-uD0" customClass="ExerciseInfoVC" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="POB-9w-zdY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzN-MJ-iE1">
+                                <rect key="frame" x="16" y="75" width="273" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="fQo-Ze-saL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDb-Pt-dE8">
+                                <rect key="frame" x="16" y="166" width="42.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcalo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frf-no-xuK">
+                                <rect key="frame" x="59" y="175" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="9Gd-iN-s1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAY-bK-cmb">
+                                <rect key="frame" x="16" y="206" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="FTh-jm-a1j"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oZG-fQ-uD0" id="b1W-Ij-ujp"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Minutes" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MrY-vf-gyM">
+                                <rect key="frame" x="90" y="206" width="220" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hwx-tJ-FXi" firstAttribute="trailing" secondItem="vzN-MJ-iE1" secondAttribute="trailing" constant="31" id="AgD-iS-FYW"/>
+                            <constraint firstItem="vzN-MJ-iE1" firstAttribute="leading" secondItem="Hwx-tJ-FXi" secondAttribute="leading" constant="16" id="DCV-s1-Dio"/>
+                            <constraint firstItem="Frf-no-xuK" firstAttribute="bottom" secondItem="oDb-Pt-dE8" secondAttribute="bottom" id="FHl-Rp-Bax"/>
+                            <constraint firstItem="oDb-Pt-dE8" firstAttribute="top" secondItem="vzN-MJ-iE1" secondAttribute="bottom" constant="40" id="Qci-kk-Mkg"/>
+                            <constraint firstItem="Hwx-tJ-FXi" firstAttribute="trailing" secondItem="MrY-vf-gyM" secondAttribute="trailing" constant="10" id="YHg-eq-I2l"/>
+                            <constraint firstItem="oDb-Pt-dE8" firstAttribute="leading" secondItem="vzN-MJ-iE1" secondAttribute="leading" id="gql-hD-bMj"/>
+                            <constraint firstItem="vzN-MJ-iE1" firstAttribute="top" secondItem="Hwx-tJ-FXi" secondAttribute="top" constant="75" id="jaQ-Ti-8g2"/>
+                            <constraint firstItem="MrY-vf-gyM" firstAttribute="leading" secondItem="fAY-bK-cmb" secondAttribute="trailing" constant="14" id="ocd-1U-y2B"/>
+                            <constraint firstItem="MrY-vf-gyM" firstAttribute="bottom" secondItem="fAY-bK-cmb" secondAttribute="bottom" id="pDx-QG-a72"/>
+                            <constraint firstItem="fAY-bK-cmb" firstAttribute="leading" secondItem="oDb-Pt-dE8" secondAttribute="leading" id="tMK-Ic-0qN"/>
+                            <constraint firstItem="fAY-bK-cmb" firstAttribute="top" secondItem="oDb-Pt-dE8" secondAttribute="bottom" constant="10" id="woZ-B0-RF4"/>
+                            <constraint firstItem="Frf-no-xuK" firstAttribute="leading" secondItem="oDb-Pt-dE8" secondAttribute="trailing" constant="0.5" id="xCh-H8-FGx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hwx-tJ-FXi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ai3-fx-VA2"/>
+                    <connections>
+                        <outlet property="ExerciseNameLabel" destination="vzN-MJ-iE1" id="XBc-M1-tcU"/>
+                        <outlet property="KcaloLabel" destination="oDb-Pt-dE8" id="Oaa-EQ-CCU"/>
+                        <outlet property="MinutesTestField" destination="MrY-vf-gyM" id="wQU-RT-0ce"/>
+                        <outlet property="TimeTestField" destination="fAY-bK-cmb" id="Q32-JE-h0B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ztg-ZH-nTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7539" y="-174"/>
         </scene>
     </scenes>
     <resources>
