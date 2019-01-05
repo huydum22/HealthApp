@@ -131,6 +131,13 @@ class DiaryVC: UIViewController {
             eaten += yasuo.calories
         }
     }
+    @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
+        if let yasuo = segue.source as? popUpViewController {
+            let nasus = yasuo.titleText.text
+            self.dataNameFromDetailFood.append(nasus!)
+            eaten += Int(yasuo.caloriesText.text!)!
+        }
+    }
     /*
     // MARK: - Navigation
 
