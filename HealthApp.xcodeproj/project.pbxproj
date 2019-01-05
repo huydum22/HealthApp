@@ -31,6 +31,7 @@
 		850F029F21CBE84900333D03 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029921CBE84900333D03 /* Json.swift */; };
 		850F02A021CBE84900333D03 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029A21CBE84900333D03 /* Custom.swift */; };
 		850F02A121CBE84900333D03 /* Listfood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029B21CBE84900333D03 /* Listfood.swift */; };
+		8579775921E0BEEF00856528 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579775821E0BEEF00856528 /* popUpViewController.swift */; };
 		DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF485BD221C4A11B0090BA4B /* ListExercises.swift */; };
 		DF83A9A621D9BCE3003802EC /* ExerciseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83A9A521D9BCE3003802EC /* ExerciseInfoVC.swift */; };
 		DF8EA82521C69247004C8177 /* ExerciseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EA82421C69247004C8177 /* ExerciseListTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 		850F029921CBE84900333D03 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		850F029A21CBE84900333D03 /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		850F029B21CBE84900333D03 /* Listfood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listfood.swift; sourceTree = "<group>"; };
+		8579775821E0BEEF00856528 /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		D46619E6A7F42DE31B251AD0 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D7136B496CAE263BC5C7B261 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		DF485BD221C4A11B0090BA4B /* ListExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExercises.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				850F029721CBE84900333D03 /* BreakfastVC.swift */,
 				850F029A21CBE84900333D03 /* Custom.swift */,
+				8579775821E0BEEF00856528 /* popUpViewController.swift */,
 				850F029621CBE84800333D03 /* DetailFood.swift */,
 				850F029821CBE84900333D03 /* ImageViewCell.swift */,
 				850F029921CBE84900333D03 /* Json.swift */,
@@ -423,6 +426,7 @@
 				51C5F6EC21B66ABD00FC90CF /* WeightsVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,
 				510FF7A921CC6B8000C42C56 /* WaterVC.swift in Sources */,
+				8579775921E0BEEF00856528 /* popUpViewController.swift in Sources */,
 				850F029D21CBE84900333D03 /* BreakfastVC.swift in Sources */,
 				DF485BD321C4A11C0090BA4B /* ListExercises.swift in Sources */,
 			);

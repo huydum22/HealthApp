@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -988,6 +988,9 @@
                                 <state key="normal" title="Create New">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="createFood:" destination="Uw1-ZA-ufy" eventType="touchUpInside" id="hqc-l8-F0Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgN-Nd-S1b">
                                 <rect key="frame" x="0.0" y="170" width="320" height="150"/>
@@ -1020,6 +1023,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S68-wN-KZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5393" y="810"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="xnL-tW-mKD">
+            <objects>
+                <viewController storyboardIdentifier="popUpID" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="kVo-46-wID" customClass="popUpViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aqf-UD-wLa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCe-me-e94">
+                                <rect key="frame" x="40" y="99" width="246" height="157"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEZ-53-myd">
+                                        <rect key="frame" x="8" y="8" width="124" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="is9-pc-COb">
+                                        <rect key="frame" x="8" y="44" width="230" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioL-lc-QJu">
+                                        <rect key="frame" x="8" y="82" width="230" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcC-tl-GLZ">
+                                        <rect key="frame" x="121" y="120" width="59" height="30"/>
+                                        <state key="normal" title="CANCEL"/>
+                                        <connections>
+                                            <action selector="cancelClick:" destination="kVo-46-wID" eventType="touchUpInside" id="dJB-kb-PJr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-qx-J8B">
+                                        <rect key="frame" x="197" y="120" width="37" height="30"/>
+                                        <state key="normal" title="SAVE"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="157" id="1sx-wT-Pbz"/>
+                                    <constraint firstItem="ueg-qx-J8B" firstAttribute="top" secondItem="ioL-lc-QJu" secondAttribute="bottom" constant="8" id="3Qy-jR-jVI"/>
+                                    <constraint firstAttribute="bottom" secondItem="ueg-qx-J8B" secondAttribute="bottom" constant="7" id="62s-E6-NeX"/>
+                                    <constraint firstItem="ioL-lc-QJu" firstAttribute="top" secondItem="is9-pc-COb" secondAttribute="bottom" constant="8" id="6DG-a9-Vxc"/>
+                                    <constraint firstItem="ueg-qx-J8B" firstAttribute="leading" secondItem="jcC-tl-GLZ" secondAttribute="trailing" constant="17" id="6am-ui-XQh"/>
+                                    <constraint firstItem="ioL-lc-QJu" firstAttribute="leading" secondItem="JCe-me-e94" secondAttribute="leading" constant="8" id="8Jp-Pd-JEN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ueg-qx-J8B" secondAttribute="trailing" constant="12" id="8a6-qt-5b6"/>
+                                    <constraint firstItem="is9-pc-COb" firstAttribute="leading" secondItem="JCe-me-e94" secondAttribute="leading" constant="8" id="9t5-2I-2G8"/>
+                                    <constraint firstAttribute="trailing" secondItem="ioL-lc-QJu" secondAttribute="trailing" constant="8" id="KWx-vu-JI7"/>
+                                    <constraint firstItem="jcC-tl-GLZ" firstAttribute="top" secondItem="ioL-lc-QJu" secondAttribute="bottom" constant="8" id="Zfj-wV-gi0"/>
+                                    <constraint firstItem="lEZ-53-myd" firstAttribute="leading" secondItem="JCe-me-e94" secondAttribute="leading" constant="8" id="dLQ-4y-96f"/>
+                                    <constraint firstAttribute="bottom" secondItem="jcC-tl-GLZ" secondAttribute="bottom" constant="7" id="dX3-1O-wM1"/>
+                                    <constraint firstItem="is9-pc-COb" firstAttribute="top" secondItem="lEZ-53-myd" secondAttribute="bottom" constant="15" id="dYF-Yl-BzV"/>
+                                    <constraint firstAttribute="trailing" secondItem="is9-pc-COb" secondAttribute="trailing" constant="8" id="kMr-uR-IkG"/>
+                                    <constraint firstItem="lEZ-53-myd" firstAttribute="top" secondItem="JCe-me-e94" secondAttribute="top" constant="8" id="klM-gB-UpJ"/>
+                                    <constraint firstItem="jcC-tl-GLZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JCe-me-e94" secondAttribute="leading" constant="121" id="sXF-lo-y6e"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lEZ-53-myd" secondAttribute="trailing" constant="114" id="ygJ-DG-1LW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80197097081218272" green="0.80197097081218272" blue="0.80197097081218272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JCe-me-e94" firstAttribute="top" secondItem="tiq-5s-3nt" secondAttribute="top" constant="79" id="Jyv-0X-7Ie"/>
+                            <constraint firstItem="tiq-5s-3nt" firstAttribute="trailing" secondItem="JCe-me-e94" secondAttribute="trailing" constant="34" id="cts-bz-tuQ"/>
+                            <constraint firstItem="JCe-me-e94" firstAttribute="leading" secondItem="tiq-5s-3nt" secondAttribute="leading" constant="40" id="liN-q2-8JX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tiq-5s-3nt"/>
+                    </view>
+                    <connections>
+                        <outlet property="caloriesText" destination="ioL-lc-QJu" id="XGx-yz-na7"/>
+                        <outlet property="titleText" destination="is9-pc-COb" id="j8S-7u-zUs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5E-Lb-XN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5392.5" y="1617.2535211267607"/>
         </scene>
         <!--Item-->
         <scene sceneID="4ds-t2-Agv">
