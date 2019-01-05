@@ -8,6 +8,13 @@
 
 import UIKit
 
+class ExerciseSelected
+{
+    var ExerciseInfo: ExerciseInfo?
+    var CaloriesBurned: Int?
+    var time: Int?
+}
+
 class ExerciseInfoVC: UIViewController {
     var Exercise:ExerciseInfo?
     var UserWeight:Double? = nil
@@ -88,6 +95,37 @@ class ExerciseInfoVC: UIViewController {
         
     }
     
+  
+    
+    @IBAction func AddButton(_ sender: Any) {
+        var i = 0
+   
+            while(i < ExerciseRecentList.count)
+            {
+                if Exercise?.Name == ExerciseRecentList[i].Name
+                {
+                    let temp = ExerciseRecentList[i]
+                   ExerciseRecentList.remove(at: i)
+                    ExerciseRecentList.insert(temp, at: 0)
+                    
+                    break
+                }
+                i = i + 1
+            }
+        
+        
+            
+            if i == ExerciseRecentList.count
+            {
+                ExerciseRecentList.insert(Exercise!, at: 0)
+                if ExerciseRecentList.count == 11
+                {
+                    ExerciseRecentList.remove(at: 10)
+                }
+            }
+        
+        navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -106,7 +144,7 @@ extension UITextField{
         self.layer.backgroundColor = UIColor.white.cgColor
         
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0

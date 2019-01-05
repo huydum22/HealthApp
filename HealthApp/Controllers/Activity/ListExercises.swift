@@ -34,11 +34,11 @@ class ListExercises: UIViewController {
         
        ref?.observe(.childAdded, with: { (DataSnapshot) in
             
-           var category = DataSnapshot.key
+           let category = DataSnapshot.key
         var json = DataSnapshot.value as? [String:AnyObject]
         
         for i in json!.keys {
-            var temp = ExerciseInfo()
+            let temp = ExerciseInfo()
             var json2 = json![i] as? [String:AnyObject]
             
             temp.Category = category
@@ -90,18 +90,18 @@ class ListExercises: UIViewController {
 }
 extension ListExercises: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(ExerciseList.count)")
+    
         return ExerciseList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseListTableViewCell", for: indexPath) as? ExerciseListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseListTableViewCell", for: indexPath) as? ExerciseListTableViewCell
         
         cell?.ExerciseName.text = ExerciseList[indexPath.row].Name
        
         
         
-        var caloburn = UserWeight! * 0.0175 * ExerciseList[indexPath.row].MetValue!
+        let caloburn = UserWeight! * 0.0175 * ExerciseList[indexPath.row].MetValue!
         
         
         
@@ -113,6 +113,7 @@ extension ListExercises: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ExerciseListVCToExerciseInfoVC", sender: ExerciseList[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
