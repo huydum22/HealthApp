@@ -1,14 +1,14 @@
 //
-//  GoalsVC.swift
+//  BodyStatsVC.swift
 //  HealthApp
 //
-//  Created by Ho Huy on 12/4/18.
-//  Copyright © 2018 CodeWith2w1m. All rights reserved.
+//  Created by Hồ  Huy on 1/7/19.
+//  Copyright © 2019 CodeWith2w1m. All rights reserved.
 //
 
 import UIKit
 
-class GoalVC: UIViewController {
+class BodyStatsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -47,7 +47,9 @@ class ListFood: UITableViewController,UISearchBarDelegate {
         searchText = defaultSearchText
         self.setUpNaBar()
         self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: "imageViewCell")
-        
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "List food"
         DispatchQueue.global(qos: .userInteractive).async {
             self.fetchImage()
             
