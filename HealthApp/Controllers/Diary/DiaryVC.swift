@@ -18,20 +18,27 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var drunkLabel: UILabel!
     @IBOutlet weak var burnLablel: UILabel!
     @IBOutlet var btnFood: [UIButton]!
-
+    var longGesture = UILongPressGestureRecognizer()
     var eaten = 0
     var calo  = 0
     var water = 0
     var drunk = 0
+    var temp = 0
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
         getInfo()
-        
+        setUpLongPressGesture()
+       setUpDataFormDetailArr()
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    func setUpDataFormDetailArr() {
+        for i in 1 ... 4 {
+            dataFromDetail.append(("",0,i))
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,7 +53,13 @@ class DiaryVC: UIViewController {
     override func viewDidLayoutSubviews() {
         setUp()
     }
-   
+   func setUpLongPressGesture() {
+        for button in btnFood {
+            longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiaryVC.handleGesture(_:)))
+            longGesture.minimumPressDuration = 0.5
+            button.addGestureRecognizer(longGesture)
+        }
+    }
     func getInfo() {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
@@ -126,10 +139,9 @@ class DiaryVC: UIViewController {
     }
  
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
-        let temp = sender.tag
+        temp = sender.tag
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
          destination.mode = temp
-        destination.navigationItem.title = "Breakfast"
         self.navigationController?.pushViewController(destination, animated: true)
         
     }
@@ -140,15 +152,21 @@ class DiaryVC: UIViewController {
         
         self.navigationController?.pushViewController(destination, animated: true)
     }
-    
+    func updateCaloriesFromFood() {
+        eaten = 0
+        for i in dataFromDetail {
+            eaten += i.cal
+        }
+    }
     @IBAction func saveDataFromDetailFood(segue: UIStoryboardSegue){
         if let yasuo = segue.source as? DetailFood {
             let nasus = (yasuo.foodName , yasuo.calories , yasuo.mode)
-            self.dataFromDetail.append(nasus)
-            eaten += yasuo.calories
+            self.dataFromDetail.insert(nasus, at: yasuo.mode - 1 )
+            self.dataFromDetail.remove(at: yasuo.mode )
+            updateCaloriesFromFood()
             for button in btnFood {
                 for i in dataFromDetail {
-                    if button.tag == i.mode {
+                    if button.tag == i.mode && i.name != "" {
                         button.setImage(nil, for: .normal)
                         button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
                     }
@@ -158,12 +176,13 @@ class DiaryVC: UIViewController {
     }
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
         if let yasuo = segue.source as? popUpViewController {
-            let nasus = (yasuo.titleText.text , Int(yasuo.caloriesText.text!)! , yasuo.mode)
-            self.dataFromDetail.append(nasus as! (name: String, cal: Int, mode: Int))
-            eaten += Int(yasuo.caloriesText.text!)!
+            let nasus = (yasuo.titleText.text , Int(yasuo.caloriesText.text!) ?? 0 , yasuo.mode)
+            self.dataFromDetail.insert(nasus as! (name: String, cal: Int, mode: Int),at: yasuo.mode - 1 )
+            self.dataFromDetail.remove(at: yasuo.mode)
+          updateCaloriesFromFood()
             for button in btnFood {
                 for i in dataFromDetail {
-                    if button.tag == i.mode {
+                    if button.tag == i.mode && i.name != "" {
                         button.setImage(nil, for: .normal)
                         button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
                     }
@@ -171,14 +190,13 @@ class DiaryVC: UIViewController {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleGesture(_ sender: UILongPressGestureRecognizer) {
+            let alertController = UIAlertController(title: "DELETE", message:
+                "Are you sure you want to delete this item ?", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
     }
-    */
+    
 
 }
