@@ -19,18 +19,11 @@ class BreakfastVC: UIViewController {
     }
     func setUpNaBar() {
         navigationItem.title = "Breakfast"
+        
     }
 
     @IBAction func createFood(_ sender: Any) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "popUpID")  as! popUpViewController
-       // let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpID") as! popUpViewController
-      //  self.addChild(popOverVC)
-      //  popOverVC.view.frame = self.view.frame
-      //  self.view.addSubview(popOverVC.view)
-        //popOverVC.didMove(toParent: self)
-        //let vc = popUpViewController()
-       // vc.modalTransitionStyle = .crossDissolve
-       // vc.modalPresentationStyle = .overCurrentContext
+        let destination = storyboard?.instantiateViewController(withIdentifier: "popUpID")  as!popUpViewController
         self.present(destination, animated: true , completion: nil)
     }
     @IBAction func showListFood(_ sender: UIButton) {

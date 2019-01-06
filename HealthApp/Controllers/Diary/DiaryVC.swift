@@ -20,13 +20,25 @@ class DiaryVC: UIViewController {
     var ref: DatabaseReference!
     override func viewDidLoad() {
         getInfo()
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         self.tabBarController?.tabBar.isHidden = false
+        
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
     override func viewDidLayoutSubviews() {
         setUp()
     }
+   
     func getInfo() {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
@@ -116,6 +128,7 @@ class DiaryVC: UIViewController {
     @IBAction func showFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
         self.navigationController?.pushViewController(destination, animated: true)
+        
     }
     
     @IBAction func showActivityController(_ sender: UIButton) {
@@ -129,6 +142,7 @@ class DiaryVC: UIViewController {
              let nasus = yasuo.foodName
             self.dataNameFromDetailFood.append(nasus)
             eaten += yasuo.calories
+            
         }
     }
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
