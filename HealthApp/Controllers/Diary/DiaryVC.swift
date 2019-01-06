@@ -23,7 +23,6 @@ class DiaryVC: UIViewController {
     var calo  = 0
     var water = 0
     var drunk = 0
-    var temp = 0
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
@@ -139,7 +138,7 @@ class DiaryVC: UIViewController {
     }
  
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
-        temp = sender.tag
+        let temp = sender.tag
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
          destination.mode = temp
         self.navigationController?.pushViewController(destination, animated: true)
