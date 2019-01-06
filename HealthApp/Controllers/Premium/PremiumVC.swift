@@ -1,13 +1,14 @@
 //
-//  OverviewVC.swift
-//  
+//  PremiumVC.swift
+//  HealthApp
 //
 //  Created by Hồ  Huy on 1/6/19.
+//  Copyright © 2019 CodeWith2w1m. All rights reserved.
 //
 
 import UIKit
 
-class OverviewVC: UIViewController {
+class PremiumVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

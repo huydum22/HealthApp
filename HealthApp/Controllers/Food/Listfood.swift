@@ -11,11 +11,11 @@ import UIKit
 class ListFood: UITableViewController,UISearchBarDelegate {
     
     var activityIndicator:UIActivityIndicatorView!
-    var defaultSearchText : String?
+    var defaultSearchText = "food"
     var searchText = ""
     var flag = 10
     var isSearched = false
-    
+    var mode  = 0
     
     func fetchImage() {
            let Flag = String(flag)
@@ -44,7 +44,7 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchText = defaultSearchText!
+        searchText = defaultSearchText
         self.setUpNaBar()
         self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: "imageViewCell")
         
@@ -111,6 +111,12 @@ class ListFood: UITableViewController,UISearchBarDelegate {
         return urlFoodArr.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if mode == 0 {
+            let cell = storyboard?.instantiateViewController(withIdentifier: "Premium") as! PremiumVC
+            self.navigationController?.pushViewController(cell, animated: true)
+        }
+        else {
+            
         let cell = storyboard?.instantiateViewController(withIdentifier: "DetailFood") as? DetailFood
         
         cell!.mainImageView.loadImageUsingUrlString(urlString: urlFoodArr[indexPath.row].image!)
@@ -127,8 +133,9 @@ class ListFood: UITableViewController,UISearchBarDelegate {
         cell?.other1 = Int(urlFoodArr[indexPath.row].totalNutrients?.CHOLE?.quantity ?? 0)
         cell?.other2 = Int(urlFoodArr[indexPath.row].totalNutrients?.NA?.quantity ?? 0)
         cell?.other3 = Int(urlFoodArr[indexPath.row].totalNutrients?.K?.quantity ?? 0)
-        
+        cell?.mode = self.mode
         self.navigationController?.pushViewController(cell!, animated: true)
+        }
     }
     func  searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         flag = 10
@@ -146,7 +153,7 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchText != "" {
             flag = 10
-            searchText = defaultSearchText!
+            searchText = defaultSearchText
             searchBar.text = ""
             urlFoodArr = [foodData]()
             fetchImage()

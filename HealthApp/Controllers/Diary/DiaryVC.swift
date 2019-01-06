@@ -11,11 +11,19 @@ import MBCircularProgressBar
 import Firebase
 class DiaryVC: UIViewController {
    
+    @IBOutlet var btnWater: [UIButton]!
+    @IBOutlet weak var caloriesBar: MBCircularProgressBarView!
+    @IBOutlet weak var waterBar: MBCircularProgressBarView!
+    @IBOutlet weak var eatenLabel: UILabel!
+    @IBOutlet weak var drunkLabel: UILabel!
+    @IBOutlet weak var burnLablel: UILabel!
+    @IBOutlet var btnFood: [UIButton]!
+
     var eaten = 0
     var calo  = 0
     var water = 0
     var drunk = 0
-    var dataNameFromDetailFood = [String]()
+    var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -93,16 +101,8 @@ class DiaryVC: UIViewController {
         
     }
 
-    @IBOutlet var btnWater: [UIButton]!
-    @IBOutlet weak var caloriesBar: MBCircularProgressBarView!
-    
-    @IBOutlet weak var waterBar: MBCircularProgressBarView!
-    
-    @IBOutlet weak var eatenLabel: UILabel!
-    
-    @IBOutlet weak var drunkLabel: UILabel!
-    @IBOutlet weak var burnLablel: UILabel!
-    
+
+
     
     @IBAction func tappedWaterGlass(_ sender: UIButton) {
         drunk = sender.tag
@@ -126,29 +126,14 @@ class DiaryVC: UIViewController {
     }
  
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
+        let temp = sender.tag
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
+         destination.mode = temp
         destination.navigationItem.title = "Breakfast"
         self.navigationController?.pushViewController(destination, animated: true)
         
     }
-    @IBAction func showLunchFoodController(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-        destination.navigationItem.title = "Lunch"
-        self.navigationController?.pushViewController(destination, animated: true)
-        
-    }
-    @IBAction func showDinnerFoodController(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-        destination.navigationItem.title = "Dinner"
-        self.navigationController?.pushViewController(destination, animated: true)
-        
-    }
-    @IBAction func showSnackFoodController(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-        destination.navigationItem.title = "Snack"
-        self.navigationController?.pushViewController(destination, animated: true)
-        
-    }
+   
     
     @IBAction func showActivityController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "ActivityID")  as! ActivityVC
@@ -158,17 +143,32 @@ class DiaryVC: UIViewController {
     
     @IBAction func saveDataFromDetailFood(segue: UIStoryboardSegue){
         if let yasuo = segue.source as? DetailFood {
-             let nasus = yasuo.foodName
-            self.dataNameFromDetailFood.append(nasus)
+            let nasus = (yasuo.foodName , yasuo.calories , yasuo.mode)
+            self.dataFromDetail.append(nasus)
             eaten += yasuo.calories
-            
+            for button in btnFood {
+                for i in dataFromDetail {
+                    if button.tag == i.mode {
+                        button.setImage(nil, for: .normal)
+                        button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
+                    }
+                }
+            }
         }
     }
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
         if let yasuo = segue.source as? popUpViewController {
-            let nasus = yasuo.titleText.text
-            self.dataNameFromDetailFood.append(nasus!)
+            let nasus = (yasuo.titleText.text , Int(yasuo.caloriesText.text!)! , yasuo.mode)
+            self.dataFromDetail.append(nasus as! (name: String, cal: Int, mode: Int))
             eaten += Int(yasuo.caloriesText.text!)!
+            for button in btnFood {
+                for i in dataFromDetail {
+                    if button.tag == i.mode {
+                        button.setImage(nil, for: .normal)
+                        button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
+                    }
+                }
+            }
         }
     }
     /*

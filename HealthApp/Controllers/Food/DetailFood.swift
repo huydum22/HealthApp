@@ -50,6 +50,7 @@ class DetailFood: UIViewController {
     var other2 = 1
     var other3 = 1
     var sendDatatoDiary = ""
+    var mode = 0
     //
     override func viewDidLoad() {
         super.viewDidLoad()

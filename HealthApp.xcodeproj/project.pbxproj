@@ -22,8 +22,8 @@
 		51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */; };
 		51C5F6F421B66B0000FC90CF /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6F321B66B0000FC90CF /* ActivityVC.swift */; };
 		51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6F621B66F7F00FC90CF /* helper.swift */; };
+		51D18C5D21E202A600198CB6 /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D18C5C21E202A600198CB6 /* PremiumVC.swift */; };
 		51D6A36621B56057009CF67A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A36521B56057009CF67A /* LoginVC.swift */; };
-		51D6A36921B58467009CF67A /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A36821B58467009CF67A /* OverviewVC.swift */; };
 		642D4F169379CC6B2E74F7F1 /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */; };
 		850F029C21CBE84900333D03 /* DetailFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029621CBE84800333D03 /* DetailFood.swift */; };
 		850F029D21CBE84900333D03 /* BreakfastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029721CBE84900333D03 /* BreakfastVC.swift */; };
@@ -58,8 +58,8 @@
 		51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryVC.swift; sourceTree = "<group>"; };
 		51C5F6F321B66B0000FC90CF /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		51C5F6F621B66F7F00FC90CF /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		51D18C5C21E202A600198CB6 /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
 		51D6A36521B56057009CF67A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		51D6A36821B58467009CF67A /* OverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850F029621CBE84800333D03 /* DetailFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFood.swift; sourceTree = "<group>"; };
 		850F029721CBE84900333D03 /* BreakfastVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastVC.swift; sourceTree = "<group>"; };
@@ -221,6 +221,7 @@
 		51C5F6F821B66FC800FC90CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				51D18C5B21E2024D00198CB6 /* Premium */,
 				51C5F6E721B66A5400FC90CF /* Food */,
 				51D6A36721B58446009CF67A /* OverviewSrc */,
 				51D6A36421B56024009CF67A /* LoginSrc */,
@@ -234,6 +235,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		51D18C5B21E2024D00198CB6 /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				51D18C5C21E202A600198CB6 /* PremiumVC.swift */,
+			);
+			path = Premium;
+			sourceTree = "<group>";
+		};
 		51D6A36421B56024009CF67A /* LoginSrc */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +254,6 @@
 		51D6A36721B58446009CF67A /* OverviewSrc */ = {
 			isa = PBXGroup;
 			children = (
-				51D6A36821B58467009CF67A /* OverviewVC.swift */,
 			);
 			path = OverviewSrc;
 			sourceTree = "<group>";
@@ -423,8 +431,8 @@
 				850F02A121CBE84900333D03 /* Listfood.swift in Sources */,
 				51A2330021B5A8A400ECC54C /* Person.swift in Sources */,
 				5179213621C72B7800DDBFBB /* genderVC.swift in Sources */,
+				51D18C5D21E202A600198CB6 /* PremiumVC.swift in Sources */,
 				51C5F6EA21B66AA900FC90CF /* GoalVC.swift in Sources */,
-				51D6A36921B58467009CF67A /* OverviewVC.swift in Sources */,
 				51C5F6F421B66B0000FC90CF /* ActivityVC.swift in Sources */,
 				850F029F21CBE84900333D03 /* Json.swift in Sources */,
 				850F029E21CBE84900333D03 /* ImageViewCell.swift in Sources */,

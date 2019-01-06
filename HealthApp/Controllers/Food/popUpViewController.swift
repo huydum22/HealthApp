@@ -12,6 +12,8 @@ class popUpViewController: UIViewController {
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var caloriesText: UITextField!
+    var mode  = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          UI.addDoneButtonForTextField(controls: [titleText,caloriesText])
