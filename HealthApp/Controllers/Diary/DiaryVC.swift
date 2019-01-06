@@ -18,13 +18,12 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var drunkLabel: UILabel!
     @IBOutlet weak var burnLablel: UILabel!
     @IBOutlet var btnFood: [UIButton]!
-    var longGesture = UILongPressGestureRecognizer()
     var eaten = 0
     var calo  = 0
     var water = 0
     var drunk = 0
-    var queo = 0
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
+    var longGesture = UILongPressGestureRecognizer()
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
