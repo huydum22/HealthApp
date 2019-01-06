@@ -125,8 +125,27 @@ class DiaryVC: UIViewController {
         }
     }
  
-    @IBAction func showFoodController(_ sender: UIButton) {
+    @IBAction func showBreakfastFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
+        destination.navigationItem.title = "Breakfast"
+        self.navigationController?.pushViewController(destination, animated: true)
+        
+    }
+    @IBAction func showLunchFoodController(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
+        destination.navigationItem.title = "Lunch"
+        self.navigationController?.pushViewController(destination, animated: true)
+        
+    }
+    @IBAction func showDinnerFoodController(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
+        destination.navigationItem.title = "Dinner"
+        self.navigationController?.pushViewController(destination, animated: true)
+        
+    }
+    @IBAction func showSnackFoodController(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
+        destination.navigationItem.title = "Snack"
         self.navigationController?.pushViewController(destination, animated: true)
         
     }

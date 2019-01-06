@@ -11,7 +11,8 @@ import UIKit
 class ListFood: UITableViewController,UISearchBarDelegate {
     
     var activityIndicator:UIActivityIndicatorView!
-    var searchText = "breakfast"
+    var defaultSearchText : String?
+    var searchText = ""
     var flag = 10
     var isSearched = false
     
@@ -43,6 +44,7 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchText = defaultSearchText!
         self.setUpNaBar()
         self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: "imageViewCell")
         
@@ -144,7 +146,7 @@ class ListFood: UITableViewController,UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchText != "" {
             flag = 10
-            searchText = "breakfast"
+            searchText = defaultSearchText!
             searchBar.text = ""
             urlFoodArr = [foodData]()
             fetchImage()

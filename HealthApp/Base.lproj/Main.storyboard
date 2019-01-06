@@ -685,7 +685,7 @@
                                                         </constraints>
                                                         <state key="normal" image="icons8-bread"/>
                                                         <connections>
-                                                            <action selector="showFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="FIp-wD-z8F"/>
+                                                            <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Fg4-au-bs5"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 541 - 757 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-i3-v4H">
@@ -736,7 +736,7 @@
                                                         </constraints>
                                                         <state key="normal" image="icons8-chicken"/>
                                                         <connections>
-                                                            <action selector="showFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="aWg-Ox-CyT"/>
+                                                            <action selector="showLunchFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="F5B-aL-G12"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -769,7 +769,7 @@
                                                         </constraints>
                                                         <state key="normal" image="icons8-fish_food"/>
                                                         <connections>
-                                                            <action selector="showFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="bhd-IN-rRD"/>
+                                                            <action selector="showDinnerFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="4iU-3S-GKS"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 843 - 1103 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-pE-lvQ">
@@ -811,7 +811,7 @@
                                                         </constraints>
                                                         <state key="normal" image="icons8-mcdonalds_french_fries"/>
                                                         <connections>
-                                                            <action selector="showFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="p8c-2x-9iR"/>
+                                                            <action selector="showSnackFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="6v9-Vv-LXc"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 0 - 432 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-wO-1tH">
@@ -1932,6 +1932,9 @@
                                     <constraint firstAttribute="bottom" secondItem="56K-Br-Lmu" secondAttribute="bottom" id="j1O-GO-54V"/>
                                     <constraint firstItem="56K-Br-Lmu" firstAttribute="top" secondItem="to7-XN-WAr" secondAttribute="top" id="wES-FJ-hNb"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Z55-eN-an1" id="Pp3-g7-Pzg"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1945,7 +1948,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a4r-4A-WgR"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="320" height="686"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>

@@ -14,12 +14,10 @@ class BreakfastVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNaBar()
         // Do any additional setup after loading the view.
     }
-    func setUpNaBar() {
-        navigationItem.title = "Breakfast"
-        
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.largeTitleDisplayMode  = .always
     }
 
     @IBAction func createFood(_ sender: Any) {
@@ -27,8 +25,9 @@ class BreakfastVC: UIViewController {
         self.present(destination, animated: true , completion: nil)
     }
     @IBAction func showListFood(_ sender: UIButton) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "ListFoodID")  
-        self.navigationController?.pushViewController(destination!, animated: true)
+        let destination = storyboard?.instantiateViewController(withIdentifier: "ListFoodID") as! ListFood
+        destination.defaultSearchText = self.navigationItem.title ?? "food"
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     /*
     // MARK: - Navigation
