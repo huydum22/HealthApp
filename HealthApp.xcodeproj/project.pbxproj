@@ -16,6 +16,7 @@
 		517C3DA321B55DD50080D449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DA221B55DD50080D449 /* GoogleService-Info.plist */; };
 		518A320421E24FFA00B14878 /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518A320321E24FFA00B14878 /* OverviewVC.swift */; };
 		518A320621E26C5800B14878 /* BodyStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518A320521E26C5800B14878 /* BodyStatsVC.swift */; };
+		518A320821E2FDEF00B14878 /* MeasurementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518A320721E2FDEF00B14878 /* MeasurementsVC.swift */; };
 		51A2330021B5A8A400ECC54C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A232FF21B5A8A400ECC54C /* Person.swift */; };
 		51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2330221B5A9CC00ECC54C /* InputDataVC.swift */; };
 		51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */; };
@@ -51,6 +52,7 @@
 		517C3DA221B55DD50080D449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		518A320321E24FFA00B14878 /* OverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		518A320521E26C5800B14878 /* BodyStatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyStatsVC.swift; sourceTree = "<group>"; };
+		518A320721E2FDEF00B14878 /* MeasurementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsVC.swift; sourceTree = "<group>"; };
 		51A232FF21B5A8A400ECC54C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		51A2330221B5A9CC00ECC54C /* InputDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataVC.swift; sourceTree = "<group>"; };
 		51C5F6EF21B66ADE00FC90CF /* DiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryVC.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			children = (
 				518A320321E24FFA00B14878 /* OverviewVC.swift */,
 				518A320521E26C5800B14878 /* BodyStatsVC.swift */,
+				518A320721E2FDEF00B14878 /* MeasurementsVC.swift */,
 			);
 			path = OverviewSrc;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				51D18C5D21E202A600198CB6 /* PremiumVC.swift in Sources */,
 				DFC4E6AC21E2425F0018E2A0 /* ExerciseRecentTableViewCell.swift in Sources */,
 				DFC4E6AF21E2425F0018E2A0 /* ListExercises.swift in Sources */,
+				518A320821E2FDEF00B14878 /* MeasurementsVC.swift in Sources */,
 				518A320421E24FFA00B14878 /* OverviewVC.swift in Sources */,
 				850F029F21CBE84900333D03 /* Json.swift in Sources */,
 				850F029E21CBE84900333D03 /* ImageViewCell.swift in Sources */,

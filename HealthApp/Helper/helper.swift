@@ -22,18 +22,20 @@ extension LoginVC : FUIAuthDelegate {
                     haveUIDFromFirebase = 1
                 }
             }
+            self.userDefault.set(true, forKey: "UserLogined")
             
             if (haveUIDFromFirebase == 0 ){
+                self.userDefault.set(true, forKey: "NewUser")
                 self.ref.child((authDataResult?.user.uid)!).child("UID").setValue((authDataResult?.user.uid)!)
                 self.ref.child((authDataResult?.user.uid)!).child("Email").setValue(authDataResult?.user.email)
-                let destination = self.storyboard?.instantiateViewController(withIdentifier: "MenuInputSrc")
-                self.present(destination!, animated: true, completion: nil)
-                
+                print("1")
             }
-            else {
-                let destination = self.storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
-                self.present(destination!, animated: true, completion: nil)
+            if (haveUIDFromFirebase != 0 ) {
+                self.userDefault.set(true, forKey: "OldUser")
+                print("2")
             }
+            self.userDefault.synchronize()
+            self.viewDidAppear(true)
         }
     }
 }

@@ -18,6 +18,7 @@ class OverviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = false
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
             print(data)
@@ -36,12 +37,20 @@ class OverviewVC: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
     
     @IBAction func UpgradeTapped(_ sender: UIButton) {
         let destination = self.storyboard?.instantiateViewController(withIdentifier: "Premium")
         self.navigationController?.pushViewController(destination!, animated: true)
     }
     
+    @IBAction func BodyTapped(_ sender: UIButton) {
+        let destination = self.storyboard?.instantiateViewController(withIdentifier: "BodyStats")
+        self.navigationController?.pushViewController(destination!, animated: true)
+    }
     /*
     // MARK: - Navigation
 
