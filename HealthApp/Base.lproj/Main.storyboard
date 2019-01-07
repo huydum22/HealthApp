@@ -961,7 +961,7 @@
                                             <action selector="cancelClick:" destination="kVo-46-wID" eventType="touchUpInside" id="dJB-kb-PJr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-qx-J8B">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-qx-J8B">
                                         <rect key="frame" x="252" y="120" width="37" height="30"/>
                                         <state key="normal" title="SAVE"/>
                                         <connections>
@@ -1001,6 +1001,7 @@
                     </view>
                     <connections>
                         <outlet property="caloriesText" destination="ioL-lc-QJu" id="XGx-yz-na7"/>
+                        <outlet property="saveButton" destination="ueg-qx-J8B" id="t4E-r7-0ap"/>
                         <outlet property="titleText" destination="is9-pc-COb" id="j8S-7u-zUs"/>
                     </connections>
                 </viewController>
