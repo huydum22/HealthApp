@@ -68,7 +68,7 @@ extension ExerciseRecentVC: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseRecentTableViewCell") as! ExerciseRecentTableViewCell
         
         cell.NameLabel.text = ExerciseRecentList[indexPath.row].Name
-        let caloburn = UserWeight * 0.0175
+        let caloburn = UserWeight * 0.0175 * ExerciseRecentList[indexPath.row].MetValue!
         cell.kcaloBurnedLabel.text = String(format: "%d kcalo/minute", Int(caloburn))
         
         

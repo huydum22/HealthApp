@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+
 
 class ExerciseSimpleCaloriesVC: UIViewController {
 
     @IBOutlet weak var TiltleTextField: UITextField!
     @IBOutlet weak var CaloriesTextField: UITextField!
+    var strTodayDate:String?
+    var UserID: String?
+    var TotalCaloriesBurned = 0
+    var ref: DatabaseReference?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -20,6 +27,29 @@ class ExerciseSimpleCaloriesVC: UIViewController {
         AddDoneButtonForNumpad()
         TiltleTextField.underlined()
         CaloriesTextField.underlined()
+        
+        
+        
+        
+        
+        
+        
+        let Dateformatter = DateFormatter()
+        
+        Dateformatter.dateFormat = "dd-MM-yyyy"
+        strTodayDate = Dateformatter.string(from: Date())
+        
+        UserID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference().child(UserID!).child("ExerciseDailyData").child(strTodayDate!)
+        
+        ref!.observe(.value) { (DataSnapshot) in
+            if (DataSnapshot.hasChild("TotalCaloriesBurned"))
+            {
+                let json = DataSnapshot.value as! [String:AnyObject]
+                self.TotalCaloriesBurned = json["TotalCaloriesBurned"] as! Int
+            }
+            
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -49,6 +79,8 @@ class ExerciseSimpleCaloriesVC: UIViewController {
             CaloriesTextField.layer.shadowColor = UIColor.red.cgColor
             return
         }
+        TotalCaloriesBurned = TotalCaloriesBurned + Int(CaloriesTextField.text!)!
+        WrireDataIntoFirebase()
             self.view.removeFromSuperview()
        
     }
@@ -68,6 +100,19 @@ class ExerciseSimpleCaloriesVC: UIViewController {
     @objc func DoneAction(){
         CaloriesTextField.endEditing(true)
     
+    }
+    
+    func WrireDataIntoFirebase() {
+        
+        
+        let ExerciseListDailyDataRef = ref!.child("ExerciseList").childByAutoId()
+        ExerciseListDailyDataRef.child("Name").setValue(TiltleTextField.text)
+        ExerciseListDailyDataRef.child("Minutes").setValue(0)
+        ExerciseListDailyDataRef.child("Calories").setValue(CaloriesTextField.text)
+        
+        
+        let ExerciseTotalCaloriesBurnedRef = ref!.child("TotalCaloriesBurned")
+        ExerciseTotalCaloriesBurnedRef.setValue(TotalCaloriesBurned)
     }
     /*
     // MARK: - Navigation
