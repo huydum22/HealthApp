@@ -114,7 +114,7 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryID" id="ZLJ-mq-BWv" customClass="DiaryVC" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kOa-v8-jIY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="994-bJ-cW5">
@@ -2071,7 +2071,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFood" id="Z55-eN-an1" customClass="DetailFood" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="evc-cT-gEv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to7-XN-WAr">
@@ -3126,7 +3126,7 @@
                                                             </button>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-9p-JZk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="221" height="0.0"/>
-                                                                <state key="normal" title="Low ( 1 times/week)">
+                                                                <state key="normal" title="Lazy cat (Say No with Exercise!)">
                                                                     <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -3186,7 +3186,7 @@
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqG-n7-ptu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="221" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <state key="normal" title="absolute ( &gt;7 times/week )">
+                                                                <state key="normal" title="Absolute ( &gt;7 times/week )">
                                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
