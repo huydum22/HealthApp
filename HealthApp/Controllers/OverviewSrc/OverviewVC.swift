@@ -51,6 +51,10 @@ class OverviewVC: UIViewController {
         let destination = self.storyboard?.instantiateViewController(withIdentifier: "BodyStats")
         self.navigationController?.pushViewController(destination!, animated: true)
     }
+    @IBAction func settingTapped(_ sender: UIButton) {
+        let destination = self.storyboard?.instantiateViewController(withIdentifier: "setting")
+        self.navigationController?.pushViewController(destination!, animated: true)
+    }
     /*
     // MARK: - Navigation
 

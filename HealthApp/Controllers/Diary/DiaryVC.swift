@@ -32,7 +32,8 @@ class DiaryVC: UIViewController {
         setUpLongPressGesture()
        setUpDataFormDetailArr()
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isHidden = false
+
         // Do any additional setup after loading the view.
     }
     func setUpDataFormDetailArr() {
@@ -42,7 +43,8 @@ class DiaryVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.tabBarController?.tabBar.isHidden = false
+
         
         
     }
