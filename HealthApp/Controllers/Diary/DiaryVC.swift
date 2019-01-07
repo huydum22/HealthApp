@@ -24,6 +24,7 @@ class DiaryVC: UIViewController {
     var drunk = 0
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     var longGesture = UILongPressGestureRecognizer()
+    var idButton = 0
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -137,9 +138,8 @@ class DiaryVC: UIViewController {
     }
  
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
-        let temp = sender.tag
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-         destination.mode = temp
+         destination.mode = idButton
         self.navigationController?.pushViewController(destination, animated: true)
         
     }
@@ -188,13 +188,50 @@ class DiaryVC: UIViewController {
             }
         }
     }
+    
+    func deleteFood(alert: UIAlertAction!) {
+        switch idButton {
+        case 1:
+            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-bread"), for: .normal)
+            btnFood[idButton-1].setTitle(nil, for: .normal)
+            dataFromDetail.insert(("",0,1), at: idButton-1)
+            dataFromDetail.remove(at: idButton)
+        case 2:
+            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-chicken"), for: .normal)
+            btnFood[idButton-1].setTitle(nil, for: .normal)
+            dataFromDetail.insert(("",0,2), at: idButton-1)
+            dataFromDetail.remove(at: idButton)
+        case 3:
+            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
+            btnFood[idButton-1].setTitle(nil, for: .normal)
+            dataFromDetail.insert(("",0,3), at: idButton-1)
+            dataFromDetail.remove(at: idButton)
+        case 4:
+            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
+            btnFood[idButton-1].setTitle(nil, for: .normal)
+            dataFromDetail.insert(("",0,4), at: idButton-1)
+            dataFromDetail.remove(at: idButton)
+        default:
+            btnFood[4].setImage(#imageLiteral(resourceName: "icons8-climbing-shoes-48"), for: .normal)
+            btnFood[4].setTitle(nil, for: .normal)
+        }
+        print(dataFromDetail)
+        print(eaten)
+        updateCaloriesFromFood()
+        print(eaten)
+    }
     @objc func handleGesture(_ sender: UILongPressGestureRecognizer) {
             let alertController = UIAlertController(title: "DELETE", message:
                 "Are you sure you want to delete this item ?", preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default,handler: nil))
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: deleteFood))
             self.present(alertController, animated: true, completion: nil)
     }
     
 
+  
+    @IBAction func identifyButton(_ sender: UIButton) {
+        idButton = sender.tag
+    }
+    
 }

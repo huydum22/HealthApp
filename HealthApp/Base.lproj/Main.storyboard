@@ -448,6 +448,7 @@
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="identifyButton:" destination="ZLJ-mq-BWv" eventType="touchDown" id="thT-nl-PYt"/>
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Fg4-au-bs5"/>
                                                         </connections>
                                                     </button>
@@ -506,6 +507,7 @@
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="identifyButton:" destination="ZLJ-mq-BWv" eventType="touchDown" id="t46-3Z-Dmz"/>
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="PjE-Rt-nZh"/>
                                                         </connections>
                                                     </button>
@@ -546,6 +548,7 @@
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="identifyButton:" destination="ZLJ-mq-BWv" eventType="touchDown" id="HrY-hG-fGN"/>
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Xf9-bu-VpL"/>
                                                         </connections>
                                                     </button>
@@ -595,6 +598,7 @@
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="identifyButton:" destination="ZLJ-mq-BWv" eventType="touchDown" id="qAK-21-lHk"/>
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="yts-wl-B9I"/>
                                                         </connections>
                                                     </button>
@@ -647,6 +651,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="identifyButton:" destination="ZLJ-mq-BWv" eventType="touchDown" id="ynG-cp-SgF"/>
                                                             <action selector="showActivityController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Svw-01-oHV"/>
                                                         </connections>
                                                     </button>
@@ -2889,7 +2894,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-uT-yqi">
-                                <rect key="frame" x="316" y="31.5" width="49" height="36"/>
+                                <rect key="frame" x="316" y="25.5" width="49" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="02Q-cs-3i9"/>
                                 </constraints>
