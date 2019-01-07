@@ -19,6 +19,7 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var burnLablel: UILabel!
     @IBOutlet var btnFood: [UIButton]!
 
+    @IBOutlet weak var ExerciseLabelUIView: UIView!
     var eaten = 0
     var calo  = 0
     var water = 0
@@ -30,7 +31,8 @@ class DiaryVC: UIViewController {
         getInfo()
         
         super.viewDidLoad()
-
+        underlined()
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,16 @@ class DiaryVC: UIViewController {
         
         
     }
+    func underlined(){
+        
+        
+        self.ExerciseLabelUIView.layer.masksToBounds = false
+        self.ExerciseLabelUIView.layer.shadowColor = UIColor.black.cgColor
+        self.ExerciseLabelUIView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.ExerciseLabelUIView.layer.shadowOpacity = 1.0
+        self.ExerciseLabelUIView.layer.shadowRadius = 0.0
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -180,5 +192,6 @@ class DiaryVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
+
