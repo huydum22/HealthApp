@@ -114,7 +114,7 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryID" id="ZLJ-mq-BWv" customClass="DiaryVC" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kOa-v8-jIY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="994-bJ-cW5">
@@ -2071,7 +2071,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailFood" id="Z55-eN-an1" customClass="DetailFood" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="evc-cT-gEv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to7-XN-WAr">
@@ -3397,7 +3397,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-uT-yqi">
-                                <rect key="frame" x="316" y="31.5" width="49" height="36"/>
+                                <rect key="frame" x="316" y="25.5" width="49" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="02Q-cs-3i9"/>
                                 </constraints>
@@ -3504,16 +3504,16 @@
         <image name="1200px-Google_Fit_2018_Logo" width="1200" height="1200"/>
         <image name="589a3469-2183-4eee-9840-05bc57475126._SR285,285_" width="285" height="285"/>
         <image name="icons8-about" width="26" height="26"/>
-        <image name="icons8-add-48" width="36" height="36"/>
+        <image name="icons8-add-48" width="48" height="48"/>
         <image name="icons8-aquarius" width="32" height="32"/>
         <image name="icons8-book" width="32" height="32"/>
         <image name="icons8-bread" width="64" height="64"/>
         <image name="icons8-chicken" width="64" height="64"/>
-        <image name="icons8-climbing-shoes-48" width="36" height="36"/>
+        <image name="icons8-climbing-shoes-48" width="48" height="48"/>
         <image name="icons8-cook_female" width="32" height="32"/>
-        <image name="icons8-dumbbell-48" width="36" height="36"/>
+        <image name="icons8-dumbbell-48" width="48" height="48"/>
         <image name="icons8-fish_food" width="80" height="80"/>
-        <image name="icons8-iphone-x-48" width="36" height="36"/>
+        <image name="icons8-iphone-x-48" width="48" height="48"/>
         <image name="icons8-likes_folder_filled" width="32" height="32"/>
         <image name="icons8-login_rounded" width="20" height="20"/>
         <image name="icons8-mcdonalds_french_fries" width="64" height="64"/>
@@ -3524,7 +3524,7 @@
         <image name="icons8-settings_filled" width="32" height="32"/>
         <image name="icons8-starfish" width="32" height="32"/>
         <image name="icons8-term" width="20" height="20"/>
-        <image name="icons8-time-machine-40" width="30" height="30"/>
+        <image name="icons8-time-machine-40" width="40" height="40"/>
         <image name="icons8-water_bottle" width="32" height="32"/>
         <image name="icons8-writer_male" width="32" height="32"/>
         <image name="placeholder" width="1500" height="1500"/>

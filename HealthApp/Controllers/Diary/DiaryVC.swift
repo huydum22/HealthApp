@@ -18,7 +18,7 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var drunkLabel: UILabel!
     @IBOutlet weak var burnLablel: UILabel!
     @IBOutlet var btnFood: [UIButton]!
-    var eaten = 0
+    var eaten = -1
     var calo  = 0
     var water = 0
     var drunk = 0
@@ -33,8 +33,6 @@ class DiaryVC: UIViewController {
        setUpDataFormDetailArr()
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
-
-        // Do any additional setup after loading the view.
     }
     func setUpDataFormDetailArr() {
         for i in 1 ... 4 {
@@ -52,7 +50,7 @@ class DiaryVC: UIViewController {
         super.viewWillAppear(animated)
     }
     override func viewDidLayoutSubviews() {
-        setUp()
+       setUp()
     }
    func setUpLongPressGesture() {
         for button in btnFood {
@@ -75,7 +73,6 @@ class DiaryVC: UIViewController {
         }
     }
     func setUp() {
-        if drunk != 0 {
             if drunk * 250 >= water {
                 let overWater =  drunk * 250 - water
                 self.waterBar.value = CGFloat(overWater)
@@ -92,9 +89,8 @@ class DiaryVC: UIViewController {
                 
             }
             drunkLabel.text = "Drunk: " + String(drunk * 250)
-        }
         
-        if eaten != 0 {
+        if eaten >= 0 {
             if eaten >= calo {
                 let overCalo = eaten - calo
                 self.caloriesBar.value = CGFloat(overCalo)
@@ -112,7 +108,6 @@ class DiaryVC: UIViewController {
             }
             eatenLabel.text = "Eaten: " + String(eaten)
         }
-        
     }
 
 
@@ -217,10 +212,7 @@ class DiaryVC: UIViewController {
             btnFood[4].setImage(#imageLiteral(resourceName: "icons8-climbing-shoes-48"), for: .normal)
             btnFood[4].setTitle(nil, for: .normal)
         }
-        print(dataFromDetail)
-        print(eaten)
         updateCaloriesFromFood()
-        print(eaten)
     }
     @objc func handleGesture(_ sender: UILongPressGestureRecognizer) {
             let alertController = UIAlertController(title: "DELETE", message:
