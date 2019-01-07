@@ -14,6 +14,8 @@ class BreakfastVC: UIViewController {
     var mode = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

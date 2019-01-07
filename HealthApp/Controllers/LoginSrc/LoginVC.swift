@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseUI
-
 class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
@@ -25,7 +24,6 @@ class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         signInButton.style = GIDSignInButtonStyle.wide
         ref = Database.database().reference()
-      
     }
     
     
@@ -40,12 +38,12 @@ class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
-        userDefault.set(true, forKey: "UserLogined")
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
+            self.userDefault.set(true, forKey: "UserLogined")
             self.userDefault.synchronize()
             var haveUIDFromFirebase = 0
             self.ref.observe(.value) { (snapshot) in
@@ -56,25 +54,34 @@ class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
                     }
                 }
                 if (haveUIDFromFirebase == 0 ){
+                    self.userDefault.set(true, forKey: "NewUser")
                     self.ref.child((authResult?.user.uid)!).child("UID").setValue((authResult?.user.uid)!)
                     self.ref.child((authResult?.user.uid)!).child("Email").setValue((authResult?.user.email)!)
-                    let destination = self.storyboard?.instantiateViewController(withIdentifier: "MenuInputSrc")
-                    self.present(destination!, animated: true, completion: nil)
+                    print("1")
                 }
-                else {
-                    let destination = self.storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
-                    self.present(destination!, animated: true, completion: nil)
+                if (haveUIDFromFirebase != 0 ) {
+                    self.userDefault.set(true, forKey: "OldUser")
+                    print("2")
                 }
+                self.userDefault.synchronize()
+                self.viewDidAppear(true)
             }
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: "UserLogined" ) == true {
-            let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
-            present(destination!, animated: true, completion: nil)
+        if userDefault.bool(forKey: "UserLogined" ) {
+            if userDefault.bool(forKey:"OldUser" ) {
+                let destination = storyboard?.instantiateViewController(withIdentifier: "OverviewSrc")
+                present(destination!, animated: true, completion: nil)
+                
+            }
+            if userDefault.bool(forKey:"NewUser" ) {
+                let destination = storyboard?.instantiateViewController(withIdentifier: "MenuInputSrc")
+                present(destination!, animated: true, completion: nil)
+            }
         }
     }
-
+    
     
     @IBAction func LogInTapped(_ sender: UIButton) {
         let authUI = FUIAuth.defaultAuthUI()
@@ -89,14 +96,18 @@ class LoginVC: UIViewController , GIDSignInUIDelegate, GIDSignInDelegate {
     @IBAction func LogInTappedGG(_ sender: GIDSignInButton) {
         GIDSignIn.sharedInstance().signIn()
     }
-    
     @IBAction func Logout(segue: UIStoryboardSegue){
         GIDSignIn.sharedInstance()?.signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            
             userDefault.set(false, forKey: "UserLogined")
+            userDefault.set(false, forKey: "NewUser")
+            userDefault.set(false, forKey: "OldUser")
+            userDefault.synchronize()
             self.dismiss(animated: true, completion: nil)
+            
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
