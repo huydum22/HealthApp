@@ -115,7 +115,7 @@ class InputDataVC: UIViewController {
             })
         }
         switch btnPicker.titleLabel?.text {
-        case "Lazy cat (Say no with Exercise!)":
+        case "Lazy cat (Say No with Exercise!)":
             activitylevel = 1
         case "Medium (1-3 times/week)":
             activitylevel = 2
@@ -126,7 +126,7 @@ class InputDataVC: UIViewController {
         case "Absolute (>7 times/week )":
             activitylevel = 5
         default:
-            activitylevel = 1
+            activitylevel = 2
         }
     }
     

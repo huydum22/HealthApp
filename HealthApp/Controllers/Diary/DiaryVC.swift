@@ -10,7 +10,7 @@ import UIKit
 import MBCircularProgressBar
 import Firebase
 class DiaryVC: UIViewController {
-   
+    
     @IBOutlet var btnWater: [UIButton]!
     @IBOutlet weak var caloriesBar: MBCircularProgressBarView!
     @IBOutlet weak var waterBar: MBCircularProgressBarView!
@@ -20,9 +20,7 @@ class DiaryVC: UIViewController {
     @IBOutlet var btnFood: [UIButton]!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnDate: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var view1: UIView!
-    @IBOutlet weak var view2: UIView!
+ 
     
     var eaten = -1
     var calo  = 0
@@ -33,7 +31,7 @@ class DiaryVC: UIViewController {
     var idButton = 0
     
     
-  
+    
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -46,14 +44,14 @@ class DiaryVC: UIViewController {
         setUp()
         getInfo()
         setUpLongPressGesture()
-       setUpDataFormDetailArr()
+        setUpDataFormDetailArr()
         print("\(drunk) and \(eaten) and \(calo)")
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
+        super.viewDidAppear(animated)
         drunk = DRUNK
         eaten = EATEN
         calo = CALO
@@ -80,7 +78,7 @@ class DiaryVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-
+        
     }
     
     
@@ -92,7 +90,7 @@ class DiaryVC: UIViewController {
             dataFromDetail.append(("",0,i))
         }
     }
-   func setUpLongPressGesture() {
+    func setUpLongPressGesture() {
         for button in btnFood {
             longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiaryVC.handleGesture(_:)))
             longGesture.minimumPressDuration = 0.5
@@ -113,22 +111,22 @@ class DiaryVC: UIViewController {
         }
     }
     func setUp() {
-            if drunk * 250 >= water {
-                let overWater =  drunk * 250 - water
-                self.waterBar.value = CGFloat(overWater)
-                self.waterBar.maxValue = CGFloat(overWater)
-                self.waterBar.unitString = "ML over"
-            }
-            else {
-                let leftWater = water - drunk * 250
-                self.waterBar.value = CGFloat(leftWater)
-                let ratio = Float(water) / Float(drunk * 250)
-                let tmpWater = ratio * Float(leftWater)
-                self.waterBar.maxValue = CGFloat(tmpWater)
-                self.waterBar.unitString = "ML left"
-                
-            }
-            drunkLabel.text = "Drunk: " + String(drunk * 250)
+        if drunk * 250 >= water {
+            let overWater =  drunk * 250 - water
+            self.waterBar.value = CGFloat(overWater)
+            self.waterBar.maxValue = CGFloat(overWater)
+            self.waterBar.unitString = "ML over"
+        }
+        else {
+            let leftWater = water - drunk * 250
+            self.waterBar.value = CGFloat(leftWater)
+            let ratio = Float(water) / Float(drunk * 250)
+            let tmpWater = ratio * Float(leftWater)
+            self.waterBar.maxValue = CGFloat(tmpWater)
+            self.waterBar.unitString = "ML left"
+            
+        }
+        drunkLabel.text = "Drunk: " + String(drunk * 250)
         
         if eaten >= 0 {
             if eaten >= calo {
@@ -149,7 +147,7 @@ class DiaryVC: UIViewController {
             eatenLabel.text = "Eaten: " + String(eaten)
         }
     }
-
+    
     func getDBbreakfast ()
     {
         ref = Database.database().reference()
@@ -164,7 +162,7 @@ class DiaryVC: UIViewController {
                 }
                 else
                 {
-                    self.btnFood[0].setImage(#imageLiteral(resourceName: "icons8-bread"), for: .normal)
+                    self.btnFood[0].setImage( #imageLiteral(resourceName: "icons8-bread"), for: .normal)
                     self.btnFood[0].setTitle(nil, for: .normal)
                 }
             }
@@ -184,7 +182,7 @@ class DiaryVC: UIViewController {
                 }
                 else
                 {
-                    self.btnFood[1].setImage(#imageLiteral(resourceName: "icons8-chicken"), for: .normal)
+                    self.btnFood[1].setImage( #imageLiteral(resourceName: "icons8-chicken"), for: .normal)
                     self.btnFood[1].setTitle(nil, for: .normal)
                 }
             }
@@ -204,7 +202,7 @@ class DiaryVC: UIViewController {
                 }
                 else
                 {
-                    self.btnFood[2].setImage(#imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
+                    self.btnFood[2].setImage( #imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
                     self.btnFood[2].setTitle(nil, for: .normal)
                 }
             }
@@ -224,7 +222,7 @@ class DiaryVC: UIViewController {
                 }
                 else
                 {
-                    self.btnFood[3].setImage(#imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
+                    self.btnFood[3].setImage( #imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
                     self.btnFood[3].setTitle(nil, for: .normal)
                 }
             }
@@ -245,17 +243,17 @@ class DiaryVC: UIViewController {
         }
         for button in btnWater {
             if button.tag <= drunk{
-                button.setImage(#imageLiteral(resourceName: "icons8-bottle_of_water-1"), for: .normal)
+                button.setImage( #imageLiteral(resourceName: "icons8-bottle_of_water-1"), for: .normal)
             }
             else {
-                button.setImage(#imageLiteral(resourceName: "icons8-water_bottle"), for: .normal)
+                button.setImage( #imageLiteral(resourceName: "icons8-water_bottle"), for: .normal)
             }
         }
     }
     
     func updateCaloriesFromFood() {
         
-       
+        
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
             ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
@@ -268,7 +266,7 @@ class DiaryVC: UIViewController {
     }
     
     
-
+    
     @IBAction func dateTapped(_ sender: UIButton) {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.1) {
@@ -288,20 +286,20 @@ class DiaryVC: UIViewController {
         drunk += 1
         for button in btnWater {
             if button.tag == drunk {
-                button.setImage(#imageLiteral(resourceName: "icons8-bottle_of_water-1"), for: .normal
-                )
+                button.setImage( #imageLiteral(resourceName: "icons8-bottle_of_water-1"), for: .normal)
+                
             }
         }
         ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
     }
- 
+    
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
-         destination.mode = idButton
+        destination.mode = idButton
         self.navigationController?.pushViewController(destination, animated: true)
         
     }
-   
+    
     
     @IBAction func showActivityController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "ActivityID")  as! ActivityVC
@@ -333,7 +331,7 @@ class DiaryVC: UIViewController {
                 ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").setValue(["Snack":"\(nasus.0) : \(nasus.1)"])
             default: break
                 
-            
+                
             }
         }
     }
@@ -368,22 +366,22 @@ class DiaryVC: UIViewController {
     func deleteFood(alert: UIAlertAction!) {
         switch idButton {
         case 1:
-            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-bread"), for: .normal)
+            btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-bread"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,1), at: idButton-1)
             dataFromDetail.remove(at: idButton)
         case 2:
-            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-chicken"), for: .normal)
+            btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-chicken"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,2), at: idButton-1)
             dataFromDetail.remove(at: idButton)
         case 3:
-            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
+            btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,3), at: idButton-1)
             dataFromDetail.remove(at: idButton)
         case 4:
-            btnFood[idButton-1].setImage(#imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
+            btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,4), at: idButton-1)
             dataFromDetail.remove(at: idButton)
@@ -394,15 +392,15 @@ class DiaryVC: UIViewController {
         updateCaloriesFromFood()
     }
     @objc func handleGesture(_ sender: UILongPressGestureRecognizer) {
-            let alertController = UIAlertController(title: "DELETE", message:
-                "Are you sure you want to delete this item ?", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default,handler: nil))
+        let alertController = UIAlertController(title: "DELETE", message:
+            "Are you sure you want to delete this item ?", preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default,handler: nil))
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: deleteFood))
-            self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-
-  
+    
+    
     @IBAction func identifyButton(_ sender: UIButton) {
         idButton = sender.tag
     }
