@@ -18,6 +18,12 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var drunkLabel: UILabel!
     @IBOutlet weak var burnLablel: UILabel!
     @IBOutlet var btnFood: [UIButton]!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var btnDate: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    
     var eaten = -1
     var calo  = 0
     var water = 0
@@ -25,32 +31,66 @@ class DiaryVC: UIViewController {
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     var longGesture = UILongPressGestureRecognizer()
     var idButton = 0
+    
+    
+  
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     override func viewDidLoad() {
+        datePicker.addTarget(self, action: #selector(DiaryVC.dateChanged(datePicker:)), for: .valueChanged)
+        btnDate.setTitle(getday(), for: .normal)
+        getDBbreakfast()
+        getDBlunch()
+        getDBdinner()
+        getDBsnack()
+        setUp()
         getInfo()
         setUpLongPressGesture()
        setUpDataFormDetailArr()
+        print("\(drunk) and \(eaten) and \(calo)")
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
     }
-    func setUpDataFormDetailArr() {
-        for i in 1 ... 4 {
-            dataFromDetail.append(("",0,i))
-        }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-
-        
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+        drunk = DRUNK
+        eaten = EATEN
+        calo = CALO
+        print("\(drunk) and \(eaten) and \(calo)")
+        showGlass()
+        updateCaloriesFromFood()
+        getDBbreakfast()
+        getDBlunch()
+        getDBdinner()
+        getDBsnack()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     override func viewDidLayoutSubviews() {
-       setUp()
+        showGlass()
+        updateCaloriesFromFood()
+        setUp()
+        getDBbreakfast()
+        getDBlunch()
+        getDBdinner()
+        getDBsnack()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+    
+    
+    
+    
+    
+    func setUpDataFormDetailArr() {
+        for i in 1 ... 4 {
+            dataFromDetail.append(("",0,i))
+        }
     }
    func setUpLongPressGesture() {
         for button in btnFood {
@@ -110,11 +150,99 @@ class DiaryVC: UIViewController {
         }
     }
 
-
-
+    func getDBbreakfast ()
+    {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("breakfast").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                let temp = values?["Breakfast"] as? String   ?? ""
+                if temp != ""
+                {
+                    self.btnFood[0].setImage(nil, for: .normal)
+                    self.btnFood[0].setTitle(temp, for: .normal)
+                }
+                else
+                {
+                    self.btnFood[0].setImage(#imageLiteral(resourceName: "icons8-bread"), for: .normal)
+                    self.btnFood[0].setTitle(nil, for: .normal)
+                }
+            }
+        }
+    }
+    func getDBlunch ()
+    {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("lunch").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                let temp = values?["Lunch"] as? String   ?? ""
+                if temp != ""
+                {
+                    self.btnFood[1].setImage(nil, for: .normal)
+                    self.btnFood[1].setTitle(temp, for: .normal)
+                }
+                else
+                {
+                    self.btnFood[1].setImage(#imageLiteral(resourceName: "icons8-chicken"), for: .normal)
+                    self.btnFood[1].setTitle(nil, for: .normal)
+                }
+            }
+        }
+    }
+    func getDBdinner ()
+    {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("dinner").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                let temp = values?["Dinner"] as? String   ?? ""
+                if temp != ""
+                {
+                    self.btnFood[2].setImage(nil, for: .normal)
+                    self.btnFood[2].setTitle(temp, for: .normal)
+                }
+                else
+                {
+                    self.btnFood[2].setImage(#imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
+                    self.btnFood[2].setTitle(nil, for: .normal)
+                }
+            }
+        }
+    }
+    func getDBsnack ()
+    {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("snack").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                let temp = values?["Snack"] as? String   ?? ""
+                if temp != ""
+                {
+                    self.btnFood[3].setImage(nil, for: .normal)
+                    self.btnFood[3].setTitle(temp, for: .normal)
+                }
+                else
+                {
+                    self.btnFood[3].setImage(#imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
+                    self.btnFood[3].setTitle(nil, for: .normal)
+                }
+            }
+        }
+    }
     
-    @IBAction func tappedWaterGlass(_ sender: UIButton) {
-        drunk = sender.tag
+    
+    func showGlass ()
+    {
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("water").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                self.drunk = values?["Water"] as? Int   ?? 0
+                
+            }
+        }
         for button in btnWater {
             if button.tag <= drunk{
                 button.setImage(#imageLiteral(resourceName: "icons8-bottle_of_water-1"), for: .normal)
@@ -124,6 +252,38 @@ class DiaryVC: UIViewController {
             }
         }
     }
+    
+    func updateCaloriesFromFood() {
+        
+       
+        ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                self.eaten = values?["Eaten"] as? Int   ?? 0
+                
+            }
+        }
+    }
+    
+    
+
+    @IBAction func dateTapped(_ sender: UIButton) {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1) {
+            self.datePicker.isHidden = !self.datePicker.isHidden
+            self.view.layoutIfNeeded()
+        }
+        self.view.layoutIfNeeded()
+    }
+    
+    
+    @IBAction func tappedWaterGlass(_ sender: UIButton) {
+        drunk = sender.tag
+        showGlass()
+        ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
+    }
     @IBAction func add1WaterGlass(_ sender: UIButton) {
         drunk += 1
         for button in btnWater {
@@ -132,6 +292,7 @@ class DiaryVC: UIViewController {
                 )
             }
         }
+        ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
     }
  
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
@@ -147,18 +308,14 @@ class DiaryVC: UIViewController {
         
         self.navigationController?.pushViewController(destination, animated: true)
     }
-    func updateCaloriesFromFood() {
-        eaten = 0
-        for i in dataFromDetail {
-            eaten += i.cal
-        }
-    }
+    
     @IBAction func saveDataFromDetailFood(segue: UIStoryboardSegue){
         if let yasuo = segue.source as? DetailFood {
             let nasus = (yasuo.foodName , yasuo.calories , yasuo.mode)
             self.dataFromDetail.insert(nasus, at: yasuo.mode - 1 )
             self.dataFromDetail.remove(at: yasuo.mode )
             updateCaloriesFromFood()
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eaten])
             for button in btnFood {
                 for i in dataFromDetail {
                     if button.tag == i.mode && i.name != "" {
@@ -167,6 +324,17 @@ class DiaryVC: UIViewController {
                     }
                 }
             }
+            switch yasuo.mode {
+            case 1:
+                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").setValue(["Breakfast":"\(nasus.0) : \(nasus.1)"])
+            case 2:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").setValue(["Lunch":"\(nasus.0) : \(nasus.1)"])
+            case 3:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").setValue(["Dinner":"\(nasus.0) : \(nasus.1)"])
+            case 4:
+                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").setValue(["Snack":"\(nasus.0) : \(nasus.1)"])
+            default: break
+                
+            
+            }
         }
     }
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
@@ -174,7 +342,8 @@ class DiaryVC: UIViewController {
             let nasus = (yasuo.titleText.text , Int(yasuo.caloriesText.text!) ?? 0 , yasuo.mode)
             self.dataFromDetail.insert(nasus as! (name: String, cal: Int, mode: Int),at: yasuo.mode - 1 )
             self.dataFromDetail.remove(at: yasuo.mode)
-          updateCaloriesFromFood()
+            updateCaloriesFromFood()
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eaten])
             for button in btnFood {
                 for i in dataFromDetail {
                     if button.tag == i.mode && i.name != "" {
@@ -182,6 +351,16 @@ class DiaryVC: UIViewController {
                         button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
                     }
                 }
+            }
+            switch yasuo.mode {
+            case 1:
+                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").setValue(["Breakfast":"\(String(describing: nasus.0 )) : \(nasus.1)"])
+            case 2:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").setValue(["Lunch":"\(String(describing: nasus.0)) : \(nasus.1)"])
+            case 3:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").setValue(["Dinner":"\(String(describing: nasus.0)) : \(nasus.1)"])
+            case 4:
+                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").setValue(["Snack":"\(String(describing: nasus.0)) : \(nasus.1)"])
+            default: break
+                
             }
         }
     }
@@ -228,4 +407,29 @@ class DiaryVC: UIViewController {
         idButton = sender.tag
     }
     
+    @objc func dateChanged(datePicker:UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        btnDate.setTitle(dateFormatter.string(from: datePicker.date), for: .normal)
+        btnDate.setTitleColor(UIColor.black, for: .normal)
+        view.endEditing(true)
+    }
+    func getday()->String{
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        var dday = ""
+        var mmonth = ""
+        if day < 10{
+            dday = "0"+String(day)
+        }
+        if month < 10 {
+            mmonth = "0"+String(month)
+        }
+        let getADay:String = dday+"-"+mmonth+"-"+String(year)
+        return getADay
+    }
 }
