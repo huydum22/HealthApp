@@ -46,15 +46,7 @@ class DiaryVC: UIViewController {
         
         
     }
-    func underlined(){
-        
-        
-        self.ExerciseLabelUIView.layer.masksToBounds = false
-        self.ExerciseLabelUIView.layer.shadowColor = UIColor.black.cgColor
-        self.ExerciseLabelUIView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.ExerciseLabelUIView.layer.shadowOpacity = 1.0
-        self.ExerciseLabelUIView.layer.shadowRadius = 0.0
-    }
+   
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -237,7 +229,7 @@ class DiaryVC: UIViewController {
     @IBAction func identifyButton(_ sender: UIButton) {
         idButton = sender.tag
     }
-    */
+    
     
 }
 
