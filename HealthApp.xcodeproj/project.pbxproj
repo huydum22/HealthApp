@@ -33,6 +33,9 @@
 		850F029F21CBE84900333D03 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029921CBE84900333D03 /* Json.swift */; };
 		850F02A021CBE84900333D03 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029A21CBE84900333D03 /* Custom.swift */; };
 		850F02A121CBE84900333D03 /* Listfood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029B21CBE84900333D03 /* Listfood.swift */; };
+		85347D1621E704D10045566A /* HealthkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347D1521E704D10045566A /* HealthkitViewController.swift */; };
+		85347D1921E705910045566A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85347D1821E705910045566A /* HealthKit.framework */; };
+		85347D1B21E746EB0045566A /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347D1A21E746EB0045566A /* OverviewVC.swift */; };
 		8579775B21E0E44F00856528 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579775A21E0E44E00856528 /* popUpViewController.swift */; };
 		DFC4E6A421E242500018E2A0 /* ExerciseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A221E2424F0018E2A0 /* ExerciseListTableViewCell.swift */; };
 		DFC4E6A521E242500018E2A0 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A321E2424F0018E2A0 /* ActivityVC.swift */; };
@@ -72,6 +75,10 @@
 		850F029921CBE84900333D03 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		850F029A21CBE84900333D03 /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		850F029B21CBE84900333D03 /* Listfood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listfood.swift; sourceTree = "<group>"; };
+		85347D1521E704D10045566A /* HealthkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitViewController.swift; sourceTree = "<group>"; };
+		85347D1721E705910045566A /* HealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthApp.entitlements; sourceTree = "<group>"; };
+		85347D1821E705910045566A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		85347D1A21E746EB0045566A /* OverviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		8579775A21E0E44E00856528 /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		D46619E6A7F42DE31B251AD0 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D7136B496CAE263BC5C7B261 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				642D4F169379CC6B2E74F7F1 /* Pods_HealthApp.framework in Frameworks */,
+				85347D1921E705910045566A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +107,7 @@
 		187EACE7D0E740BFF99DA7F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85347D1821E705910045566A /* HealthKit.framework */,
 				668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */,
 			);
 			name = Frameworks;
@@ -125,6 +134,7 @@
 		517C3D8F21B55D700080D449 /* HealthApp */ = {
 			isa = PBXGroup;
 			children = (
+				85347D1721E705910045566A /* HealthApp.entitlements */,
 				51C5F6F521B66F6600FC90CF /* Helper */,
 				51C5F6F821B66FC800FC90CF /* Controllers */,
 				51A232FE21B5A82000ECC54C /* DataModels */,
@@ -188,6 +198,7 @@
 				DFC4E6AA21E2425F0018E2A0 /* ListExercises.swift */,
 				DFC4E6A321E2424F0018E2A0 /* ActivityVC.swift */,
 				DFC4E6A221E2424F0018E2A0 /* ExerciseListTableViewCell.swift */,
+				85347D1521E704D10045566A /* HealthkitViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -234,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				518A320321E24FFA00B14878 /* OverviewVC.swift */,
+				85347D1A21E746EB0045566A /* OverviewVC.swift */,
 				518A320521E26C5800B14878 /* BodyStatsVC.swift */,
 				518A320721E2FDEF00B14878 /* MeasurementsVC.swift */,
 				518A809321E334AB00E72F5C /* settingVC.swift */,
@@ -287,6 +299,11 @@
 				TargetAttributes = {
 					517C3D8C21B55D700080D449 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -423,6 +440,7 @@
 				518A320821E2FDEF00B14878 /* MeasurementsVC.swift in Sources */,
 				518A320421E24FFA00B14878 /* OverviewVC.swift in Sources */,
 				850F029F21CBE84900333D03 /* Json.swift in Sources */,
+				85347D1621E704D10045566A /* HealthkitViewController.swift in Sources */,
 				850F029E21CBE84900333D03 /* ImageViewCell.swift in Sources */,
 				850F029C21CBE84900333D03 /* DetailFood.swift in Sources */,
 				DFC4E6AD21E2425F0018E2A0 /* ExerciseInfoVC.swift in Sources */,
@@ -434,6 +452,7 @@
 				51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */,
 				DFC4E6AB21E2425F0018E2A0 /* ExerciseSimpleCaloriesVC.swift in Sources */,
 				5179213821C72B8800DDBFBB /* optionVC.swift in Sources */,
+				85347D1B21E746EB0045566A /* OverviewVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,
 				518A320621E26C5800B14878 /* BodyStatsVC.swift in Sources */,
 				850F029D21CBE84900333D03 /* BreakfastVC.swift in Sources */,
@@ -583,6 +602,7 @@
 			baseConfigurationReference = D46619E6A7F42DE31B251AD0 /* Pods-HealthApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -605,6 +625,7 @@
 			baseConfigurationReference = D7136B496CAE263BC5C7B261 /* Pods-HealthApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
