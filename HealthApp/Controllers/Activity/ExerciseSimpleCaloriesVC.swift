@@ -40,7 +40,7 @@ class ExerciseSimpleCaloriesVC: UIViewController {
         strTodayDate = Dateformatter.string(from: Date())
         
         UserID = Auth.auth().currentUser?.uid
-        ref = Database.database().reference().child(UserID!).child("ExerciseDailyData").child(strTodayDate!)
+        ref = Database.database().reference().child(UserID!).child(strTodayDate!).child("ExerciseDailyData")
         
         ref!.observe(.value) { (DataSnapshot) in
             if (DataSnapshot.hasChild("TotalCaloriesBurned"))
