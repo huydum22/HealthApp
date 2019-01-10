@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:HealthApp/Controllers/OverviewSrc/OverviewVC.swift">
-   </FileRef>
-   <FileRef
       location = "group:HealthApp.xcodeproj">
    </FileRef>
    <FileRef
