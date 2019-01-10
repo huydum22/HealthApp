@@ -33,20 +33,16 @@ class DiaryVC: UIViewController {
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     var longGesture = UILongPressGestureRecognizer()
     var idButton = 0
-    
-    
-    
     //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
+    
+    
     override func viewDidLoad() {
         datePicker.addTarget(self, action: #selector(DiaryVC.dateChanged(datePicker:)), for: .valueChanged)
         btnDate.setTitle(getday(), for: .normal)
-        getDBbreakfast()
-        getDBlunch()
-        getDBdinner()
-        getDBsnack()
         setUp()
         getInfo()
+        updateCaloriesFromFood()
         setUpLongPressGesture()
         setUpDataFormDetailArr()
         print("\(drunk) and \(eaten) and \(calo)")
@@ -57,7 +53,6 @@ class DiaryVC: UIViewController {
             ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 let calo1 = values?["Calo"] as? Int   ?? 0
-                let sang1 = Double (calo1) * 0.25
                 self.lblBeakfast.text = "Recommended " + String(Int (Double (calo1) * 0.25)) + "- " + String(Int(Double (calo1) * 0.35)) + " Kcal"
                 self.lblLunch.text = "Recommended " + String(Int (Double (calo1) * 0.3)) + "- " + String(Int(Double (calo1) * 0.4)) + " Kcal"
                 self.lblDinner.text = "Recommended " + String(Int (Double (calo1) * 0.4)) + "- " + String(Int(Double (calo1) * 0.5)) + " Kcal"
@@ -72,19 +67,9 @@ class DiaryVC: UIViewController {
         drunk = DRUNK
         eaten = EATEN
         calo = CALO
-        print("\(drunk) and \(eaten) and \(calo)")
-        showGlass()
         updateCaloriesFromFood()
-        getDBbreakfast()
-        getDBlunch()
-        getDBdinner()
-        getDBsnack()
     }
    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     override func viewDidLayoutSubviews() {
         showGlass()
         updateCaloriesFromFood()
@@ -94,16 +79,9 @@ class DiaryVC: UIViewController {
         getDBdinner()
         getDBsnack()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-        
-    }
-    
-    
-    
-    
-    
+   
+
+    //MARK: set up Overview
     func setUpDataFormDetailArr() {
         for i in 1 ... 4 {
             dataFromDetail.append(("",0,i))
@@ -167,6 +145,9 @@ class DiaryVC: UIViewController {
         }
     }
     
+    
+    
+    // MARK: GET data from Firebase
     func getDBbreakfast ()
     {
         ref = Database.database().reference()
@@ -249,6 +230,8 @@ class DiaryVC: UIViewController {
     }
     
     
+    
+    //MARK: show image glass
     func showGlass ()
     {
         ref = Database.database().reference()
@@ -271,21 +254,19 @@ class DiaryVC: UIViewController {
     }
     
     func updateCaloriesFromFood() {
-        
-        
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
             ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 self.eaten = values?["Eaten"] as? Int   ?? 0
-                
             }
         }
     }
     
     
     
+    
+    //MARk : event
     @IBAction func dateTapped(_ sender: UIButton) {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.1) {
@@ -300,6 +281,8 @@ class DiaryVC: UIViewController {
         drunk = sender.tag
         showGlass()
         ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
+        self.view.layoutIfNeeded()
+
     }
     @IBAction func add1WaterGlass(_ sender: UIButton) {
         drunk += 1
@@ -331,8 +314,17 @@ class DiaryVC: UIViewController {
             let nasus = (yasuo.foodName , yasuo.calories , yasuo.mode)
             self.dataFromDetail.insert(nasus, at: yasuo.mode - 1 )
             self.dataFromDetail.remove(at: yasuo.mode )
-            updateCaloriesFromFood()
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eaten])
+            
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat + nasus.1
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()                    
+                }
+            }
             for button in btnFood {
                 for i in dataFromDetail {
                     if button.tag == i.mode && i.name != "" {
@@ -341,6 +333,8 @@ class DiaryVC: UIViewController {
                     }
                 }
             }
+            self.view.layoutIfNeeded()
+
             switch yasuo.mode {
             case 1:
                 ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").setValue(["Breakfast":"\(nasus.0) : \(nasus.1)"])
@@ -352,15 +346,30 @@ class DiaryVC: UIViewController {
                 
                 
             }
+            self.view.layoutIfNeeded()
+
         }
+        let alert  = UIAlertController(title: "Congratulations", message: "Update successful", preferredStyle: .alert)
+        let okAction  = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
+        
         if let yasuo = segue.source as? popUpViewController {
             let nasus = (yasuo.titleText.text , Int(yasuo.caloriesText.text!) ?? 0 , yasuo.mode)
             self.dataFromDetail.insert(nasus as! (name: String, cal: Int, mode: Int),at: yasuo.mode - 1 )
             self.dataFromDetail.remove(at: yasuo.mode)
-            updateCaloriesFromFood()
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eaten])
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat + nasus.1
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()
+                }
+            }
             for button in btnFood {
                 for i in dataFromDetail {
                     if button.tag == i.mode && i.name != "" {
@@ -380,8 +389,37 @@ class DiaryVC: UIViewController {
                 
             }
         }
+        let alert  = UIAlertController(title: "Congratulations", message: "Update successful", preferredStyle: .alert)
+        let okAction  = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func saveFromExercise(segue: UIStoryboardSegue){
+        if let dataEXERCISE = segue.source as? ExerciseInfoVC {
+            dataEXERCISE.AddToExerciseRecentList()//thêm vào ExerciseRecentList
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                var eat = values?["Eaten"] as? Int   ?? 0
+                eat = eat - (dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
+                self.eaten = eat
+               print(dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
+                self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                self.view.layoutIfNeeded()
+            }
+        }
+            self.view.layoutIfNeeded()
+
+    }
+//        let alert  = UIAlertController(title: "Congratulations", message: "Update successful", preferredStyle: .alert)
+//        let okAction  = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//        alert.addAction(okAction)
+//        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func exit(segue: UIStoryboardSegue){
+    }
     func deleteFood(alert: UIAlertAction!) {
         switch idButton {
         case 1:

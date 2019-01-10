@@ -30,6 +30,7 @@ class ExerciseInfoVC: UIViewController {
     var strTodayDate:String?
     var UserID: String?
     var TotalCaloriesBurned = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -121,10 +122,11 @@ class ExerciseInfoVC: UIViewController {
         AddToExerciseRecentList()//thêm vào ExerciseRecentList
         
         TotalCaloriesBurned = TotalCaloriesBurned + Int(KcaloBurned!)
-        
+        print(TotalCaloriesBurned)
         WrireDataIntoFirebase()
         
-        navigationController?.popViewController(animated: true)// trở về ExerciseListVC
+        
+        //navigationController?.popViewController(animated: true)// trở về ExerciseListVC
     }
     
     
