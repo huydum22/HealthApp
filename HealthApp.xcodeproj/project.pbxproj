@@ -34,7 +34,6 @@
 		850F02A021CBE84900333D03 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029A21CBE84900333D03 /* Custom.swift */; };
 		850F02A121CBE84900333D03 /* Listfood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F029B21CBE84900333D03 /* Listfood.swift */; };
 		85347D1621E704D10045566A /* HealthkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347D1521E704D10045566A /* HealthkitViewController.swift */; };
-		85347D1921E705910045566A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85347D1821E705910045566A /* HealthKit.framework */; };
 		85347D1B21E746EB0045566A /* OverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85347D1A21E746EB0045566A /* OverviewVC.swift */; };
 		8579775B21E0E44F00856528 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579775A21E0E44E00856528 /* popUpViewController.swift */; };
 		DFC4E6A421E242500018E2A0 /* ExerciseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A221E2424F0018E2A0 /* ExerciseListTableViewCell.swift */; };
@@ -44,6 +43,7 @@
 		DFC4E6AD21E2425F0018E2A0 /* ExerciseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A821E2425F0018E2A0 /* ExerciseInfoVC.swift */; };
 		DFC4E6AE21E2425F0018E2A0 /* ExerciseRecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A921E2425F0018E2A0 /* ExerciseRecentVC.swift */; };
 		DFC4E6AF21E2425F0018E2A0 /* ListExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6AA21E2425F0018E2A0 /* ListExercises.swift */; };
+		DFEE150021E7BD440051C10A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEE14FF21E7BD440051C10A /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +77,6 @@
 		850F029B21CBE84900333D03 /* Listfood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listfood.swift; sourceTree = "<group>"; };
 		85347D1521E704D10045566A /* HealthkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitViewController.swift; sourceTree = "<group>"; };
 		85347D1721E705910045566A /* HealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthApp.entitlements; sourceTree = "<group>"; };
-		85347D1821E705910045566A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		85347D1A21E746EB0045566A /* OverviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewVC.swift; sourceTree = "<group>"; };
 		8579775A21E0E44E00856528 /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		D46619E6A7F42DE31B251AD0 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		DFC4E6A821E2425F0018E2A0 /* ExerciseInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseInfoVC.swift; sourceTree = "<group>"; };
 		DFC4E6A921E2425F0018E2A0 /* ExerciseRecentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseRecentVC.swift; sourceTree = "<group>"; };
 		DFC4E6AA21E2425F0018E2A0 /* ListExercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListExercises.swift; sourceTree = "<group>"; };
+		DFEE14FF21E7BD440051C10A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				642D4F169379CC6B2E74F7F1 /* Pods_HealthApp.framework in Frameworks */,
-				85347D1921E705910045566A /* HealthKit.framework in Frameworks */,
+				DFEE150021E7BD440051C10A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,7 @@
 		187EACE7D0E740BFF99DA7F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85347D1821E705910045566A /* HealthKit.framework */,
+				DFEE14FF21E7BD440051C10A /* HealthKit.framework */,
 				668DADAD78CDB5BF8FCC40A3 /* Pods_HealthApp.framework */,
 			);
 			name = Frameworks;
@@ -302,6 +302,12 @@
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
