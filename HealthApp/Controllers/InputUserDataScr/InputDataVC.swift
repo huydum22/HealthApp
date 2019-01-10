@@ -115,18 +115,18 @@ class InputDataVC: UIViewController {
             })
         }
         switch btnPicker.titleLabel?.text {
-        case "Low ( 1 times/week)":
+        case "Lazy cat (Say No with Exercise!)":
             activitylevel = 1
-        case "Medium ( 1-3 times/week)":
+        case "Medium (1-3 times/week)":
             activitylevel = 2
         case "High (3-5 times/week)":
             activitylevel = 3
         case "Very high (6-7 times/week)":
             activitylevel = 4
-        case "absolute ( >7 times/week )":
+        case "Absolute (>7 times/week )":
             activitylevel = 5
         default:
-            activitylevel = 1
+            activitylevel = 2
         }
     }
     
@@ -135,17 +135,17 @@ class InputDataVC: UIViewController {
         var minutes: Int
         switch activitylevel {
         case 1:
-            minutes = 45
+            minutes = 0
         case 2:
-            minutes = 45 * 2
+            minutes = (45 * 3) / 7
         case 3:
-            minutes = 45 * 4
+            minutes = (45 * 5) / 7
         case 4:
-            minutes = 45 * 6
+            minutes = (60 * 6) / 7
         case 5:
-            minutes = 45 * 7
+            minutes = 60 
         default:
-            minutes = 45
+            minutes = 0
         }
         return Int(weight * 30) + minutes * 12
     }

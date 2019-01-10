@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+var DRUNK = 0
+var EATEN = 0
+var CALO = 0
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,11 +21,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        retrieveFromFirebase()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         //GIDSignIn.sharedInstance().delegate = self as? GIDSignInDelegate
         return true
     }
-    
+    func retrieveFromFirebase(){
+        // get the data from Firebase
+        let ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+            ref.child(data).child(getday()).child("water").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                DRUNK = values?["Water"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child(getday()).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                EATEN = values?["Eaten"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                CALO = values?["Calo"] as? Int   ?? 0
+            }
+        }
+        
+    }
+    func getday()->String{
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        var dday = ""
+        var mmonth = ""
+        if day < 10{
+            dday = "0"+String(day)
+        }
+        if month < 10 {
+            mmonth = "0"+String(month)
+        }
+        let getADay:String = dday+"-"+mmonth+"-"+String(year)
+        return getADay
+    }
+
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
         -> Bool {
