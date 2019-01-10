@@ -22,7 +22,7 @@ class ListExercises: UIViewController {
     var ref: DatabaseReference?
     var ExerciseList: [ExerciseInfo] = []
     var UserInfoRef: DatabaseReference?
-    var UserWeight: Double?
+    var UserWeight: Double? = 0
     @IBOutlet weak var ExerciseListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ListExercises: UIViewController {
             self.ExerciseList.append(temp)
         self.ExerciseListTableView.reloadData()
         }
-        
+        self.ExerciseListTableView.reloadData()
 
         })
         
@@ -76,6 +76,7 @@ class ListExercises: UIViewController {
             DestExerciseInfoVC.Exercise = Exercise
             DestExerciseInfoVC.UserWeight = self.UserWeight
         }
+        
     }
     /*
     // MARK: - Navigation

@@ -56,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        var dday = ""
-        var mmonth = ""
+        var dday = String(day)
+        var mmonth = String(month)
         if day < 10{
             dday = "0"+String(day)
         }

@@ -36,7 +36,7 @@ class ActivityVC: UIViewController {
         let SimpleCaloriesVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExerciseSimpleCaloriesViewControllerID") as! ExerciseSimpleCaloriesVC
         
         self.addChild(SimpleCaloriesVC)
-        
+        SimpleCaloriesVC.view.frame = self.view.frame
         self.view.addSubview(SimpleCaloriesVC.view)
         SimpleCaloriesVC.didMove(toParent: self)
         

@@ -20,7 +20,11 @@ class DiaryVC: UIViewController {
     @IBOutlet var btnFood: [UIButton]!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnDate: UIButton!
- 
+    @IBOutlet weak var lblBeakfast: UILabel!
+    @IBOutlet weak var lblLunch: UILabel!
+    @IBOutlet weak var lblDinner: UILabel!
+    
+    @IBOutlet weak var lblSneck: UILabel!
     
     var eaten = -1
     var calo  = 0
@@ -47,6 +51,19 @@ class DiaryVC: UIViewController {
         setUpDataFormDetailArr()
         print("\(drunk) and \(eaten) and \(calo)")
         super.viewDidLoad()
+        let ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+           
+            ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                let calo1 = values?["Calo"] as? Int   ?? 0
+                let sang1 = Double (calo1) * 0.25
+                self.lblBeakfast.text = "Recommended " + String(Int (Double (calo1) * 0.25)) + "- " + String(Int(Double (calo1) * 0.35)) + " Kcal"
+                self.lblLunch.text = "Recommended " + String(Int (Double (calo1) * 0.3)) + "- " + String(Int(Double (calo1) * 0.4)) + " Kcal"
+                self.lblDinner.text = "Recommended " + String(Int (Double (calo1) * 0.4)) + "- " + String(Int(Double (calo1) * 0.5)) + " Kcal"
+                self.lblSneck.text = "Recommended " + String(Int (Double (calo1) * 0)) + "- " + String(Int(Double (calo1) * 0.2)) + " Kcal"
+            }
+        }
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -63,6 +80,8 @@ class DiaryVC: UIViewController {
         getDBdinner()
         getDBsnack()
     }
+   
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -419,8 +438,8 @@ class DiaryVC: UIViewController {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        var dday = ""
-        var mmonth = ""
+        var dday = String(day)
+        var mmonth = String(month)
         if day < 10{
             dday = "0"+String(day)
         }
@@ -431,3 +450,4 @@ class DiaryVC: UIViewController {
         return getADay
     }
 }
+
