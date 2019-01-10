@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="feq-ng-XtZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -452,8 +452,8 @@
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Fg4-au-bs5"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 541 - 757 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-i3-v4H">
-                                                        <rect key="frame" x="72.5" y="120" width="230" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-i3-v4H">
+                                                        <rect key="frame" x="187.5" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="cer-uS-fET"/>
                                                         </constraints>
@@ -489,8 +489,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-Hn-dat" userLabel="trưa">
                                                 <rect key="frame" x="0.0" y="665" width="375" height="150"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 649 - 865 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-RB-hf1">
-                                                        <rect key="frame" x="69.5" y="120" width="236" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-RB-hf1">
+                                                        <rect key="frame" x="187.5" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="CGQ-Ea-RkP"/>
                                                         </constraints>
@@ -552,8 +552,8 @@
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="Xf9-bu-VpL"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 843 - 1103 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-pE-lvQ">
-                                                        <rect key="frame" x="67.5" y="120" width="240.5" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-pE-lvQ">
+                                                        <rect key="frame" x="187.5" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="hjZ-9j-b3N"/>
                                                         </constraints>
@@ -602,8 +602,8 @@
                                                             <action selector="showBreakfastFoodController:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="yts-wl-B9I"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended 0 - 432 Kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-wO-1tH">
-                                                        <rect key="frame" x="80.5" y="120" width="214.5" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-wO-1tH">
+                                                        <rect key="frame" x="187.5" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="hLE-EN-cf4"/>
                                                         </constraints>
@@ -787,6 +787,10 @@
                         <outlet property="datePicker" destination="0Yc-wG-ipb" id="vU3-lJ-F6z"/>
                         <outlet property="drunkLabel" destination="VzY-G4-Td2" id="4S5-EY-Yab"/>
                         <outlet property="eatenLabel" destination="zsf-D9-Iak" id="FIk-cW-G22"/>
+                        <outlet property="lblBeakfast" destination="tqP-i3-v4H" id="1Pb-Z7-V5d"/>
+                        <outlet property="lblDinner" destination="hQY-pE-lvQ" id="SqQ-AZ-eUc"/>
+                        <outlet property="lblLunch" destination="F9t-RB-hf1" id="7cP-6Z-z3t"/>
+                        <outlet property="lblSneck" destination="rlC-wO-1tH" id="Hky-yg-lBZ"/>
                         <outlet property="waterBar" destination="VBn-AS-BeB" id="DA2-KZ-PJF"/>
                         <outletCollection property="btnWater" destination="rtg-lg-9yE" collectionClass="NSMutableArray" id="Y86-Is-uTg"/>
                         <outletCollection property="btnWater" destination="Bg7-HP-cor" collectionClass="NSMutableArray" id="qVa-40-ifU"/>
@@ -813,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzM-IU-HYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4952.8000000000002" y="167.31634182908547"/>
+            <point key="canvasLocation" x="4950.9375" y="166.90140845070422"/>
         </scene>
         <!--BreakfastVC-->
         <scene sceneID="m4J-fU-1ix">
@@ -3480,7 +3484,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-uT-yqi">
-                                <rect key="frame" x="261" y="25.5" width="49" height="48"/>
+                                <rect key="frame" x="261" y="31.5" width="49" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="02Q-cs-3i9"/>
                                 </constraints>
@@ -3649,18 +3653,18 @@
         <image name="1200px-Google_Fit_2018_Logo" width="1200" height="1200"/>
         <image name="589a3469-2183-4eee-9840-05bc57475126._SR285,285_" width="285" height="285"/>
         <image name="icons8-about" width="26" height="26"/>
-        <image name="icons8-add-48" width="48" height="48"/>
+        <image name="icons8-add-48" width="36" height="36"/>
         <image name="icons8-aquarius" width="32" height="32"/>
         <image name="icons8-book" width="32" height="32"/>
         <image name="icons8-bread" width="64" height="64"/>
         <image name="icons8-calendar" width="25" height="25"/>
         <image name="icons8-chicken" width="64" height="64"/>
-        <image name="icons8-climbing-shoes-48" width="48" height="48"/>
+        <image name="icons8-climbing-shoes-48" width="36" height="36"/>
         <image name="icons8-cook_female" width="32" height="32"/>
         <image name="icons8-copybook" width="32" height="32"/>
-        <image name="icons8-dumbbell-48" width="48" height="48"/>
+        <image name="icons8-dumbbell-48" width="36" height="36"/>
         <image name="icons8-fish_food" width="80" height="80"/>
-        <image name="icons8-iphone-x-48" width="48" height="48"/>
+        <image name="icons8-iphone-x-48" width="36" height="36"/>
         <image name="icons8-likes_folder_filled" width="32" height="32"/>
         <image name="icons8-login_rounded" width="20" height="20"/>
         <image name="icons8-mcdonalds_french_fries" width="64" height="64"/>
@@ -3671,7 +3675,7 @@
         <image name="icons8-settings_filled" width="32" height="32"/>
         <image name="icons8-starfish" width="32" height="32"/>
         <image name="icons8-term" width="20" height="20"/>
-        <image name="icons8-time-machine-40" width="40" height="40"/>
+        <image name="icons8-time-machine-40" width="30" height="30"/>
         <image name="icons8-water_bottle" width="32" height="32"/>
         <image name="icons8-writer_male" width="32" height="32"/>
         <image name="placeholder" width="1500" height="1500"/>
