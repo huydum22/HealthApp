@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LVP-kZ-9qd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="feq-ng-XtZ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -3653,18 +3653,18 @@
         <image name="1200px-Google_Fit_2018_Logo" width="1200" height="1200"/>
         <image name="589a3469-2183-4eee-9840-05bc57475126._SR285,285_" width="285" height="285"/>
         <image name="icons8-about" width="26" height="26"/>
-        <image name="icons8-add-48" width="36" height="36"/>
+        <image name="icons8-add-48" width="48" height="48"/>
         <image name="icons8-aquarius" width="32" height="32"/>
         <image name="icons8-book" width="32" height="32"/>
         <image name="icons8-bread" width="64" height="64"/>
         <image name="icons8-calendar" width="25" height="25"/>
         <image name="icons8-chicken" width="64" height="64"/>
-        <image name="icons8-climbing-shoes-48" width="36" height="36"/>
+        <image name="icons8-climbing-shoes-48" width="48" height="48"/>
         <image name="icons8-cook_female" width="32" height="32"/>
         <image name="icons8-copybook" width="32" height="32"/>
-        <image name="icons8-dumbbell-48" width="36" height="36"/>
+        <image name="icons8-dumbbell-48" width="48" height="48"/>
         <image name="icons8-fish_food" width="80" height="80"/>
-        <image name="icons8-iphone-x-48" width="36" height="36"/>
+        <image name="icons8-iphone-x-48" width="48" height="48"/>
         <image name="icons8-likes_folder_filled" width="32" height="32"/>
         <image name="icons8-login_rounded" width="20" height="20"/>
         <image name="icons8-mcdonalds_french_fries" width="64" height="64"/>
@@ -3675,7 +3675,7 @@
         <image name="icons8-settings_filled" width="32" height="32"/>
         <image name="icons8-starfish" width="32" height="32"/>
         <image name="icons8-term" width="20" height="20"/>
-        <image name="icons8-time-machine-40" width="30" height="30"/>
+        <image name="icons8-time-machine-40" width="40" height="40"/>
         <image name="icons8-water_bottle" width="32" height="32"/>
         <image name="icons8-writer_male" width="32" height="32"/>
         <image name="placeholder" width="1500" height="1500"/>
