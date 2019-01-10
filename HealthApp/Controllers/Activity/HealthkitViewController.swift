@@ -10,94 +10,104 @@ import UIKit
 import HealthKit
 let healthKitStore:HKHealthStore = HKHealthStore()
 class ViewController: UIViewController {
-    var todayActiveEnergy = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       setUp()
     }
-    
-    @IBAction func dcm(_ sender: Any) {
+    func setUp() {
+        getTodaysSteps { (info) in
+            DispatchQueue.main.async {
+                self.totalSteps.text = String(info[0])
+                self.totalPush.text = String(info[1])
+                self.totalDistance.text = String(info[2])
+                self.totalCalo.text = String(info[3])
+            }
+        }
+    }
+    @IBAction func authorizeClick(_ sender: Any) {
         self.authorize()
     }
     func authorize() {
-        let read: Set<HKObjectType> = [
+        let infoToRead: Set<HKObjectType> = [
             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-            HKObjectType.quantityType(forIdentifier: .stepCount)!
+            HKObjectType.quantityType(forIdentifier: .stepCount)!,
+            HKObjectType.quantityType(forIdentifier: .pushCount)!,
+            HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!
         ]
         if !HKHealthStore.isHealthDataAvailable()
         {
             return
         }
-        healthKitStore.requestAuthorization(toShare: nil, read: read)
+        healthKitStore.requestAuthorization(toShare: nil, read: infoToRead)
         { (success, error) -> Void in
         }
     }
-    func getTodaysSteps(completion: @escaping (Double) -> Void) {
+    func getTodaysSteps(completion: @escaping ([Double]) -> Void) {
+        let types = [
+            HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+            HKQuantityType.quantityType(forIdentifier: .pushCount)!,
+            HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+            HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!
+            ]
         
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
-        
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
-            var resultCount = 0.0
-            guard let result = result else {
-                print("Failed to fetch steps rate")
-                completion(resultCount)
-                return
+        var resultCount = [0.0,0.0,0.0,0.0]
+        for type in types
+        {
+            let query = HKObserverQuery(sampleType: type, predicate: nil) { (query, completionHandler, error) in
+                
+                /*   guard let completionHandler = query else {
+                 print("Failed to fetch steps rate")
+                 completion(resultCount)
+                 return
+                 }*/
+                let now = Date()
+                let startOfDay = Calendar.current.startOfDay(for: now)
+                let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+                
+                let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
+                    
+                    guard let result = result else {
+                        print("Failed to fetch steps rate")
+                        completion(resultCount)
+                        return
+                    }
+                    switch type {
+                    case HKQuantityType.quantityType(forIdentifier: .pushCount) :
+                        if let sum =  result.sumQuantity() {
+                            resultCount[1] = sum.doubleValue(for: HKUnit.count())
+                        }
+                    case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) :
+                        if let sum =  result.sumQuantity() {
+                            resultCount[2] = sum.doubleValue(for: HKUnit.mile())
+                        }
+                    case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned ) :
+                        if let sum =  result.sumQuantity() {
+                            resultCount[3] = sum.doubleValue(for: HKUnit.kilocalorie())
+                        }
+                    default:
+                        if let sum =  result.sumQuantity() {
+                            resultCount[0] = sum.doubleValue(for: HKUnit.count())
+                        }
+                    }
+                   
+                    
+                    DispatchQueue.main.async {
+                        completion(resultCount)
+                    }
+                }
+                
+                healthKitStore.execute(query)
+                
             }
-            if let sum =  result.sumQuantity() {
-                resultCount = sum.doubleValue(for: HKUnit.count())
-            }
-            
-            DispatchQueue.main.async {
-                completion(resultCount)
+            healthKitStore.execute(query)
+            healthKitStore.enableBackgroundDelivery(for: type, frequency: .immediate) { (complete, error) in
             }
         }
-        healthKitStore.execute(query)
-    }
-    func getTodayCalo(completion: @escaping (Double) -> Void) {
         
-        let caloType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!
-        
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        let query = HKStatisticsQuery(quantityType: caloType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
-            var resultCount = 0.0
-            guard let result = result else {
-                print("Failed to fetch steps rate")
-                completion(resultCount)
-                return
-            }
-            if let sum =  result.sumQuantity() {
-                resultCount = sum.doubleValue(for: HKUnit.kilocalorie())
-               
-            }
             
-            DispatchQueue.main.async {
-                completion(resultCount)
-            }
-        }
-        healthKitStore.execute(query)
     }
+    @IBOutlet weak var totalDistance: UILabel!
+    @IBOutlet weak var totalPush: UILabel!
     @IBOutlet weak var totalCalo: UILabel!
     @IBOutlet weak var totalSteps: UILabel!
-    @IBAction func getTotalSteps(_ sender: Any) {
-        getTodaysSteps { (steps) in
-            print("\(steps)")
-            DispatchQueue.main.async {
-                self.totalSteps.text = "\(steps)"
-            }
-        }
-    }
-    @IBAction func getCalo(_ sender: Any) {
-        getTodayCalo { (calo) in
-            print("\(calo)")
-            DispatchQueue.main.async {
-                self.totalCalo.text = "\(calo)"
-            }
-        }
-    }
 }
