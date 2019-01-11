@@ -106,9 +106,9 @@ class ExerciseSimpleCaloriesVC: UIViewController {
         
         
         let ExerciseListDailyDataRef = ref!.child("ExerciseList").childByAutoId()
-        ExerciseListDailyDataRef.child("Name").setValue(TiltleTextField.text)
+        ExerciseListDailyDataRef.child("Name").setValue(TiltleTextField.text )
         ExerciseListDailyDataRef.child("Minutes").setValue(0)
-        ExerciseListDailyDataRef.child("Calories").setValue(CaloriesTextField.text)
+        ExerciseListDailyDataRef.child("Calories").setValue(Int(CaloriesTextField.text!))
         
         
         let ExerciseTotalCaloriesBurnedRef = ref!.child("TotalCaloriesBurned")

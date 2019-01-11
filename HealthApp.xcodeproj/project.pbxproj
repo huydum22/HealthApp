@@ -44,6 +44,8 @@
 		DFC4E6AE21E2425F0018E2A0 /* ExerciseRecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6A921E2425F0018E2A0 /* ExerciseRecentVC.swift */; };
 		DFC4E6AF21E2425F0018E2A0 /* ListExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4E6AA21E2425F0018E2A0 /* ListExercises.swift */; };
 		DFEE150021E7BD440051C10A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEE14FF21E7BD440051C10A /* HealthKit.framework */; };
+		DFF720B921E814D1005848A1 /* MyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF720B821E814D1005848A1 /* MyListVC.swift */; };
+		DFF720BB21E81568005848A1 /* MyListTableviewCellVcTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF720BA21E81568005848A1 /* MyListTableviewCellVcTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		DFC4E6A921E2425F0018E2A0 /* ExerciseRecentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseRecentVC.swift; sourceTree = "<group>"; };
 		DFC4E6AA21E2425F0018E2A0 /* ListExercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListExercises.swift; sourceTree = "<group>"; };
 		DFEE14FF21E7BD440051C10A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		DFF720B821E814D1005848A1 /* MyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListVC.swift; sourceTree = "<group>"; };
+		DFF720BA21E81568005848A1 /* MyListTableviewCellVcTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableviewCellVcTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,8 @@
 				DFC4E6A321E2424F0018E2A0 /* ActivityVC.swift */,
 				DFC4E6A221E2424F0018E2A0 /* ExerciseListTableViewCell.swift */,
 				85347D1521E704D10045566A /* HealthkitViewController.swift */,
+				DFF720B821E814D1005848A1 /* MyListVC.swift */,
+				DFF720BA21E81568005848A1 /* MyListTableviewCellVcTableViewCell.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -432,9 +438,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				51A2330321B5A9CC00ECC54C /* InputDataVC.swift in Sources */,
+				DFF720BB21E81568005848A1 /* MyListTableviewCellVcTableViewCell.swift in Sources */,
 				51C5F6F021B66ADE00FC90CF /* DiaryVC.swift in Sources */,
 				518A809421E334AC00E72F5C /* settingVC.swift in Sources */,
 				51D6A36621B56057009CF67A /* LoginVC.swift in Sources */,
+				DFF720B921E814D1005848A1 /* MyListVC.swift in Sources */,
 				518A809621E33AB400E72F5C /* termVC.swift in Sources */,
 				850F02A121CBE84900333D03 /* Listfood.swift in Sources */,
 				51A2330021B5A8A400ECC54C /* Person.swift in Sources */,
