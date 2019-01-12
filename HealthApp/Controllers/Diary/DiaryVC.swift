@@ -427,21 +427,65 @@ class DiaryVC: UIViewController {
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,1), at: idButton-1)
             dataFromDetail.remove(at: idButton)
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").removeValue()
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat - self.dataFromDetail[0].cal
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()
+                }
+            }
         case 2:
             btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-chicken"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,2), at: idButton-1)
             dataFromDetail.remove(at: idButton)
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").removeValue()
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat - self.dataFromDetail[1].cal
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()
+                }
+            }
         case 3:
             btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-fish_food"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,3), at: idButton-1)
             dataFromDetail.remove(at: idButton)
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").removeValue()
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat - self.dataFromDetail[2].cal
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()
+                }
+            }
         case 4:
             btnFood[idButton-1].setImage( #imageLiteral(resourceName: "icons8-mcdonalds_french_fries"), for: .normal)
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,4), at: idButton-1)
             dataFromDetail.remove(at: idButton)
+            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").removeValue()
+            if let data = Auth.auth().currentUser?.uid {
+                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var eat = values?["Eaten"] as? Int   ?? 0
+                    eat = eat - self.dataFromDetail[3].cal
+                    self.eaten = eat
+                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.view.layoutIfNeeded()
+                }
+            }
         default:
             btnFood[4].setImage(#imageLiteral(resourceName: "icons8-climbing-shoes-48"), for: .normal)
             btnFood[4].setTitle(nil, for: .normal)
