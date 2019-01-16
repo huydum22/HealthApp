@@ -17,6 +17,12 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var eatenLabel: UILabel!
     @IBOutlet weak var drunkLabel: UILabel!
     @IBOutlet weak var burnLablel: UILabel!
+    @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var pushLabel: UILabel!
+    @IBOutlet weak var disLabel: UILabel!
+    
+    
+    
     @IBOutlet var btnFood: [UIButton]!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnDate: UIButton!
@@ -32,10 +38,13 @@ class DiaryVC: UIViewController {
     var calo  = 0
     var water = 0
     var drunk = 0
+    var burn = 0
+    var step = 0
+    var push = 0
+    var distancce = 0
     var dataFromDetail = [(name: String, cal: Int , mode : Int)]()
     var longGesture = UILongPressGestureRecognizer()
     var idButton = 0
-    //biến ref lấy data ng dùng từ firebase
     var ref: DatabaseReference!
     
     
@@ -61,7 +70,7 @@ class DiaryVC: UIViewController {
                 self.lblSneck.text = "Recommended " + String(Int (Double (calo1) * 0)) + "- " + String(Int(Double (calo1) * 0.2)) + " Kcal"
             }
         }
-       
+       loadlabel()
         self.tabBarController?.tabBar.isHidden = false
         heightBreak.constant += 20
         heightBtnBreak.constant += 20
@@ -72,11 +81,16 @@ class DiaryVC: UIViewController {
         drunk = DRUNK
         eaten = EATEN
         calo = CALO
+        burn = BURN
+        step = STEP
+        distancce = DISTANCE
+        push = PUSH
         updateCaloriesFromFood()
         getDBbreakfast()
         getDBlunch()
         getDBdinner()
         getDBsnack()
+        loadlabel()
          self.tabBarController?.tabBar.isHidden = false
     }
    
@@ -88,6 +102,7 @@ class DiaryVC: UIViewController {
         getDBlunch()
         getDBdinner()
         getDBsnack()
+        loadlabel()
     }
    
 
@@ -102,6 +117,35 @@ class DiaryVC: UIViewController {
             longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiaryVC.handleGesture(_:)))
             longGesture.minimumPressDuration = 0.5
             button.addGestureRecognizer(longGesture)
+        }
+    }
+    func loadlabel(){
+        let ref = Database.database().reference()
+        if let data = Auth.auth().currentUser?.uid {
+        ref.child(data).child("Days").child(getday()).child("burn").observeSingleEvent(of: .value) { (snapshot) in
+            let values = snapshot.value as? NSDictionary
+            
+            self.burn = values?["Burn"] as? Int   ?? 0
+            
+        }
+        ref.child(data).child("Days").child(getday()).child("step").observeSingleEvent(of: .value) { (snapshot) in
+            let values = snapshot.value as? NSDictionary
+            
+            self.step = values?["Step"] as? Int   ?? 0
+            
+        }
+        ref.child(data).child("Days").child(getday()).child("distance").observeSingleEvent(of: .value) { (snapshot) in
+            let values = snapshot.value as? NSDictionary
+            
+            self.distancce = values?["Distance"] as? Int   ?? 0
+            
+        }
+        ref.child(data).child("Days").child(getday()).child("push").observeSingleEvent(of: .value) { (snapshot) in
+            let values = snapshot.value as? NSDictionary
+            
+            self.push = values?["Push"] as? Int   ?? 0
+            
+        }
         }
     }
     func getInfo() {
@@ -134,7 +178,10 @@ class DiaryVC: UIViewController {
             
         }
         drunkLabel.text = "Drunk: " + String(drunk * 250)
-        
+        burnLablel.text = "Burn: " + String(burn)
+        stepLabel.text = "Step: " + String(step)
+        pushLabel.text = "Push up: " + String (push)
+        disLabel.text = "Distance: " + String (distancce)
         if eaten >= 0 {
             if eaten >= calo {
                 let overCalo = eaten - calo
@@ -316,7 +363,8 @@ class DiaryVC: UIViewController {
     
     @IBAction func showActivityController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "ActivityID")  as! ActivityVC
-        
+        destination.getday = (btnDate.titleLabel?.text)!
+
         self.navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -431,8 +479,14 @@ class DiaryVC: UIViewController {
                 var eat = values?["Eaten"] as? Int   ?? 0
                 eat = eat - (dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
                 self.eaten = eat
-                self.burnLablel.text = "Burn: " + String(dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
-
+           //naskdaskd     self.burnLablel.text = "Burn: " + String(dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
+                self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("burn").observeSingleEvent(of: .value) { (snapshot) in
+                    let values = snapshot.value as? NSDictionary
+                    var burning = values?["Burn"] as? Int   ?? 0
+                    burning = burning + dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!)
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("burn").setValue(["Burn":burning])
+                    self.view.layoutIfNeeded()
+                }
                 self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                 self.view.layoutIfNeeded()
             }

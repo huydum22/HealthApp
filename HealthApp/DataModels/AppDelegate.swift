@@ -12,6 +12,10 @@ import GoogleSignIn
 var DRUNK = 0
 var EATEN = 0
 var CALO = 0
+var BURN = 0
+var STEP = 0
+var DISTANCE = 0
+var PUSH = 0
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,16 +33,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // get the data from Firebase
         let ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child(getday()).child("water").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child(getday()).child("water").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 
                 DRUNK = values?["Water"] as? Int   ?? 0
                 
             }
-            ref.child(data).child(getday()).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child(getday()).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 
                 EATEN = values?["Eaten"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child("Days").child(getday()).child("burn").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                BURN = values?["Burn"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child("Days").child(getday()).child("step").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                STEP = values?["Step"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child("Days").child(getday()).child("distance").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                DISTANCE = values?["Distance"] as? Int   ?? 0
+                
+            }
+            ref.child(data).child("Days").child(getday()).child("push").observeSingleEvent(of: .value) { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                
+                PUSH = values?["Push"] as? Int   ?? 0
                 
             }
             ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in

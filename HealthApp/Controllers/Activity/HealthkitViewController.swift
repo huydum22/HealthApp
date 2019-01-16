@@ -8,19 +8,62 @@
 
 import UIKit
 import HealthKit
+import Firebase
 let healthKitStore:HKHealthStore = HKHealthStore()
 class ViewController: UIViewController {
+    var ref: DatabaseReference!
+    var getday = ""
     override func viewDidLoad() {
         super.viewDidLoad()
        setUp()
     }
+    
     func setUp() {
+        ref = Database.database().reference()
         getTodaysSteps { (info) in
             DispatchQueue.main.async {
                 self.totalSteps.text = String(info[0])
                 self.totalPush.text = String(info[1])
                 self.totalDistance.text = String(info[2])
                 self.totalCalo.text = String(info[3])
+                if let data = Auth.auth().currentUser?.uid {
+                    self.ref.child(data).child("Days").child(self.getday).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                        let values = snapshot.value as? NSDictionary
+                        var eat = values?["Eaten"] as? Int   ?? 0
+                        eat = eat - Int(info[3])
+                        self.ref.child(data).child("Days").child(self.getday).child("eaten").setValue(["Eaten":eat])
+                        self.view.layoutIfNeeded()
+                    }
+                    self.ref.child(data).child("Days").child(self.getday).child("burn").observeSingleEvent(of: .value) { (snapshot) in
+                        let values = snapshot.value as? NSDictionary
+                        var burning = values?["Burn"] as? Int   ?? 0
+                        burning = burning + Int(info[3])
+                        self.ref.child(data).child("Days").child(self.getday).child("burn").setValue(["Burn":burning])
+                        self.view.layoutIfNeeded()
+                    }
+                    self.ref.child(data).child("Days").child(self.getday).child("step").observeSingleEvent(of: .value) { (snapshot) in
+                        let values = snapshot.value as? NSDictionary
+                        var steping = values?["Step"] as? Int   ?? 0
+                        steping = steping + Int(info[0])
+                        self.ref.child(data).child("Days").child(self.getday).child("step").setValue(["Step":steping])
+                        self.view.layoutIfNeeded()
+                    }
+                    self.ref.child(data).child("Days").child(self.getday).child("push").observeSingleEvent(of: .value) { (snapshot) in
+                        let values = snapshot.value as? NSDictionary
+                        var pushing = values?["Push"] as? Int   ?? 0
+                        pushing = pushing + Int(info[1])
+                        self.ref.child(data).child("Days").child(self.getday).child("push").setValue(["Push":pushing])
+                        self.view.layoutIfNeeded()
+                    }
+                    self.ref.child(data).child("Days").child(self.getday).child("distance").observeSingleEvent(of: .value) { (snapshot) in
+                        let values = snapshot.value as? NSDictionary
+                        var dis = values?["Distance"] as? Int   ?? 0
+                        dis = dis + Int(info[2])
+                        self.ref.child(data).child("Days").child(self.getday).child("distance").setValue(["Distance":dis])
+                        self.view.layoutIfNeeded()
+                    }
+                }
+
             }
         }
     }

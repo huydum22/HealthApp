@@ -9,7 +9,7 @@
 import UIKit
 
 class ActivityVC: UIViewController {
-
+    var getday = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,6 +20,11 @@ class ActivityVC: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
+    @IBAction func showHealthKitVC(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "HealthKitvc") as! ViewController
+        destination.getday = self.getday
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
     override func viewWillDisappear(_ animated: Bool) {
         if(self.isMovingFromParent)//back clicked event
         {
