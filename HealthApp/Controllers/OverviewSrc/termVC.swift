@@ -10,9 +10,10 @@ import UIKit
 
 class termVC: UIViewController {
 
+    @IBOutlet weak var lblname: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lblname.text = "App này sinh ra với \n mục đích là giải cứu thế giới "
         // Do any additional setup after loading the view.
     }
     

@@ -23,8 +23,10 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var lblBeakfast: UILabel!
     @IBOutlet weak var lblLunch: UILabel!
     @IBOutlet weak var lblDinner: UILabel!
-    
     @IBOutlet weak var lblSneck: UILabel!
+    @IBOutlet weak var heightOverView: NSLayoutConstraint!
+    @IBOutlet weak var heightBreak: NSLayoutConstraint!
+    @IBOutlet weak var heightBtnBreak: NSLayoutConstraint!
     
     var eaten = -1
     var calo  = 0
@@ -59,7 +61,10 @@ class DiaryVC: UIViewController {
                 self.lblSneck.text = "Recommended " + String(Int (Double (calo1) * 0)) + "- " + String(Int(Double (calo1) * 0.2)) + " Kcal"
             }
         }
+       
         self.tabBarController?.tabBar.isHidden = false
+        heightBreak.constant += 20
+        heightBtnBreak.constant += 20
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +73,11 @@ class DiaryVC: UIViewController {
         eaten = EATEN
         calo = CALO
         updateCaloriesFromFood()
+        getDBbreakfast()
+        getDBlunch()
+        getDBdinner()
+        getDBsnack()
+         self.tabBarController?.tabBar.isHidden = false
     }
    
     override func viewDidLayoutSubviews() {
@@ -152,7 +162,7 @@ class DiaryVC: UIViewController {
     {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("breakfast").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("breakfast").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 let temp = values?["Breakfast"] as? String   ?? ""
                 if temp != ""
@@ -172,7 +182,7 @@ class DiaryVC: UIViewController {
     {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("lunch").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("lunch").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 let temp = values?["Lunch"] as? String   ?? ""
                 if temp != ""
@@ -192,7 +202,7 @@ class DiaryVC: UIViewController {
     {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("dinner").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("dinner").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 let temp = values?["Dinner"] as? String   ?? ""
                 if temp != ""
@@ -212,7 +222,7 @@ class DiaryVC: UIViewController {
     {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("snack").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("snack").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 let temp = values?["Snack"] as? String   ?? ""
                 if temp != ""
@@ -236,7 +246,7 @@ class DiaryVC: UIViewController {
     {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("water").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("water").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 
                 self.drunk = values?["Water"] as? Int   ?? 0
@@ -256,7 +266,7 @@ class DiaryVC: UIViewController {
     func updateCaloriesFromFood() {
         ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 self.eaten = values?["Eaten"] as? Int   ?? 0
             }
@@ -280,7 +290,7 @@ class DiaryVC: UIViewController {
     @IBAction func tappedWaterGlass(_ sender: UIButton) {
         drunk = sender.tag
         showGlass()
-        ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
+        ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
         self.view.layoutIfNeeded()
 
     }
@@ -292,12 +302,13 @@ class DiaryVC: UIViewController {
                 
             }
         }
-        ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
+        ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("water").setValue(["Water":drunk])
     }
     
     @IBAction func showBreakfastFoodController(_ sender: UIButton) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "BreakfastID")  as! BreakfastVC
         destination.mode = idButton
+        destination.getday = (btnDate.titleLabel?.text)!
         self.navigationController?.pushViewController(destination, animated: true)
         
     }
@@ -316,35 +327,42 @@ class DiaryVC: UIViewController {
             self.dataFromDetail.remove(at: yasuo.mode )
             
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat + nasus.1
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()                    
                 }
             }
-            for button in btnFood {
-                for i in dataFromDetail {
-                    if button.tag == i.mode && i.name != "" {
-                        button.setImage(nil, for: .normal)
-                        button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
-                    }
-                }
-            }
+
             self.view.layoutIfNeeded()
 
             switch yasuo.mode {
             case 1:
-                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").setValue(["Breakfast":"\(nasus.0) : \(nasus.1)"])
-            case 2:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").setValue(["Lunch":"\(nasus.0) : \(nasus.1)"])
-            case 3:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").setValue(["Dinner":"\(nasus.0) : \(nasus.1)"])
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/breakfast/Breakfast").setValue("  🍞  \(nasus.0) : \(nasus.1)")
+//
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("breakfast").child("breakfasts")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🍞  \(nasus.0) : \(nasus.1)"])
+            case 2:
+                
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/lunch/Lunch").setValue("  🥩  \(nasus.0) : \(nasus.1)")
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("lunch").child("lunchs")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🥩  \(nasus.0) : \(nasus.1)"])
+            case 3:
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/dinner/Dinner").setValue("  🍕  \(nasus.0) : \(nasus.1)")
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("dinner").child("dinners")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🍕  \(nasus.0) : \(nasus.1)"])
             case 4:
-                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").setValue(["Snack":"\(nasus.0) : \(nasus.1)"])
+                  self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/snack/Snack").setValue("  🍟  \(nasus.0) : \(nasus.1)")
+                  let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("snack").child("snacks")
+                  let locationRef = databaseRef.childByAutoId()
+                  locationRef.setValue(["Name":"  🍟  \(nasus.0) : \(nasus.1)"])
             default: break
-                
-                
             }
             self.view.layoutIfNeeded()
 
@@ -354,6 +372,7 @@ class DiaryVC: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func saveDataFromCreateNew(segue: UIStoryboardSegue){
         
         if let yasuo = segue.source as? popUpViewController {
@@ -361,30 +380,38 @@ class DiaryVC: UIViewController {
             self.dataFromDetail.insert(nasus as! (name: String, cal: Int, mode: Int),at: yasuo.mode - 1 )
             self.dataFromDetail.remove(at: yasuo.mode)
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat + nasus.1
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()
-                }
-            }
-            for button in btnFood {
-                for i in dataFromDetail {
-                    if button.tag == i.mode && i.name != "" {
-                        button.setImage(nil, for: .normal)
-                        button.setTitle("\(i.name) : \(i.cal) Cal", for: .normal)
-                    }
                 }
             }
             switch yasuo.mode {
             case 1:
-                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").setValue(["Breakfast":"\(String(describing: nasus.0 )) : \(nasus.1)"])
-            case 2:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").setValue(["Lunch":"\(String(describing: nasus.0)) : \(nasus.1)"])
-            case 3:                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").setValue(["Dinner":"\(String(describing: nasus.0)) : \(nasus.1)"])
+                
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/breakfast/Breakfast").setValue("  🍞  \(String(describing: nasus.0)) : \(nasus.1)")
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("breakfast").child("breakfasts")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🍞  \(String(describing: nasus.0)) : \(nasus.1)"])
+            case 2:
+               
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/lunch/Lunch").setValue("  🥩  \(String(describing: nasus.0)) : \(nasus.1)")
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("lunch").child("lunchs")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🥩  \(String(describing: nasus.0)) : \(nasus.1)"])
+            case 3:
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/dinner/Dinner").setValue("  🍕  \(String(describing: nasus.0)) : \(nasus.1)")
+            let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("dinner").child("dinners")
+            let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🍕  \(String(describing: nasus.0)) : \(nasus.1)"])
             case 4:
-                ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").setValue(["Snack":"\(String(describing: nasus.0)) : \(nasus.1)"])
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/snack/Snack").setValue("  🍟  \(String(describing: nasus.0)) : \(nasus.1)")
+                let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("snack").child("snacks")
+                let locationRef = databaseRef.childByAutoId()
+                locationRef.setValue(["Name":"  🍟  \(String(describing: nasus.0)) : \(nasus.1)"])
             default: break
                 
             }
@@ -399,13 +426,14 @@ class DiaryVC: UIViewController {
         if let dataEXERCISE = segue.source as? ExerciseInfoVC {
             dataEXERCISE.AddToExerciseRecentList()//thêm vào ExerciseRecentList
         if let data = Auth.auth().currentUser?.uid {
-            ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
                 var eat = values?["Eaten"] as? Int   ?? 0
                 eat = eat - (dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
                 self.eaten = eat
-               print(dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
-                self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                self.burnLablel.text = "Burn: " + String(dataEXERCISE.TotalCaloriesBurned + Int(dataEXERCISE.KcaloBurned!))
+
+                self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                 self.view.layoutIfNeeded()
             }
         }
@@ -427,14 +455,14 @@ class DiaryVC: UIViewController {
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,1), at: idButton-1)
             dataFromDetail.remove(at: idButton)
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("breakfast").removeValue()
+            ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("breakfast").removeValue()
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat - self.dataFromDetail[0].cal
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()
                 }
             }
@@ -443,14 +471,14 @@ class DiaryVC: UIViewController {
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,2), at: idButton-1)
             dataFromDetail.remove(at: idButton)
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("lunch").removeValue()
+            ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("lunch").removeValue()
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat - self.dataFromDetail[1].cal
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()
                 }
             }
@@ -459,14 +487,14 @@ class DiaryVC: UIViewController {
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,3), at: idButton-1)
             dataFromDetail.remove(at: idButton)
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("dinner").removeValue()
+            ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("dinner").removeValue()
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat - self.dataFromDetail[2].cal
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()
                 }
             }
@@ -475,14 +503,15 @@ class DiaryVC: UIViewController {
             btnFood[idButton-1].setTitle(nil, for: .normal)
             dataFromDetail.insert(("",0,4), at: idButton-1)
             dataFromDetail.remove(at: idButton)
-            ref.child((Auth.auth().currentUser?.uid)!).child((btnDate.titleLabel?.text)!).child("snack").removeValue()
+            ref.child((Auth.auth().currentUser?.uid)!).child("Days").child((btnDate.titleLabel?.text)!).child("snack").removeValue()
             if let data = Auth.auth().currentUser?.uid {
-                ref.child(data).child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
+                ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value as? NSDictionary
                     var eat = values?["Eaten"] as? Int   ?? 0
                     eat = eat - self.dataFromDetail[3].cal
                     self.eaten = eat
-                    self.ref.child(data).child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
+                   
+                    self.ref.child(data).child("Days").child((self.btnDate.titleLabel?.text)!).child("eaten").setValue(["Eaten":eat])
                     self.view.layoutIfNeeded()
                 }
             }
@@ -531,5 +560,7 @@ class DiaryVC: UIViewController {
         let getADay:String = dday+"-"+mmonth+"-"+String(year)
         return getADay
     }
+    
+   
 }
 

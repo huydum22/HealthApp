@@ -12,6 +12,7 @@ class BreakfastVC: UIViewController {
 
   
     var mode = 0
+    var getday = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
@@ -43,6 +44,14 @@ class BreakfastVC: UIViewController {
         let destination = storyboard?.instantiateViewController(withIdentifier: "ListFoodID") as! ListFood
         destination.defaultSearchText = self.navigationItem.title ?? "food"
         destination.mode = self.mode
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    
+    @IBAction func RecentFood(_ sender: UIButton) {
+        let destination = storyboard?.instantiateViewController(withIdentifier: "recentFood") as! RecentFoodTVC
+        destination.mode = self.mode
+        destination.getday = self.getday
         self.navigationController?.pushViewController(destination, animated: true)
     }
     /*

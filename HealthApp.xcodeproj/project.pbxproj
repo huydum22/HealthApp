@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51162B2621EF5CF5005D4EE6 /* RecentFoodTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51162B2521EF5CF5005D4EE6 /* RecentFoodTVCell.swift */; };
+		51162B2821EF73C2005D4EE6 /* RecentFoodTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51162B2721EF73C2005D4EE6 /* RecentFoodTVC.swift */; };
 		5179213621C72B7800DDBFBB /* genderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213521C72B7800DDBFBB /* genderVC.swift */; };
 		5179213821C72B8800DDBFBB /* optionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179213721C72B8800DDBFBB /* optionVC.swift */; };
 		517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C3D9021B55D700080D449 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51162B2521EF5CF5005D4EE6 /* RecentFoodTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentFoodTVCell.swift; sourceTree = "<group>"; };
+		51162B2721EF73C2005D4EE6 /* RecentFoodTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentFoodTVC.swift; sourceTree = "<group>"; };
 		5179213521C72B7800DDBFBB /* genderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genderVC.swift; sourceTree = "<group>"; };
 		5179213721C72B8800DDBFBB /* optionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionVC.swift; sourceTree = "<group>"; };
 		517C3D8D21B55D700080D449 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +192,8 @@
 				850F029821CBE84900333D03 /* ImageViewCell.swift */,
 				850F029921CBE84900333D03 /* Json.swift */,
 				850F029B21CBE84900333D03 /* Listfood.swift */,
+				51162B2521EF5CF5005D4EE6 /* RecentFoodTVCell.swift */,
+				51162B2721EF73C2005D4EE6 /* RecentFoodTVC.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				518A320421E24FFA00B14878 /* OverviewVC.swift in Sources */,
 				850F029F21CBE84900333D03 /* Json.swift in Sources */,
 				85347D1621E704D10045566A /* HealthkitViewController.swift in Sources */,
+				51162B2621EF5CF5005D4EE6 /* RecentFoodTVCell.swift in Sources */,
 				850F029E21CBE84900333D03 /* ImageViewCell.swift in Sources */,
 				850F029C21CBE84900333D03 /* DetailFood.swift in Sources */,
 				DFC4E6AD21E2425F0018E2A0 /* ExerciseInfoVC.swift in Sources */,
@@ -465,6 +472,7 @@
 				DFC4E6A421E242500018E2A0 /* ExerciseListTableViewCell.swift in Sources */,
 				51C5F6F721B66F7F00FC90CF /* helper.swift in Sources */,
 				DFC4E6AB21E2425F0018E2A0 /* ExerciseSimpleCaloriesVC.swift in Sources */,
+				51162B2821EF73C2005D4EE6 /* RecentFoodTVC.swift in Sources */,
 				5179213821C72B8800DDBFBB /* optionVC.swift in Sources */,
 				85347D1B21E746EB0045566A /* OverviewVC.swift in Sources */,
 				517C3D9121B55D700080D449 /* AppDelegate.swift in Sources */,

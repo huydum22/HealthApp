@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         retrieveFromFirebase()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        //GIDSignIn.sharedInstance().delegate = self as? GIDSignInDelegate
         return true
     }
     func retrieveFromFirebase(){
