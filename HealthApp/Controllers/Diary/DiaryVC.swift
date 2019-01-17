@@ -444,26 +444,26 @@ class DiaryVC: UIViewController {
             switch yasuo.mode {
             case 1:
                 
-                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/breakfast/Breakfast").setValue("  🍞  \(String(describing: nasus.0)) : \(nasus.1)")
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/breakfast/Breakfast").setValue("  🍞  \(nasus.0 ?? "") : \(nasus.1)")
                 let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("breakfast").child("breakfasts")
                 let locationRef = databaseRef.childByAutoId()
-                locationRef.setValue(["Name":"  🍞  \(String(describing: nasus.0)) : \(nasus.1)"])
+                locationRef.setValue(["Name":"  🍞  \( nasus.0 ?? "") : \(nasus.1)"])
             case 2:
                
-                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/lunch/Lunch").setValue("  🥩  \(String(describing: nasus.0)) : \(nasus.1)")
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/lunch/Lunch").setValue("  🥩  \( nasus.0 ?? "") : \(nasus.1)")
                 let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("lunch").child("lunchs")
                 let locationRef = databaseRef.childByAutoId()
-                locationRef.setValue(["Name":"  🥩  \(String(describing: nasus.0)) : \(nasus.1)"])
+                locationRef.setValue(["Name":"  🥩  \(nasus.0 ?? "") : \(nasus.1)"])
             case 3:
-                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/dinner/Dinner").setValue("  🍕  \(String(describing: nasus.0)) : \(nasus.1)")
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/dinner/Dinner").setValue("  🍕  \( nasus.0 ?? "") : \(nasus.1)")
             let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("dinner").child("dinners")
             let locationRef = databaseRef.childByAutoId()
-                locationRef.setValue(["Name":"  🍕  \(String(describing: nasus.0)) : \(nasus.1)"])
+                locationRef.setValue(["Name":"  🍕  \( nasus.0 ?? "") : \(nasus.1)"])
             case 4:
-                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/snack/Snack").setValue("  🍟  \(String(describing: nasus.0)) : \(nasus.1)")
+                self.ref.child("\((Auth.auth().currentUser?.uid)!)/Days/\((btnDate.titleLabel?.text)!)/snack/Snack").setValue("  🍟  \( nasus.0 ?? "") : \(nasus.1)")
                 let databaseRef = Database.database().reference().child(((Auth.auth().currentUser?.uid)!)).child("Days").child((btnDate.titleLabel?.text)!).child("snack").child("snacks")
                 let locationRef = databaseRef.childByAutoId()
-                locationRef.setValue(["Name":"  🍟  \(String(describing: nasus.0)) : \(nasus.1)"])
+                locationRef.setValue(["Name":"  🍟  \( nasus.0 ?? "") : \(nasus.1)"])
             default: break
                 
             }
