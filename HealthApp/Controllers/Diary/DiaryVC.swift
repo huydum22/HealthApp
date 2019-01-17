@@ -125,7 +125,7 @@ class DiaryVC: UIViewController {
             let values = snapshot.value as? NSDictionary
             
             self.burn = values?["Burn"] as? Int   ?? 0
-                self.burnLablel.text = "Burn: " + String(self.burn)
+                self.burnLablel.text = "Burned: " + String(self.burn)
 
         }
         ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("step").observeSingleEvent(of: .value) { (snapshot) in
