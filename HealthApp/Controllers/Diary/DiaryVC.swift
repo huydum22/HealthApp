@@ -20,9 +20,6 @@ class DiaryVC: UIViewController {
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var pushLabel: UILabel!
     @IBOutlet weak var disLabel: UILabel!
-    
-    
-    
     @IBOutlet var btnFood: [UIButton]!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnDate: UIButton!
@@ -51,6 +48,7 @@ class DiaryVC: UIViewController {
     override func viewDidLoad() {
         datePicker.addTarget(self, action: #selector(DiaryVC.dateChanged(datePicker:)), for: .valueChanged)
         btnDate.setTitle(getday(), for: .normal)
+        loadlabel()
         setUp()
         getInfo()
         updateCaloriesFromFood()
@@ -70,10 +68,8 @@ class DiaryVC: UIViewController {
                 self.lblSneck.text = "Recommended " + String(Int (Double (calo1) * 0)) + "- " + String(Int(Double (calo1) * 0.2)) + " Kcal"
             }
         }
-       loadlabel()
         self.tabBarController?.tabBar.isHidden = false
-        heightBreak.constant += 20
-        heightBtnBreak.constant += 20
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,12 +81,14 @@ class DiaryVC: UIViewController {
         step = STEP
         distancce = DISTANCE
         push = PUSH
+        print("combo \(BURN) va \(STEP) va \(DISTANCE) va \(PUSH)")
         updateCaloriesFromFood()
         getDBbreakfast()
         getDBlunch()
         getDBdinner()
         getDBsnack()
         loadlabel()
+        
          self.tabBarController?.tabBar.isHidden = false
     }
    
@@ -122,29 +120,34 @@ class DiaryVC: UIViewController {
     func loadlabel(){
         let ref = Database.database().reference()
         if let data = Auth.auth().currentUser?.uid {
-        ref.child(data).child("Days").child(getday()).child("burn").observeSingleEvent(of: .value) { (snapshot) in
+            ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("burn").observeSingleEvent(of: .value) { (snapshot) in
             let values = snapshot.value as? NSDictionary
             
             self.burn = values?["Burn"] as? Int   ?? 0
-            
+                self.burnLablel.text = "Burn: " + String(self.burn)
+
         }
-        ref.child(data).child("Days").child(getday()).child("step").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("step").observeSingleEvent(of: .value) { (snapshot) in
             let values = snapshot.value as? NSDictionary
             
             self.step = values?["Step"] as? Int   ?? 0
+            self.stepLabel.text = "Step: " + String(self.step)
+
             
         }
-        ref.child(data).child("Days").child(getday()).child("distance").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("distance").observeSingleEvent(of: .value) { (snapshot) in
             let values = snapshot.value as? NSDictionary
             
             self.distancce = values?["Distance"] as? Int   ?? 0
-            
+            self.disLabel.text = "Distance: " + String (self.distancce)
+
         }
-        ref.child(data).child("Days").child(getday()).child("push").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child(data).child("Days").child((btnDate.titleLabel?.text)!).child("push").observeSingleEvent(of: .value) { (snapshot) in
             let values = snapshot.value as? NSDictionary
             
             self.push = values?["Push"] as? Int   ?? 0
-            
+            self.pushLabel.text = "Push up: " + String (self.push)
+
         }
         }
     }

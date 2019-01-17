@@ -44,21 +44,21 @@ class ViewController: UIViewController {
                     self.ref.child(data).child("Days").child(self.getday).child("step").observeSingleEvent(of: .value) { (snapshot) in
                         let values = snapshot.value as? NSDictionary
                         var steping = values?["Step"] as? Int   ?? 0
-                        steping = steping + Int(info[0])
+                        steping =  Int(info[0])
                         self.ref.child(data).child("Days").child(self.getday).child("step").setValue(["Step":steping])
                         self.view.layoutIfNeeded()
                     }
                     self.ref.child(data).child("Days").child(self.getday).child("push").observeSingleEvent(of: .value) { (snapshot) in
                         let values = snapshot.value as? NSDictionary
                         var pushing = values?["Push"] as? Int   ?? 0
-                        pushing = pushing + Int(info[1])
+                        pushing = Int(info[1])
                         self.ref.child(data).child("Days").child(self.getday).child("push").setValue(["Push":pushing])
                         self.view.layoutIfNeeded()
                     }
                     self.ref.child(data).child("Days").child(self.getday).child("distance").observeSingleEvent(of: .value) { (snapshot) in
                         let values = snapshot.value as? NSDictionary
                         var dis = values?["Distance"] as? Int   ?? 0
-                        dis = dis + Int(info[2])
+                        dis = Int(info[2])
                         self.ref.child(data).child("Days").child(self.getday).child("distance").setValue(["Distance":dis])
                         self.view.layoutIfNeeded()
                     }

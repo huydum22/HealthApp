@@ -35,39 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let data = Auth.auth().currentUser?.uid {
             ref.child(data).child("Days").child(getday()).child("water").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 DRUNK = values?["Water"] as? Int   ?? 0
-                
             }
             ref.child(data).child("Days").child(getday()).child("eaten").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 EATEN = values?["Eaten"] as? Int   ?? 0
-                
             }
             ref.child(data).child("Days").child(getday()).child("burn").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 BURN = values?["Burn"] as? Int   ?? 0
-                
             }
             ref.child(data).child("Days").child(getday()).child("step").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 STEP = values?["Step"] as? Int   ?? 0
-                
             }
             ref.child(data).child("Days").child(getday()).child("distance").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 DISTANCE = values?["Distance"] as? Int   ?? 0
-                
             }
             ref.child(data).child("Days").child(getday()).child("push").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
-                
                 PUSH = values?["Push"] as? Int   ?? 0
-                
             }
             ref.child(data).child("need").observeSingleEvent(of: .value) { (snapshot) in
                 let values = snapshot.value as? NSDictionary
