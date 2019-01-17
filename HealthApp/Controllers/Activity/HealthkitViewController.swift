@@ -37,7 +37,7 @@ class ViewController: UIViewController {
                     self.ref.child(data).child("Days").child(self.getday).child("burn").observeSingleEvent(of: .value) { (snapshot) in
                         let values = snapshot.value as? NSDictionary
                         var burning = values?["Burn"] as? Int   ?? 0
-                        burning = burning + Int(info[3])
+                        burning =  Int(info[3])
                         self.ref.child(data).child("Days").child(self.getday).child("burn").setValue(["Burn":burning])
                         self.view.layoutIfNeeded()
                     }
