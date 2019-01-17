@@ -22,7 +22,6 @@ class ExerciseSimpleCaloriesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         AddDoneButtonForNumpad()
         TiltleTextField.underlined()

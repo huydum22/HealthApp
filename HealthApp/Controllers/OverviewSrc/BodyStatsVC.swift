@@ -41,11 +41,9 @@ class BodyStatsVC: UIViewController {
     }
     
     @IBAction func showMeasurementsVC(_ sender: Any) {
-        let destination = self.storyboard?.instantiateViewController(withIdentifier: "Measurements") as! MeasurementsVC
-        destination.wei = currentWeight
-        destination.hei = currentHeight
-        destination.bmi = currentBMI
-        self.navigationController?.pushViewController(destination, animated: true)
+        let destination = self.storyboard?.instantiateViewController(withIdentifier: "MenuInputSrc")
+        show(destination!, sender: nil)
+        //self.navigationController?.pushViewController(destination, animated: true)
     }
     
     /*

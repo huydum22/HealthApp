@@ -16,7 +16,7 @@ class ActivityVC: UIViewController {
        
            self.tabBarController?.tabBar.isHidden = true
         navigationController?.navigationItem.title = "Exercise"
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 153/255, green: 0, blue: 76/255, alpha: 0.3)
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
@@ -28,9 +28,7 @@ class ActivityVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         if(self.isMovingFromParent)//back clicked event
         {
-            navigationController?.navigationBar.barTintColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
-        
-        navigationController?.navigationBar.tintColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
+           
             self.tabBarController?.tabBar.isHidden = false
         }
         

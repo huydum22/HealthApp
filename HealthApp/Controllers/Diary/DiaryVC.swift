@@ -46,6 +46,7 @@ class DiaryVC: UIViewController {
     
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         datePicker.addTarget(self, action: #selector(DiaryVC.dateChanged(datePicker:)), for: .valueChanged)
         btnDate.setTitle(getday(), for: .normal)
         loadlabel()

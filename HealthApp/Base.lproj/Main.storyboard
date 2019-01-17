@@ -114,14 +114,14 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryID" id="ZLJ-mq-BWv" customClass="DiaryVC" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kOa-v8-jIY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="994-bJ-cW5">
-                                <rect key="frame" x="0.0" y="64" width="320" height="1387"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-kL-fVH" userLabel="Over View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1590"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-iq-ThL" userLabel="Overview">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
@@ -223,19 +223,19 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eaten : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsf-D9-Iak">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gy-hs-t8l">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gy-hs-t8l">
                                                                                 <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drunk : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-G4-Td2">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drunk : 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-G4-Td2">
                                                                                 <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -247,23 +247,23 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BYv-xt-cBV">
                                                                         <rect key="frame" x="0.0" y="40" width="320" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG9-Ix-BZy">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG9-Ix-BZy">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push up: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cae-uo-7Bt">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push up: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cae-uo-7Bt">
                                                                                 <rect key="frame" x="160" y="0.0" width="160" height="40"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae2-tz-ccb">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae2-tz-ccb">
                                                                         <rect key="frame" x="0.0" y="80" width="320" height="40"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -282,7 +282,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-9D-YvS">
-                                                <rect key="frame" x="20" y="370" width="45.5" height="25"/>
+                                                <rect key="frame" x="20" y="400" width="45.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="syr-Hf-lw7"/>
                                                 </constraints>
@@ -291,68 +291,68 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTR-hr-KgL" customClass="WaterVC" customModule="HealthApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="405" width="320" height="100"/>
+                                                <rect key="frame" x="5" y="435" width="310" height="150"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-23-m5E">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="150"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JbL-7B-ViN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="270" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="260" height="150"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r8Q-JY-Wej">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qP-jy-8gh">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="bkP-s5-vqG"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-Hz-Q1N">
-                                                                                <rect key="frame" x="34" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="32.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="jLA-oY-Ve3"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtg-lg-9yE">
-                                                                                <rect key="frame" x="67.5" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="65" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="tx2-XE-aBE"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6u-RN-oar">
-                                                                                <rect key="frame" x="101.5" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="97.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="lRv-aZ-7P8"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSe-JV-ci0">
-                                                                                <rect key="frame" x="135" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="130" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="ZQw-0v-c1l"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKu-Yb-bIt">
-                                                                                <rect key="frame" x="169" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="162.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="wTn-wo-SdF"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-SC-S9B">
-                                                                                <rect key="frame" x="202.5" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="195" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="APH-GN-NhN"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OB-DO-HBi">
-                                                                                <rect key="frame" x="236.5" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="227.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="8NE-ER-JXy"/>
@@ -361,59 +361,59 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5W9-OX-q8E">
-                                                                        <rect key="frame" x="0.0" y="50" width="270" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="75" width="260" height="75"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-wY-VFc">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="lxq-hf-GGB"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7d-h6-E6P">
-                                                                                <rect key="frame" x="34" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="32.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="8Sz-57-qA5"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJd-9Q-0JK">
-                                                                                <rect key="frame" x="67.5" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="65" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="8SS-xy-R9x"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3da-r5-FcS">
-                                                                                <rect key="frame" x="101.5" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="97.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="fUv-H7-fZh"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGY-uc-peU">
-                                                                                <rect key="frame" x="135" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="130" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="bnc-KV-JnG"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA8-mT-W1P">
-                                                                                <rect key="frame" x="169" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="162.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="KJJ-ct-dn7"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-aB-Rhw">
-                                                                                <rect key="frame" x="202.5" y="0.0" width="34" height="50"/>
+                                                                                <rect key="frame" x="195" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="GBt-FW-zZh"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg7-HP-cor">
-                                                                                <rect key="frame" x="236.5" y="0.0" width="33.5" height="50"/>
+                                                                                <rect key="frame" x="227.5" y="0.0" width="32.5" height="75"/>
                                                                                 <state key="normal" image="icons8-water_bottle"/>
                                                                                 <connections>
                                                                                     <action selector="tappedWaterGlass:" destination="ZLJ-mq-BWv" eventType="touchUpInside" id="wtD-Vc-2VF"/>
@@ -424,7 +424,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oD-3G-GQQ">
-                                                                <rect key="frame" x="270" y="0.0" width="50" height="100"/>
+                                                                <rect key="frame" x="260" y="0.0" width="50" height="150"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="50" id="4JC-UY-y59"/>
                                                                 </constraints>
@@ -438,7 +438,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="DcW-Qx-dw2"/>
+                                                    <constraint firstAttribute="height" constant="150" id="DcW-Qx-dw2"/>
                                                     <constraint firstItem="SXX-23-m5E" firstAttribute="leading" secondItem="PTR-hr-KgL" secondAttribute="leading" id="ZDH-QU-Ytb"/>
                                                     <constraint firstItem="SXX-23-m5E" firstAttribute="top" secondItem="PTR-hr-KgL" secondAttribute="top" id="dMn-FK-pPi"/>
                                                     <constraint firstAttribute="trailing" secondItem="SXX-23-m5E" secondAttribute="trailing" id="lnK-PJ-SKT"/>
@@ -451,7 +451,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0V-0d-IjW">
-                                                <rect key="frame" x="10" y="525" width="72.5" height="25"/>
+                                                <rect key="frame" x="10" y="605" width="72.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Y68-g1-bRX"/>
                                                 </constraints>
@@ -459,11 +459,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAR-3l-tqH" userLabel="sáng">
-                                                <rect key="frame" x="0.0" y="560" width="320" height="150"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAR-3l-tqH" userLabel="sáng">
+                                                <rect key="frame" x="5" y="640" width="310" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWX-T3-88t">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="HYW-ej-Snh"/>
                                                         </constraints>
@@ -476,7 +476,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-i3-v4H">
-                                                        <rect key="frame" x="160" y="120" width="0.0" height="30"/>
+                                                        <rect key="frame" x="155" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="cer-uS-fET"/>
                                                         </constraints>
@@ -501,7 +501,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-ew-k4H">
-                                                <rect key="frame" x="10" y="730" width="47.5" height="25"/>
+                                                <rect key="frame" x="10" y="810" width="47.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="yxq-74-e8f"/>
                                                 </constraints>
@@ -509,11 +509,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-Hn-dat" userLabel="trưa">
-                                                <rect key="frame" x="0.0" y="765" width="320" height="150"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-Hn-dat" userLabel="trưa">
+                                                <rect key="frame" x="5" y="845" width="310" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-RB-hf1">
-                                                        <rect key="frame" x="160" y="120" width="0.0" height="30"/>
+                                                        <rect key="frame" x="155" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="CGQ-Ea-RkP"/>
                                                         </constraints>
@@ -522,7 +522,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUO-i4-PUG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="ybr-dn-YWm"/>
                                                         </constraints>
@@ -551,7 +551,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-hh-0dT">
-                                                <rect key="frame" x="10" y="935" width="50.5" height="25"/>
+                                                <rect key="frame" x="10" y="1015" width="50.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="oB8-JI-Gbu"/>
                                                 </constraints>
@@ -559,11 +559,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J80-BN-sA9" userLabel="tối">
-                                                <rect key="frame" x="0.0" y="960" width="320" height="150"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J80-BN-sA9" userLabel="tối">
+                                                <rect key="frame" x="5" y="1040" width="310" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O2-aM-hNK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="sHd-ot-HaL"/>
                                                         </constraints>
@@ -576,7 +576,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-pE-lvQ">
-                                                        <rect key="frame" x="160" y="120" width="0.0" height="30"/>
+                                                        <rect key="frame" x="155" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="hjZ-9j-b3N"/>
                                                         </constraints>
@@ -601,7 +601,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp7-Lp-1VI">
-                                                <rect key="frame" x="10" y="1130" width="47" height="25"/>
+                                                <rect key="frame" x="10" y="1210" width="47" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="wKw-MU-HRh"/>
                                                 </constraints>
@@ -609,11 +609,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-Xc-mXj" userLabel="vặt">
-                                                <rect key="frame" x="0.0" y="1165" width="320" height="150"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-Xc-mXj" userLabel="vặt">
+                                                <rect key="frame" x="5" y="1245" width="310" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goN-If-hV7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="1Lc-Ya-qTh"/>
                                                         </constraints>
@@ -626,7 +626,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-wO-1tH">
-                                                        <rect key="frame" x="160" y="120" width="0.0" height="30"/>
+                                                        <rect key="frame" x="155" y="120" width="0.0" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="hLE-EN-cf4"/>
                                                         </constraints>
@@ -651,7 +651,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDT-ve-4wl">
-                                                <rect key="frame" x="10" y="1335" width="64" height="21"/>
+                                                <rect key="frame" x="10" y="1415" width="64" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Edc-Sa-jcR"/>
                                                 </constraints>
@@ -659,11 +659,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-zc-mVl" userLabel="thể dục">
-                                                <rect key="frame" x="0.0" y="1366" width="320" height="120"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-zc-mVl" userLabel="thể dục">
+                                                <rect key="frame" x="5" y="1446" width="310" height="120"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-eE-GAq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="310" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="7O9-WJ-og1"/>
                                                         </constraints>
@@ -679,7 +679,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVQ-Os-I7u">
-                                                        <rect key="frame" x="91.5" y="90" width="137.5" height="30"/>
+                                                        <rect key="frame" x="86.5" y="90" width="137.5" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="V9R-Le-tWg"/>
                                                         </constraints>
@@ -704,7 +704,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pg1-cG-BHa">
-                                                <rect key="frame" x="40" y="310" width="240" height="40"/>
+                                                <rect key="frame" x="40" y="330" width="240" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcV-6i-e3M">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
@@ -737,49 +737,49 @@
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="O5T-9D-YvS" firstAttribute="top" secondItem="pg1-cG-BHa" secondAttribute="bottom" constant="20" id="0CU-Cz-TGM"/>
+                                            <constraint firstItem="O5T-9D-YvS" firstAttribute="top" secondItem="pg1-cG-BHa" secondAttribute="bottom" constant="30" id="0CU-Cz-TGM"/>
                                             <constraint firstItem="aDT-ve-4wl" firstAttribute="top" secondItem="hdm-Xc-mXj" secondAttribute="bottom" constant="20" id="0pq-Od-hz5"/>
                                             <constraint firstItem="LJc-ew-k4H" firstAttribute="top" secondItem="OAR-3l-tqH" secondAttribute="bottom" constant="20" id="4e7-My-q5a"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x0V-0d-IjW" secondAttribute="trailing" constant="20" symbolic="YES" id="50K-4Z-9B0"/>
                                             <constraint firstItem="OAR-3l-tqH" firstAttribute="top" secondItem="x0V-0d-IjW" secondAttribute="bottom" constant="10" id="5hT-gd-fbd"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aDT-ve-4wl" secondAttribute="trailing" constant="20" symbolic="YES" id="6ZD-9S-CNk"/>
-                                            <constraint firstItem="pg1-cG-BHa" firstAttribute="top" secondItem="xc6-iq-ThL" secondAttribute="bottom" constant="10" id="C3Y-YG-jmW"/>
+                                            <constraint firstItem="pg1-cG-BHa" firstAttribute="top" secondItem="xc6-iq-ThL" secondAttribute="bottom" constant="30" id="C3Y-YG-jmW"/>
                                             <constraint firstAttribute="trailing" secondItem="xc6-iq-ThL" secondAttribute="trailing" id="DZ7-23-SS3"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O5T-9D-YvS" secondAttribute="trailing" constant="20" symbolic="YES" id="E1g-DP-8Jv"/>
                                             <constraint firstItem="PTR-hr-KgL" firstAttribute="top" secondItem="O5T-9D-YvS" secondAttribute="bottom" constant="10" id="EEN-nA-DPw"/>
                                             <constraint firstItem="mlp-hh-0dT" firstAttribute="top" secondItem="SWx-Hn-dat" secondAttribute="bottom" constant="20" id="FDa-tv-daS"/>
                                             <constraint firstItem="x0V-0d-IjW" firstAttribute="top" secondItem="PTR-hr-KgL" secondAttribute="bottom" constant="20" id="Ixu-c8-SZD"/>
                                             <constraint firstItem="mlp-hh-0dT" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="10" id="JFh-uA-1pI"/>
-                                            <constraint firstItem="OAR-3l-tqH" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="Nlf-CU-ORh"/>
+                                            <constraint firstItem="OAR-3l-tqH" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="Nlf-CU-ORh"/>
                                             <constraint firstItem="xc6-iq-ThL" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="PqG-ao-yvF"/>
                                             <constraint firstItem="J80-BN-sA9" firstAttribute="top" secondItem="mlp-hh-0dT" secondAttribute="bottom" id="UEk-n9-59k"/>
-                                            <constraint firstAttribute="trailing" secondItem="OAR-3l-tqH" secondAttribute="trailing" id="Ufz-OA-qYQ"/>
-                                            <constraint firstAttribute="height" constant="1550" id="Vsn-Lt-DRe"/>
-                                            <constraint firstItem="SWx-Hn-dat" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="WQA-6v-Pkr"/>
+                                            <constraint firstAttribute="trailing" secondItem="OAR-3l-tqH" secondAttribute="trailing" constant="5" id="Ufz-OA-qYQ"/>
+                                            <constraint firstAttribute="height" constant="1590" id="Vsn-Lt-DRe"/>
+                                            <constraint firstItem="SWx-Hn-dat" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="WQA-6v-Pkr"/>
                                             <constraint firstItem="aDT-ve-4wl" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="10" id="Xd1-zy-StW"/>
                                             <constraint firstItem="O5T-9D-YvS" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="20" id="a2o-rS-QRv"/>
                                             <constraint firstItem="SWx-Hn-dat" firstAttribute="top" secondItem="LJc-ew-k4H" secondAttribute="bottom" constant="10" id="cit-LB-y1V"/>
                                             <constraint firstAttribute="trailing" secondItem="pg1-cG-BHa" secondAttribute="trailing" constant="40" id="dUf-fu-k03"/>
                                             <constraint firstItem="pg1-cG-BHa" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="40" id="dmT-Al-Ccy"/>
-                                            <constraint firstAttribute="trailing" secondItem="hdm-Xc-mXj" secondAttribute="trailing" id="f6D-SN-hcs"/>
-                                            <constraint firstItem="PTR-hr-KgL" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="gWx-Vg-CNk"/>
-                                            <constraint firstItem="VJy-zc-mVl" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="h9I-sl-xc6"/>
-                                            <constraint firstAttribute="trailing" secondItem="VJy-zc-mVl" secondAttribute="trailing" id="hYV-o0-Md9"/>
-                                            <constraint firstItem="hdm-Xc-mXj" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="ilb-Az-aXG"/>
+                                            <constraint firstAttribute="trailing" secondItem="hdm-Xc-mXj" secondAttribute="trailing" constant="5" id="f6D-SN-hcs"/>
+                                            <constraint firstItem="PTR-hr-KgL" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="gWx-Vg-CNk"/>
+                                            <constraint firstItem="VJy-zc-mVl" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="h9I-sl-xc6"/>
+                                            <constraint firstAttribute="trailing" secondItem="VJy-zc-mVl" secondAttribute="trailing" constant="5" id="hYV-o0-Md9"/>
+                                            <constraint firstItem="hdm-Xc-mXj" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="ilb-Az-aXG"/>
                                             <constraint firstItem="Lp7-Lp-1VI" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="10" id="k4Z-dP-AiN"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LJc-ew-k4H" secondAttribute="trailing" constant="20" symbolic="YES" id="kqP-c5-9TB"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lp7-Lp-1VI" secondAttribute="trailing" constant="20" symbolic="YES" id="lZ7-F7-qYH"/>
                                             <constraint firstItem="xc6-iq-ThL" firstAttribute="top" secondItem="AhN-kL-fVH" secondAttribute="top" id="n2f-US-MxI"/>
                                             <constraint firstItem="hdm-Xc-mXj" firstAttribute="top" secondItem="Lp7-Lp-1VI" secondAttribute="bottom" constant="10" id="pX7-fe-LUn"/>
                                             <constraint firstItem="Lp7-Lp-1VI" firstAttribute="top" secondItem="J80-BN-sA9" secondAttribute="bottom" constant="20" id="qHP-VI-QVy"/>
-                                            <constraint firstAttribute="trailing" secondItem="J80-BN-sA9" secondAttribute="trailing" id="qWd-jp-iQj"/>
+                                            <constraint firstAttribute="trailing" secondItem="J80-BN-sA9" secondAttribute="trailing" constant="5" id="qWd-jp-iQj"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mlp-hh-0dT" secondAttribute="trailing" constant="20" symbolic="YES" id="rWJ-Zl-v3q"/>
-                                            <constraint firstAttribute="trailing" secondItem="PTR-hr-KgL" secondAttribute="trailing" id="ufh-Oo-8d2"/>
+                                            <constraint firstAttribute="trailing" secondItem="PTR-hr-KgL" secondAttribute="trailing" constant="5" id="ufh-Oo-8d2"/>
                                             <constraint firstItem="x0V-0d-IjW" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="10" id="w9h-yy-14e"/>
-                                            <constraint firstItem="J80-BN-sA9" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" id="wm8-5B-xco"/>
+                                            <constraint firstItem="J80-BN-sA9" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="5" id="wm8-5B-xco"/>
                                             <constraint firstItem="LJc-ew-k4H" firstAttribute="leading" secondItem="AhN-kL-fVH" secondAttribute="leading" constant="10" id="yOk-Kk-Hbp"/>
                                             <constraint firstItem="VJy-zc-mVl" firstAttribute="top" secondItem="aDT-ve-4wl" secondAttribute="bottom" constant="10" id="ylk-Id-dFK"/>
-                                            <constraint firstAttribute="trailing" secondItem="SWx-Hn-dat" secondAttribute="trailing" id="zZ0-Bd-EpJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="SWx-Hn-dat" secondAttribute="trailing" constant="5" id="zZ0-Bd-EpJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -802,7 +802,6 @@
                         <viewLayoutGuide key="safeArea" id="oFo-BS-7Bz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Golden Health" id="UV6-4X-6sH"/>
-                    <size key="freeformSize" width="320" height="1500"/>
                     <connections>
                         <outlet property="btnDate" destination="QcV-6i-e3M" id="YLU-f0-PUp"/>
                         <outlet property="burnLablel" destination="8gy-hs-t8l" id="C7b-dz-utK"/>
@@ -3526,6 +3525,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aHI-GT-d2u">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30121943354606628" green="0.815765380859375" blue="0.88409799337387085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="38"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -3787,6 +3795,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7in-Hu-kN4">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30121943354606628" green="0.815765380859375" blue="0.88409799337387085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -3806,9 +3815,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wlw-WN-mm7">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <nil key="barTintColor"/>
-                        </variation>
+                        <color key="barTintColor" red="0.30121943354606628" green="0.815765380859375" blue="0.88409799337387085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
